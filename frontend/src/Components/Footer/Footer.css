@@ -1,0 +1,36 @@
+.footer{
+	width: 100%;
+	display: grid;
+	margin-top:10px; 
+	height:auto;
+	grid-template-rows: auto auto;
+
+	
+
+}
+.footerleft{
+	width: 80%;
+	max-width: 500px;
+	margin:auto;
+
+}
+
+img{
+	margin-left: auto;
+  margin-right: auto;
+  display: block;
+	max-width:50%;
+	object-fit: contain;
+	justify-self:center;
+	align-self:center;
+}
+.footerright{
+	background-color:#8930b1;
+	width:100%;
+}
+
+p{
+	text-align: center;
+	color:#e7dfdd;
+
+}
