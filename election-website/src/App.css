@@ -17,6 +17,7 @@
     background-color:white!important;
     color:white !important;
     font-family: 'Open Sans', sans-serif;
+    z-index: 100;
 }
 
 .NavLink{
@@ -31,4 +32,8 @@ font-family: 'Open Sans', 'sans-serif';
 .primary_Text{
 font-family: 'Roboto', 'sans-serif';
 
+}
+
+.error{
+    color:red;
 }
