@@ -1,0 +1,27 @@
+.Positions{
+    margin-left: 7.5%;
+    margin-right:7.5%;
+    margin-top:25px;
+    margin-bottom:25px;
+    width:85%;
+    height:200px;
+    max-width:1400px;
+    font-size:20px!important;
+    color: black!important;
+    background-color: white!important;
+    border-color:#6f2891!important;
+    font-family: 'Open Sans', sans-serif;
+    font-weight:600;
+    border-width: 3px!important;
+    border-radius: 10px!important;
+    outline: none !important;
+}
+
+
+.eligibile{
+    font-size:13px!important;
+    color: black!important;
+    background-color: white!important;
+    font-weight:200;
+
+}

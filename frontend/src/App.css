@@ -27,6 +27,45 @@
 .App-link {
   color: #61dafb;
 }
+.Button{
+    background-color:#8930b1!important;
+    border-color:#8930b1 !important;
+    margin:10px;
+    font-family: 'Open Sans', sans-serif;
+    color:white;
+}
+
+.Button:hover{
+    background-color:#6f2891!important;
+    border-color:#6f2891 !important;
+    margin:10px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.NavBar{
+    background-color:white!important;
+    color:white !important;
+    font-family: 'Open Sans', sans-serif;
+    z-index: 100;
+}
+
+.NavLink{
+    background-color:white!important;
+    color: rgba(0,0,0,1) !important;
+    font-family: 'Open Sans', sans-serif;
+}
+.secondary_Text{
+font-family: 'Open Sans', 'sans-serif';
+
+}
+.primary_Text{
+font-family: 'Roboto', 'sans-serif';
+
+}
+
+.error{
+    color:red;
+}
 
 @keyframes App-logo-spin {
   from {
