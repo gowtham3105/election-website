@@ -7,6 +7,7 @@ import CardList from './Components/Cardlist/CardList';
 import Electioncard from './Components/Electioncard/Electioncard';
 import Countdown from 'react-countdown';
 import Nav from 'react-bootstrap/Nav'
+import Swal from 'sweetalert2'
 import './App.css';
 import Positions from './Components/Positons/Positions'
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
@@ -84,7 +85,13 @@ class NavBar extends Component {
      if(user.email.slice(-12,) === '@iitdh.ac.in'){
        setLoginState(true, user.email);
      }else{
-       setError('Unauthorised User\nPlease Login with valid email id', true)
+
+Swal.fire({
+  icon: 'error',
+  title: '<div style="color:crimson";>Oops.. Unauthorised user.</div>',
+  text: 'Please login with IIT Dh email address'
+})
+       // setError('Unauthorised User\nPlease Login with valid email id', true)
      }
        console.log(user.email.slice(-12,))
      
@@ -111,19 +118,22 @@ class NavBar extends Component {
  }
 
   render() {
+      let styles = {
+    zIndex: 100,
+  };
     return (
       <div>
         <Navbar collapseOnSelect expand="lg"  variant="light" className = "NavBar" >
-          <Navbar.Brand href="/"><div className='primary_Text'>IITDH Elections</div></Navbar.Brand>
+          <Navbar.Brand href="/"><div className='primary_Text'>IIT Dh Elections</div></Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 
           <Navbar.Collapse id="responsive-navbar-nav" className='NavBar' >
-            <Nav className="mr-auto " fill>
-              <Nav.Link href="/positions" className = "NavLink"><div className='secondary_Text'>Positions</div></Nav.Link>
-              <Nav.Link href="/voting" className="NavLink">Voting</Nav.Link>
-              <Nav.Link href="/timeline" className="NavLink">TimeLine</Nav.Link>
-              <Nav.Link href="/important dates" className="NavLink">Important Dates</Nav.Link>
-              <Nav.Link href="/contact" className="NavLink">Contact Us</Nav.Link>
+            <Nav className="mr-auto" fill>
+              <Nav.Link href="/positions" className = "NavLink" style={styles}><div className="secondary_Text">Positions</div></Nav.Link>
+              <Nav.Link href="/voting" className="NavLink" style={styles}><div className="secondary_Text">Voting</div></Nav.Link>
+              <Nav.Link href="/timeline" className="NavLink" style={styles}><div className="secondary_Text">TimeLine</div></Nav.Link>
+              <Nav.Link href="/important dates" className="NavLink" style={styles}><div className="secondary_Text">Important Dates</div></Nav.Link>
+              <Nav.Link href="/contact" className="NavLink" style={styles}><div className="secondary_Text">Contact Us</div></Nav.Link>
             </Nav>
 
             <Nav fill> 
@@ -198,7 +208,7 @@ class Voting extends Component {
 
   render() {
     return (
-      <h1>Voting Page</h1>
+      <Electioncard/>
     )
   }
 }
@@ -286,22 +296,7 @@ class Error extends Component {
     const handleClose = () => setError("", false);
     
     return (
-      <>
-
-
-        <Modal show={this.props.showError} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Error</Modal.Title>
-          </Modal.Header>
-
-          <Modal.Body><h6 className='error'>{this.props.msg}</h6></Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Close
-          </Button>
-          </Modal.Footer>
-        </Modal>
-      </>
+     <div></div>
     );
 
   }

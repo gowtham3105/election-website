@@ -27,9 +27,11 @@ img{
 .footerright{
 	background-color:#8930b1;
 	width:100%;
+	padding:2px;
 }
 
 p{
+	margin:auto !important;
 	text-align: center;
 	color:#e7dfdd;
 

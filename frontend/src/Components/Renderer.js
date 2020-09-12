@@ -22,6 +22,8 @@ const Renderer = ({ days, hours, minutes, seconds, completed }) => {
    return null;
   } else {
     return (
+      <div>
+      <div className='show-mobile'>
       <div className='enclose'>
       <div className='timerdays'>
       {days}
@@ -53,7 +55,43 @@ const Renderer = ({ days, hours, minutes, seconds, completed }) => {
       <div className='tex' >Seconds</div>
     </div>
     </div>
+    </div>
 
+     <div className='hide-mobile'>
+      <div className='enclose'>
+      <div className='timerbox'>  
+
+      <Flip value={day1} />
+      <Flip value={day2} />
+      <div className='colon'>
+      :</div>
+      <Flip value={hour1} />
+      <Flip value={hour2} />
+        <div className='colon'>
+      :</div>
+      <Flip value={min1} />
+      <Flip value={min2} />
+        <div className='colon'>
+      :</div>
+      <Flip value={sec1} />
+      <Flip value={sec2} />
+    </div>
+
+    <div className='datevals'>
+          <div className='tex'>Days</div>
+        <div>
+        </div>
+      <div className='tex'>Hours</div>
+        <div>
+      </div>
+      <div className='tex' >Minutes</div>
+        <div>
+      </div>
+      <div className='tex' >Seconds</div>
+    </div>
+    </div>
+    </div>
+    </div>
     );
   }
 };
