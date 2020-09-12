@@ -124,7 +124,7 @@ Swal.fire({
     return (
       <div>
         <Navbar collapseOnSelect expand="lg"  variant="light" className = "NavBar" >
-          <Navbar.Brand href="/"><div className='primary_Text'>IIT Dh Elections</div></Navbar.Brand>
+          <Navbar.Brand href="/" style={styles}><div className='primary_Text'>IIT Dh Elections</div></Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 
           <Navbar.Collapse id="responsive-navbar-nav" className='NavBar' >

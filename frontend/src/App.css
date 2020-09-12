@@ -48,14 +48,14 @@
 
 .NavBar{
 
-    background-color:#e9deff !important;
+    background-color:transparent !important;
     color:white !important;
     font-family: 'Open Sans', sans-serif;
     position: relative;
 }
 
 .NavLink{
-    background-color:#e9deff !important;
+    background-color:transparent !important;
     color: rgba(0,0,0,1) !important;
     font-family: 'Open Sans', sans-serif;
     position: relative;

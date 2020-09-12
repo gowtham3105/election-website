@@ -2,6 +2,7 @@ import React from 'react';
 import './Homedetails.css'
 import logo from './logog.png'; // with import
 import logoweb from './fullart.png'; // with import
+import logowebx from './art.png'; // with import
 
 import bottomimg from './bck.png'; // with import
 
@@ -42,13 +43,19 @@ const Homedetails = () => {
       </div>
 
       <div className='hide-mobile'>
-       <div className='imgshow'>
-       <div className='formargin'>
+       <div className='imgshow' style={{  
+  backgroundImage: "url(" + logowebx + ")",
+  backgroundPosition: 'center',
+  backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat'
+}}>
+
+      <div className='formargin'>
              <img className='logoimg' src={logo}/>
-            <div className='infotxt'><a>IIT Dharwad</a> <br/> Student Council Elections</div>
 
       </div>
-      <img className='bottomimg' src={logoweb}/>
+      <div></div>
+      <div className='infotxt'><a>IIT Dharwad</a> <br/> Student Council Elections</div>
 
        </div>
       <div className="homeinfo">
