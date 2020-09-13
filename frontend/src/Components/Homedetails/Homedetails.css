@@ -87,7 +87,7 @@
     grid-gap: 10px;
     background-color: #e9deff;
     width: 100%;
-   
+
     overflow: visible;
     background-size: contain;
     margin-top: -20vh;
@@ -126,23 +126,34 @@
     margin-right: auto;
     display: grid;
     width: 90%;
+    height: auto;
     grid-template-columns: 1fr 1fr 1fr 1.5fr;
+    grid-template-rows: 2fr 3fr;
+    background: #fff url(./hands.png) repeat-x bottom center;
     justify-items: center;
     align-items: center;
     grid-gap: 10px;
   }
   .info {
     display: grid;
-    grid-template-rows: auto 0.5fr;
+    grid-template-rows: 1fr;
     justify-self: center;
     align-self: start;
+    white-space: nowrap;
+    width: 90%;
+    height: 200px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: #fce963;
     line-height: 1;
     font-family: "Roboto Condensed", sans-serif;
+    border-right: 5px solid crimson;
+    border-bottom: 5px solid crimson;
+    border-radius: 20px 0px 20px 0px;
   }
 
   .tallinfo {
     font-size: 4rem;
-    color: crimson;
+    color: #752a87;
     justify-self: center;
     align-self: center;
     font-family: "Roboto Condensed", sans-serif;
@@ -162,6 +173,10 @@
   .smallinfo:hover {
     color: black !important;
     text-decoration: none;
+  }
+  .emptydiv {
+    grid-column-start: 1;
+    grid-column-end: 5;
   }
   .markcal {
     margin: 30px auto 30px auto;

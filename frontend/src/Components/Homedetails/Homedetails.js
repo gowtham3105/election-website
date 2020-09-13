@@ -96,7 +96,11 @@ class Homedetails extends React.Component {
                               <div className="homeinfo">
                                     <div className="info">
                                           <a className="tallinfo">
-                                                <CountUp end={59} duration={3} redraw={true}>
+                                                <CountUp
+                                                      end={59}
+                                                      duration={3}
+                                                      redraw={true}
+                                                >
                                                       {({
                                                             countUpRef,
                                                             start,
@@ -121,7 +125,6 @@ class Homedetails extends React.Component {
                                                 ></i>
                                           </a>
                                           <br />
-                                          <a className="smallinfo">Elections</a>
                                     </div>
 
                                     <div className="info">
@@ -155,14 +158,15 @@ class Homedetails extends React.Component {
                                                 ></i>
                                           </a>
                                           <br />
-                                          <a className="smallinfo">
-                                                Candidates
-                                          </a>
                                     </div>
 
                                     <div className="info">
                                           <a className="tallinfo">
-                                                <CountUp end={10} duration={3} redraw={true}>
+                                                <CountUp
+                                                      end={10}
+                                                      duration={3}
+                                                      redraw={true}
+                                                >
                                                       {({
                                                             countUpRef,
                                                             start,
@@ -184,12 +188,15 @@ class Homedetails extends React.Component {
                                                 :00 am
                                           </a>
                                           <br />
-                                          <a className="smallinfo">Time</a>
                                     </div>
 
                                     <div className="info">
                                           <a className="tallinfo">
-                                                <CountUp end={5} duration={3} redraw={true}>
+                                                <CountUp
+                                                      end={5}
+                                                      duration={3}
+                                                      redraw={true}
+                                                >
                                                       {({
                                                             countUpRef,
                                                             start,
@@ -209,7 +216,11 @@ class Homedetails extends React.Component {
                                                       )}
                                                 </CountUp>
                                                 /
-                                                <CountUp end={6} duration={2} redraw={true}>
+                                                <CountUp
+                                                      end={6}
+                                                      duration={2}
+                                                      redraw={true}
+                                                >
                                                       {({
                                                             countUpRef,
                                                             start,
@@ -235,8 +246,8 @@ class Homedetails extends React.Component {
                                                 ></i>
                                           </a>
                                           <br />
-                                          <a className="smallinfo">Date</a>
                                     </div>
+                                    <div className="emptydiv"></div>
                               </div>
                               <Fade delay={300}>
                                     <div className="markcal">
