@@ -1,3 +1,8 @@
+html *
+{
+  font-family: 'Roboto', sans-serif ;
+}
+
 .App {
   text-align: center;
 }
@@ -27,55 +32,93 @@
 .App-link {
   color: #61dafb;
 }
-.Button{
-  position:relative;
-    background-color:#8930b1!important;
-    border-color:#8930b1 !important;
-    font-family: 'Open Sans', sans-serif;
-    color:white;
-    border:none !important;
-    z-index:100;
+.Button {
+  position: relative;
+  background-color: #8930b1 !important;
+  border-color: #8930b1 !important;
+  font-family: "Open Sans", sans-serif;
+  color: white;
+  border: none !important;
+  z-index: 100;
 }
-.Button:focus,.Button:active {
-   outline: none !important;
-   box-shadow: none;
+.Button:focus,
+.Button:active {
+  outline: none !important;
+  box-shadow: none;
 }
-.Button:hover{
-    background-color:#6f2891!important;
-    border-color:#6f2891 !important;
-    font-family: 'Open Sans', sans-serif;
-}
-
-.NavBar{
-
-    background-color:transparent !important;
-    color:white !important;
-    font-family: 'Open Sans', sans-serif;
-    position: relative;
+.Button:hover {
+  background-color: #6f2891 !important;
+  border-color: #6f2891 !important;
+  font-family: 'Roboto', sans-serif ;
 }
 
-.NavLink{
-    background-color:transparent !important;
-    color: rgba(0,0,0,1) !important;
-    font-family: 'Open Sans', sans-serif;
-    position: relative;
-
+@media only screen and (min-width: 600px) {
+.logonav{
+  display: block;
+  height:75px;
 }
-.secondary_Text{
-font-family: 'Open Sans', 'sans-serif';
-font-size:1.4rem !important;
-
+.headernav{
+  display: none;
 }
-.primary_Text{
-  color:#752a87;
-  font-size:2rem !important;
-
-font-family: 'Roboto', 'sans-serif';
-
+.NavBar {
+  background-color: transparent !important;
+  color: white !important;
+  font-family: 'Roboto', sans-serif ;
+  position: relative;
+  margin-left: 30px;
 }
 
-.error{
-    color:red;
+.NavLink {
+  background-color: transparent !important;
+  color: rgba(0, 0, 0, 1) !important;
+  font-family: 'Roboto', sans-serif ;
+  position: relative;
+}
+.secondary_Text {
+  font-family: 'Roboto', sans-serif ;
+  font-size: 1.4rem !important;
+}
+.primary_Text {
+  color: #752a87;
+  font-size: 2rem !important;
+
+  font-family: "Roboto", "sans-serif";
+}
+}
+
+@media only screen and (max-width: 599px) {
+.logonav{
+  display: none;
+}
+.headernav{
+  display: block;
+}
+.NavBar {
+  background-color: #e9deff !important;
+  color: white !important;
+  font-family: "Open Sans", sans-serif;
+  position: relative;
+}
+
+.NavLink {
+  background-color: #e9deff !important;
+  color: rgba(0, 0, 0, 1) !important;
+  font-family: 'Roboto', sans-serif ;
+  position: relative;
+}
+.secondary_Text {
+  font-family: 'Roboto', sans-serif ;
+  font-size: 1rem !important;
+}
+.primary_Text {
+  color: #752a87;
+  font-size: 1.2rem !important;
+
+  font-family: "Roboto", "sans-serif";
+}
+}
+.error {
+  color: red;
 }
 
 @keyframes App-logo-spin {

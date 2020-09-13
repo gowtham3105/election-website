@@ -6,7 +6,6 @@
  * ------------------------------------- */
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
 
-
 #timeline {
   margin-top: 450px;
   padding: 0;
@@ -44,7 +43,8 @@ label {
   opacity: 0;
   transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
 }
-label:before, label:after {
+label:before,
+label:after {
   content: "";
   width: 0;
   height: 0;
@@ -96,7 +96,7 @@ label span {
 
 .content {
   width: 85%;
-  max-width:700px;
+  max-width: 700px;
   height: 240px;
   margin: 0 auto;
   border: 2px solid white;
@@ -109,11 +109,11 @@ label span {
   background: #6f2891;
   transform: perspective(1000px) rotateY(20deg);
   animation: switching_back 0.8s;
-  color:white;
-  font-family: 'Open Sans', sans-serif;
-  
+  color: white;
+  font-family: "Open Sans", sans-serif;
 }
-.content h3, .content p {
+.content h3,
+.content p {
   margin: 0 20px 10px;
   text-align: justify;
   opacity: 0;
@@ -122,45 +122,44 @@ label span {
   margin-top: 20px;
 }
 
-.group{
-    border-color:#6f2891 !important;
-    border:1px solid;
-    padding:10px;
-    font-family: 'Open Sans', sans-serif;
-    
+.group {
+  border-color: #6f2891 !important;
+  border: 1px solid;
+  padding: 10px;
+  font-family: "Open Sans", sans-serif;
 }
-.timeline_card{
-  height:100%;
-  text-align:center;
+.timeline_card {
+  height: 100%;
+  text-align: center;
 }
-.timeline_img{
-  margin:10px;
-  width:100px;
+.timeline_img {
+  margin: 10px;
+  width: 100px;
 }
 
 @media screen and (min-width: 768px) {
- .timeline_img{
-  margin:10px;
-  width:60%;
+  .timeline_img {
+    margin: 10px;
+    width: 60%;
+  }
 }
+.modal_body {
+  max-height: 400px;
+  overflow-y: auto;
 }
-.modal_body{
-    max-height:400px;
-    overflow-y:auto;
-}
-.ButtonDiv{
+.ButtonDiv {
   width: 100%;
   text-align: center;
 }
-.showpositionButton{
-    color:#6f2891 !important;
-    background-color: white!important;
-    border-width:2px!important;
-    border-color:#6f2891 !important;
-    font-family: 'Open Sans', sans-serif;
-    width:30%;
-    min-width:150px;
-    max-width:250px
+.showpositionButton {
+  color: #6f2891 !important;
+  background-color: white !important;
+  border-width: 2px !important;
+  border-color: #6f2891 !important;
+  font-family: "Open Sans", sans-serif;
+  width: 30%;
+  min-width: 150px;
+  max-width: 250px;
 }
 .radio {
   display: none;
@@ -179,7 +178,8 @@ label span {
   transform: perspective(1000px) rotateY(15deg) translate(40px, 25px);
   animation: switching 1s ease;
 }
-.radio:checked ~ .content h3, .radio:checked ~ .content p {
+.radio:checked ~ .content h3,
+.radio:checked ~ .content p {
   opacity: 1;
   transition: opacity 0.4s ease-in-out 0.4s;
 }
@@ -201,7 +201,8 @@ label span {
     z-index: 200;
   }
   40% {
-    transform: perspective(1000px) rotateY(15deg) translate(0px, 0px) scale(1.08);
+    transform: perspective(1000px) rotateY(15deg) translate(0px, 0px)
+      scale(1.08);
   }
   100% {
     transform: perspective(1000px) rotateY(20deg);
