@@ -1,9 +1,41 @@
-#cont {
-	width: 90%;
+.topbanner{
+	max-width:100%;
+	height:auto !important;
+	display:grid;
+	grid-template-columns:2fr 3fr;
+	grid-gap: 10px;
+}
+
+.topbannerimg{
+	max-width:100%;
+	height:auto;
+}
+
+.titleban{
+	width:100%;
+	height:auto;
+ 	align-self: end !important;
+ 	justify-self: start;
+    font-family: "Roboto", sans-serif;
+    font-size: 5rem;
+    margin: auto auto 50px auto;
+    text-align: start;
+    color: #752a87;
+    padding-left:4rem;
+
+  }
+  .titleban p{
+    font-size: 2.5rem;
+
+
+  }
+.cont {
+	width: 70%;
 	margin: 0px auto 0 auto;
 	color: #fff;
 	min-width: 320px;
 }
+
 .panel-accordion {
 	padding: 0px 0px !important;
 }
@@ -38,10 +70,9 @@
 	margin: 5px 0px !important;
 }
 .elecname {
-	font-size: 3vh;
+	font-size: 4vh;
 }
-.elecrights {
-}
+
 
 .candidate {
 	margin: 0.5vh auto;

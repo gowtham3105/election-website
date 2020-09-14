@@ -2,6 +2,7 @@ import React from "react";
 import "./Electioncard.css";
 import Reveal from "react-reveal/Reveal";
 import Fade from "react-reveal/Fade";
+import votebanner from "./votepage.png"; // with import
 
 import {
   CollapsibleComponent,
@@ -9,30 +10,41 @@ import {
   CollapsibleContent,
 } from "react-collapsible-component";
 
-const handler = function (e) {
-  console.log(e.target.getAttribute("data-index"));
-};
 
 class Electioncard extends React.Component {
   constructor() {
     super();
+    this.candbutton = this
+            .candbutton
+            .bind(this);
     this.state = {
       opened: false,
     };
   }
+      candbutton() {
+        console.log('tapped');
+    }
 
   render() {
     return (
-      <div id="cont">
+        <div>
+          <div className="topbanner">
+          <div className="titleban"> Voting page
+          <p>Vote for the following positions according to your voting rights.</p> 
+          </div>
+          <img src={votebanner} className="topbannerimg" />
+        </div>
+      <div className="cont">
+  
         <CollapsibleComponent>
-          <CollapsibleHead className="elecbar" data-index="1" onClick={handler}>
+        <div>
+          <CollapsibleHead className="elecbar">
             <div className="elecname">General Seceratory Sports</div>
-            <div className="elecrights"></div>
           </CollapsibleHead>
           <CollapsibleContent>
             <Fade top>
               <div className="eleccard">
-                <div className="candidate">
+                <div className="candidate" data-index="1" onClick={this.candbutton}>
                   <div className="candimg">
                     <img
                       src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1820405/profile/profile-512.jpg?1533058950"
@@ -65,7 +77,9 @@ class Electioncard extends React.Component {
               </div>
             </Fade>
           </CollapsibleContent>
-          <CollapsibleHead className="elecbar" data-index="1" onClick={handler}>
+          </div>
+          <div>
+          <CollapsibleHead className="elecbar">
             <div className="elecname">Election 1</div>
             <div className="elecrights"></div>
           </CollapsibleHead>
@@ -105,6 +119,7 @@ class Electioncard extends React.Component {
               </div>
             </Fade>
           </CollapsibleContent>
+          </div>
           <CollapsibleHead className="elecbar">
             <div className="elecname">Election 2</div>
             <div className="elecrights"></div>
@@ -119,6 +134,7 @@ class Electioncard extends React.Component {
             </div>
           </CollapsibleContent>
         </CollapsibleComponent>
+      </div>
       </div>
     );
   }

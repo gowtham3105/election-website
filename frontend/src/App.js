@@ -298,7 +298,6 @@ class Home extends Component {
       <div>
         <Homedetails />
         <Countdown date={Date.now() + 1000000} renderer={Renderer} />
-        <Footer />
       </div>
     );
   }
@@ -345,6 +344,7 @@ class App extends Component {
           <Route path="/contact" component={Contact} />
         </Switch>
         <Error msg={this.state.error} showError={this.state.showError} />
+        <Footer />
       </Router>
     );
   }
