@@ -1,39 +1,117 @@
-.Button{
-    background-color:#8930b1!important;
-    border-color:#8930b1 !important;
-    margin:10px;
-    font-family: 'Open Sans', sans-serif;
-    color:white;
+.Button {
+  background-color: #8930b1 !important;
+  border-color: #8930b1 !important;
+  margin: 10px;
+  font-family: "Open Sans", sans-serif;
+  color: white;
+  border-radius: 5px !important;
 }
 
-.Button:hover{
-    background-color:#6f2891!important;
-    border-color:#6f2891 !important;
-    margin:10px;
-    font-family: 'Open Sans', sans-serif;
+.Button:hover {
+  background-color: #6f2891 !important;
+  border-color: #6f2891 !important;
+  margin: 10px;
+  font-family: "Open Sans", sans-serif;
+  border-radius: 5px !important;
 }
 
-.NavBar{
-    background-color:white!important;
-    color:white !important;
-    font-family: 'Open Sans', sans-serif;
-    z-index: 100;
+.NavBar {
+  background-color: white !important;
+  color: white !important;
+  font-family: "Open Sans", sans-serif;
+  z-index: 100;
 }
 
-.NavLink{
-    background-color:white!important;
-    color: rgba(0,0,0,1) !important;
-    font-family: 'Open Sans', sans-serif;
+.NavLink {
+  background-color: white !important;
+  color: rgba(0, 0, 0, 1) !important;
+  font-family: "Open Sans", sans-serif;
 }
-.secondary_Text{
-font-family: 'Open Sans', 'sans-serif';
-
+.secondary_Text {
+  font-family: "Open Sans", "sans-serif";
 }
-.primary_Text{
-font-family: 'Roboto', 'sans-serif';
-
+.primary_Text {
+  font-family: "Roboto", "sans-serif";
 }
-
-.error{
-    color:red;
+.accountbasics {
+  font-family: "Open Sans", sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: #6f2891;
+}
+.accountposElement {
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #6f2891;
+}
+.back {
+  position: fixed;
+  width: 100%;
+  max-width: 100% !important;
+  top: 0;
+}
+.accountheading {
+  font-size: 28px;
+  font-weight: 800;
+  color: black;
+}
+.error {
+  color: #434e65;
+  text-align: center;
+  font-size: 18px;
+}
+.erroricon {
+  font-size: 60px;
+  color: white;
+  margin: auto;
+}
+.errorheader {
+  background-color: crimson;
+  opacity: 0.8;
+}
+.ooops {
+  font-size: 35px;
+  text-align: center;
+  color: #434e65;
+  font-family: "Open Sans", sans-serif;
+  margin-bottom: 7px;
+}
+.errorclose {
+  margin: auto !important;
+  border-radius: 7px !important;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.profilehead {
+  font-size: 35px;
+  margin: auto;
+  font-family: "Open Sans", sans-serif;
+}
+.profileheadparent {
+  background-color: #6f2891;
+  color: white!important;
+}
+.profileclosebtn {
+  background-color: crimson !important;
+  border-color: crimson !important;
+  border-radius: 7px !important;
+  font-size: 20px !important;
+  font-family: "Open Sans", sans-serif;
+  padding: 7px 20px !important;
+}
+.profileclosebtnparent {
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 23px;
+}
+.positionshead {
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+  font-size: 24px;
+}
+.positionsimghead {
+  background-color: url("elections.jpg");
+  max-width: 100% !important;
+  height: 100%;
 }

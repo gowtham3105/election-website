@@ -12,6 +12,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
+Please Run The allow Test server To see all features.
+Find the steps to set up the testserver below 
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.<br />
@@ -66,3 +68,12 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+### Run flask server locally
+Run Test Flask Server locally 
+
+1) Run pip install -r requirements.txt (Python 2), or pip3 install -r requirements.txt (Python 3)
+
+2) Open Cmd in this folder and Run python test.py
+
+That's It! Your are all set

@@ -13,7 +13,7 @@ const Card = ({ imgUrl, name, email, branch, introUrl, manifestoUrl, id }) => {
       </Reveal>
       <Reveal effect="animprof">
         <div className="avatar-holder">
-          <img src={imgUrl} alt="Albert Einstein" />
+          <img src={imgUrl} className="cardimg" alt="Albert Einstein" />
         </div>
       </Reveal>
 
