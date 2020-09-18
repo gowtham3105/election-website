@@ -17,7 +17,7 @@ const Grabelection = ({ candidates }) => {
             return (
               <div
                 className="candidate"
-                cand-id={candidates[i].id}
+                data-candindex={candidates[i].id}
                 onClick={this.candbutton} // needs work  add user.lockstatus
               >
                 <div className="candimg">

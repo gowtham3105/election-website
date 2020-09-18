@@ -30,10 +30,10 @@ const Card = ({ name, email, id }) => {
         </div>
       </Fade>
       <div className="buttonhold">
-        <button class="btn">
+        <button class="Button_Secondary">
           <i class="fa fa-file" aria-hidden="true"></i> Manifesto
         </button>
-        <button class="btn">
+        <button class="Button_Secondary">
           <i class="fa fa-youtube-play" aria-hidden="true"></i> Intro
         </button>
       </div>

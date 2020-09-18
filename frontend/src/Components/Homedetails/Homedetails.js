@@ -9,14 +9,31 @@ import Reveal from "react-reveal/Reveal";
 import Fade from "react-reveal/Fade";
 import Bounce from "react-reveal/Bounce";
 import VisibilitySensor from "react-visibility-sensor";
+import OnImagesLoaded from 'react-on-images-loaded';
 
 class Homedetails extends React.Component {
       constructor(props) {
             super(props);
+            this.props.showLoader();
+    this.state={
+            showImages: false,
+
+    }
       }
       render() {
             return (
-                  <div>
+                   <OnImagesLoaded
+        onLoaded={() => {
+          this.setState({ showImages: true });
+          this.props.hideLoader();
+        }}
+        onTimeout={() => {
+          this.setState({ showImages: true });
+          this.props.hideLoader();
+        }}
+        timeout={7000}
+      >
+      <div className="pogcont" style={{ opacity: this.state.showImages ? 1 : 0 }}>
                         <div className="show-mobile">
                               <div className="imgshow">
                                     <img className="logoimg" src={logo} />
@@ -30,46 +47,160 @@ class Homedetails extends React.Component {
                                     />
                               </div>
                               <div className="homeinfo">
-                                    <Bounce top>
+                                    <Fade>
                                           <div className="info">
                                                 <a className="tallinfo">
-                                                      59{" "}
+                                                      <CountUp
+                                                            end={59}
+                                                            duration={3}
+                                                            redraw={true}
+                                                      >
+                                                            {({
+                                                                  countUpRef,
+                                                                  start,
+                                                            }) => (
+                                                                  <VisibilitySensor
+                                                                        onChange={
+                                                                              start
+                                                                        }
+                                                                        delayedCall
+                                                                  >
+                                                                        <span
+                                                                              ref={
+                                                                                    countUpRef
+                                                                              }
+                                                                        />
+                                                                  </VisibilitySensor>
+                                                            )}
+                                                      </CountUp>{" "}
                                                       <i
                                                             className="fa fa-flag"
                                                             aria-hidden="true"
                                                       ></i>
                                                 </a>
                                           </div>
-                                    </Bounce>
-                                    <Bounce top>
+                                    </Fade>
+                                    <Fade>
                                           <div className="info">
                                                 <a className="tallinfo">
-                                                      200{" "}
+                                                      <CountUp
+                                                            end={100}
+                                                            duration={3}
+                                                            redraw={true}
+                                                      >
+                                                            {({
+                                                                  countUpRef,
+                                                                  start,
+                                                            }) => (
+                                                                  <VisibilitySensor
+                                                                        onChange={
+                                                                              start
+                                                                        }
+                                                                        delayedCall
+                                                                  >
+                                                                        <span
+                                                                              ref={
+                                                                                    countUpRef
+                                                                              }
+                                                                        />
+                                                                  </VisibilitySensor>
+                                                            )}
+                                                      </CountUp>{" "}
                                                       <i
                                                             class="fa fa-user"
                                                             aria-hidden="true"
                                                       ></i>
                                                 </a>
                                           </div>
-                                    </Bounce>
-                                    <Bounce top>
+                                    </Fade>
+                                    <Fade>
                                           <div className="info">
                                                 <a className="tallinfo">
-                                                      10:00 am,{" "}
+                                                      <CountUp
+                                                            end={10}
+                                                            duration={3}
+                                                            redraw={true}
+                                                      >
+                                                            {({
+                                                                  countUpRef,
+                                                                  start,
+                                                            }) => (
+                                                                  <VisibilitySensor
+                                                                        onChange={
+                                                                              start
+                                                                        }
+                                                                        delayedCall
+                                                                  >
+                                                                        <span
+                                                                              ref={
+                                                                                    countUpRef
+                                                                              }
+                                                                        />
+                                                                  </VisibilitySensor>
+                                                            )}
+                                                      </CountUp>
+                                                      :00 am,{" "}
                                                 </a>
                                           </div>
-                                    </Bounce>
-                                    <Bounce top>
+                                    </Fade>
+                                    <Fade>
                                           <div className="info">
                                                 <a className="tallinfo">
-                                                      1/02/2020{" "}
+                                                      <CountUp
+                                                            end={5}
+                                                            duration={3}
+                                                            redraw={true}
+                                                      >
+                                                            {({
+                                                                  countUpRef,
+                                                                  start,
+                                                            }) => (
+                                                                  <VisibilitySensor
+                                                                        onChange={
+                                                                              start
+                                                                        }
+                                                                        delayedCall
+                                                                  >
+                                                                        <span
+                                                                              ref={
+                                                                                    countUpRef
+                                                                              }
+                                                                        />
+                                                                  </VisibilitySensor>
+                                                            )}
+                                                      </CountUp>
+                                                      /
+                                                      <CountUp
+                                                            end={6}
+                                                            duration={2}
+                                                            redraw={true}
+                                                      >
+                                                            {({
+                                                                  countUpRef,
+                                                                  start,
+                                                            }) => (
+                                                                  <VisibilitySensor
+                                                                        onChange={
+                                                                              start
+                                                                        }
+                                                                        delayedCall
+                                                                  >
+                                                                        <span
+                                                                              ref={
+                                                                                    countUpRef
+                                                                              }
+                                                                        />
+                                                                  </VisibilitySensor>
+                                                            )}
+                                                      </CountUp>
+                                                      /2020{" "}
                                                       <i
                                                             class="fa fa-calendar-check-o"
                                                             aria-hidden="true"
                                                       ></i>
                                                 </a>
                                           </div>
-                                    </Bounce>
+                                    </Fade>
                               </div>
                         </div>
 
@@ -256,6 +387,7 @@ class Homedetails extends React.Component {
                               </Fade>
                         </div>
                   </div>
+                  </OnImagesLoaded>
             );
       }
 }

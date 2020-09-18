@@ -5,13 +5,19 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Navbar from "react-bootstrap/Navbar";
 import CardList from "./Components/Cardlist/CardList";
+import Teampage from "./Components/Teampage/Teampage";
 import Electioncard from "./Components/Electioncard/Electioncard";
 import Countdown from "react-countdown";
 import Nav from "react-bootstrap/Nav";
 import Swal from "sweetalert2";
 import "./App.css";
 import Positions from "./Components/Positons/Positions";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  NavLink,
+} from "react-router-dom";
 import * as firebase from "firebase/app";
 import Flip from "./Flip";
 import Tick from "@pqina/flip";
@@ -21,6 +27,7 @@ import Renderer from "./Components/Renderer";
 import "firebase/analytics";
 import "firebase/auth";
 import TimeLine1 from "./Components/TimeLine-Past Positions/TimeLine";
+import OnImagesLoaded from "react-on-images-loaded";
 
 var robots_cand = [];
 
@@ -61,6 +68,7 @@ class NavBar extends Component {
 
     //var show = false;
     this.state = {
+      expanded: false,
       show: false,
     };
     const firebaseConfig = {
@@ -126,39 +134,68 @@ class NavBar extends Component {
       zIndex: 100,
     };
     return (
-      <div>
-        <Navbar collapseOnSelect expand="lg" variant="light" className="NavBar">
+      <div style={this.props.style}>
+        <Navbar expanded={this.state.expanded} collapseOnSelect expand="lg" variant="light" className="NavBar">
           <Navbar.Brand href="/" style={styles}>
-            <div className="primary_Text headernav">IIT Dh Elections</div>
-            <img
-              src={logo}
-              className="logonav"
-              alt="IIT Dh Elections"
-            />
+            <img src={logo} className="logonav" alt="IIT Dh Elections" />
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Toggle onClick={() =>
+               {
+                if(this.state.expanded==="expanded")
+                this.setState({expanded:false})
+                else
+                this.setState({expanded:"expanded"})
+            }}
+
+                 aria-controls="responsive-navbar-nav" />
 
           <Navbar.Collapse id="responsive-navbar-nav" className="NavBar">
             <Nav className="mr-auto" fill>
-              <Nav.Link href="/positions" className="NavLink" style={styles}>
-                <div className="secondary_Text">Positions</div>
-              </Nav.Link>
-              <Nav.Link href="/voting" className="NavLink" style={styles}>
-                <div className="secondary_Text">Voting</div>
-              </Nav.Link>
-              <Nav.Link href="/timeline" className="NavLink" style={styles}>
-                <div className="secondary_Text">TimeLine</div>
-              </Nav.Link>
-              <Nav.Link
-                href="/important dates"
-                className="NavLink"
+              <NavLink
+                to="/positions"
+                className="NavLink nav-link"
                 style={styles}
+                activeClassName="selected"
+                onClick={() => this.setState({expanded:false})}
+              >
+                <div className="secondary_Text">Positions</div>
+              </NavLink>
+              <NavLink
+                to="/voting"
+                className="NavLink nav-link"
+                style={styles}
+                activeClassName="selected"
+                onClick={() => this.setState({expanded:false})}
+              >
+                <div className="secondary_Text">Voting</div>
+              </NavLink>
+              <NavLink
+                to="/timeline"
+                className="NavLink nav-link"
+                style={styles}
+                activeClassName="selected"
+                onClick={() => this.setState({expanded:false})}
+              >
+                <div className="secondary_Text">TimeLine</div>
+              </NavLink>
+              <NavLink
+                to="/important dates"
+                className="NavLink nav-link"
+                style={styles}
+                activeClassName="selected"
+                onClick={() => this.setState({expanded:false})}
               >
                 <div className="secondary_Text">Important Dates</div>
-              </Nav.Link>
-              <Nav.Link href="/contact" className="NavLink" style={styles}>
-                <div className="secondary_Text">Contact Us</div>
-              </Nav.Link>
+              </NavLink>
+              <NavLink
+                to="/team"
+                className="NavLink nav-link"
+                style={styles}
+                activeClassName="selected"
+                onClick={() => this.setState({expanded:false})}
+              >
+                <div className="secondary_Text">Team</div>
+              </NavLink>
             </Nav>
 
             <Nav fill>
@@ -222,16 +259,7 @@ class TimeLine extends Component {
   }
 }
 
-class Voting extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
 
-  render() {
-    return <Electioncard />;
-  }
-}
 
 class Elections extends Component {
   constructor(props) {
@@ -296,7 +324,8 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Homedetails />
+        <Homedetails hideLoader={this.props.hideLoader}
+                  showLoader={this.props.showLoader} />
         <Countdown date={Date.now() + 1000000} renderer={Renderer} />
       </div>
     );
@@ -321,7 +350,10 @@ class Error extends Component {
 class App extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
+      showImages: false,
+      currenttab: "/",
       loginState: false,
       email: "",
       error: "",
@@ -331,21 +363,97 @@ class App extends Component {
     setError = setError.bind(this);
   }
 
+  componentDidMount() {
+    //this.props.hideLoader();
+  }
   render() {
     return (
-      <Router>
-        <NavBar loginState={this.state.loginState} />
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/positions" component={Elections} />
-          <Route path="/voting" exact component={Voting} />
-          <Route path="/timeline" component={TimeLine} />
-          <Route path="/important dates" exact component={ImportantDates} />
-          <Route path="/contact" component={Contact} />
-        </Switch>
-        <Error msg={this.state.error} showError={this.state.showError} />
-        <Footer />
-      </Router>
+      <OnImagesLoaded
+        onLoaded={() => {
+          this.setState({ showImages: true });
+          this.props.hideLoader();
+        }}
+        onTimeout={() => {
+          this.setState({ showImages: true });
+          this.props.hideLoader();
+        }}
+        timeout={7000}
+      >
+        <Router>
+          <NavBar
+            style={{ opacity: this.state.showImages ? 1 : 0 }}
+            loginState={this.state.loginState}
+          />
+          <Switch>
+            <Route path="/" exact render={(props) => <Home {...props} hideLoader={this.props.hideLoader}
+                  showLoader={this.props.showLoader}/>} />
+            <Route
+              path="/positions"
+              render={(props) => (
+                <Elections
+                  {...props}
+                  hideLoader={this.props.hideLoader}
+                  showLoader={this.props.showLoader}
+                />
+              )}
+            />
+            <Route
+              path="/voting"
+              exact
+              render={(props) => (
+                <Electioncard
+                  {...props}
+                  hideLoader={this.props.hideLoader}
+                  showLoader={this.props.showLoader}
+                />
+              )}
+            />
+            <Route
+              path="/timeline"
+              render={(props) => (
+                <TimeLine
+                  {...props}
+                  hideLoader={this.props.hideLoader}
+                  showLoader={this.props.showLoader}
+                />
+              )}
+            />
+            <Route
+              path="/important dates"
+              exact
+              render={(props) => (
+                <ImportantDates
+                  {...props}
+                  hideLoader={this.props.hideLoader}
+                  showLoader={this.props.showLoader}
+                />
+              )}
+            />
+            <Route
+              path="/contact"
+              render={(props) => (
+                <Contact
+                  {...props}
+                  hideLoader={this.props.hideLoader}
+                  showLoader={this.props.showLoader}
+                />
+              )}
+            />
+            <Route
+              path="/team"
+              render={(props) => (
+                <Teampage
+                  {...props}
+                  hideLoader={this.props.hideLoader}
+                  showLoader={this.props.showLoader}
+                />
+              )}
+            />
+          </Switch>
+          <Error msg={this.state.error} showError={this.state.showError} />
+          <Footer style={{ opacity: this.state.showImages ? 1 : 0 }} />
+        </Router>
+      </OnImagesLoaded>
     );
   }
 }
@@ -368,6 +476,7 @@ function setError(val, state) {
   this.setState({ showError: state });
   this.setState({ error: val });
 }
+
 function showModel(val, url) {
   this.setState({ show: val });
   this.setState({ videourl: url });
