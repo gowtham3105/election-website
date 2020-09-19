@@ -109,6 +109,8 @@
   }
 
   .infotxt {
+    padding-left:1vw;
+    padding-bottom: 2vh;
     align-self: end !important;
     font-family: "Roboto Condensed", sans-serif;
     font-size: 4rem;
@@ -126,26 +128,30 @@
     margin-top: -25vh;
   }
   .homeinfo {
-    margin-top: 8vh;
+    padding-top: 8vh;
     margin-left: auto;
     margin-right: auto;
+    padding-left: 3rem;
+    padding-right: 3rem;
     display: grid;
-    width: 90%;
+    width: 100%;
     height: auto;
-    grid-template-columns: 1fr 1fr 1fr 1.5fr;
+    grid-template-columns: 1fr 1fr 1.2fr 1.2fr;
     grid-template-rows: 2fr 3fr;
-    background: #fff url(./hands.png) repeat-x bottom center;
+    background-image: linear-gradient(to bottom, rgba(233, 222, 255, 1), rgba(255, 255, 255, 0.5)),  url(./hands.png);
+    background-repeat:repeat-x;
+    background-position: center bottom; 
     justify-items: center;
     align-items: center;
-    grid-gap: 10px;
+    grid-gap: 40px;
   }
   .info {
     display: grid;
     grid-template-rows: 1fr;
     justify-self: center;
     align-self: start;
-    white-space: nowrap;
-    width: 90%;
+    text-align: center;
+    width: 100%;
     height: 200px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-color: #fce963;
@@ -157,7 +163,7 @@
   }
 
   .tallinfo {
-    font-size: 4rem;
+    font-size: calc(4.5rem - 0.6vw);
     color: #752a87;
     justify-self: center;
     align-self: center;

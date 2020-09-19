@@ -1,7 +1,7 @@
 
 
 .containercard {
-  height: 400px;
+  height: 330px;
     width: 300px;
     box-shadow: 0 10px 20px black;
     background-size: cover;
@@ -9,7 +9,7 @@
 max-width: 100%;
 position: relative;
 border-radius:10px !important;
-
+margin-bottom: 20px;
 }
 
   
