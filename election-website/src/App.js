@@ -1,13 +1,21 @@
 import React, { Component } from "react";
 import ReactPlayer from "react-player/lazy";
+import logo from "./Components/Homedetails/logog.png"; // with import
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Navbar from "react-bootstrap/Navbar";
+import Teampage from "./Components/Teampage/Teampage";
+import Electioncard from "./Components/Electioncard/Electioncard";
 import Countdown from "react-countdown";
 import Nav from "react-bootstrap/Nav";
 import "./App.css";
 import Positions from "./Components/Positons/Positions";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  NavLink,
+} from "react-router-dom";
 import * as firebase from "firebase/app";
 import Homedetails from "./Components/Homedetails/Homedetails";
 import Footer from "./Components/Footer/Footer";
@@ -18,9 +26,9 @@ import TimeLine1 from "./Components/TimeLine-Past Positions/TimeLine";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
-
-import Results from "./Components/Results/Results"
-var robots_cand = [];
+import Important from "./Components/Important Dates/Important";
+import OnImagesLoaded from "react-on-images-loaded";
+import Results from "./Components/Results/Results";
 
 class Video extends Component {
   constructor(props) {
@@ -60,6 +68,7 @@ class NavBar extends Component {
     this.state = {
       show: false,
       value: "Sign In",
+      expanded: false,
     };
     const firebaseConfig = {
       apiKey: "AIzaSyDlX7lmjT-hyijYWx3nX1XoWWFrThy8f1U",
@@ -75,6 +84,7 @@ class NavBar extends Component {
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
   }
+
   componentDidMount() {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
@@ -92,22 +102,24 @@ class NavBar extends Component {
       .auth()
       .signInWithPopup(provider)
       .then(function (result) {
-        var token = result.credential.accessToken;
         var user = result.user;
-
         if (user.email.slice(-12) === "@iitdh.ac.in") {
           console.log("logged in");
         } else {
-          this.logout();
+          firebase
+            .auth()
+            .signOut()
+            .then(function () {
+              console.log("Signed Out");
+            })
+            .catch(function (error) {
+              setError("Unable to Sign Out Please Try Again", true);
+            });
           setError("Unauthorised User\nPlease Login with valid email id", true);
         }
       })
       .catch(function (error) {
-        // Handle Errors here.
-        var errorCode = error.code;
         var errorMessage = error.message;
-        // The email of the user's account used.
-        var email = error.email;
         setError("Error while Logging In Please Try Again", true);
         console.log(errorMessage);
       });
@@ -126,15 +138,36 @@ class NavBar extends Component {
   };
 
   render() {
+    let styles = {
+      zIndex: 10,
+    };
     return (
       <div>
-        <Navbar collapseOnSelect expand="lg" variant="light" className="NavBar">
-          <Navbar.Brand href="/">
-            <div className="primary_Text">IITDH Elections</div>
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar
+          expanded={this.state.expanded}
+          collapseOnSelect
+          expand="lg"
+          variant="light"
+          className="NavBar"
+        >
+         
+            <NavLink to="" style={styles}>
+              <img src={logo} className="logonav" alt="IIT Dh Elections" />
+            </NavLink>
+         
+          <Navbar.Toggle
+            onClick={() => {
+              if (this.state.expanded === "expanded")
+                this.setState({ expanded: false });
+              else this.setState({ expanded: "expanded" });
+            }}
+            aria-controls="responsive-navbar-nav"
+          />
 
-          <Navbar.Collapse id="responsive-navbar-nav" className="NavBar">
+          <Navbar.Collapse
+            id="responsive-navbar-nav"
+            className="NavBar navbar-toggle"
+          >
             <Nav className="mr-auto " fill>
               {firebase.auth().currentUser ? (
                 <>
@@ -142,7 +175,7 @@ class NavBar extends Component {
                     onClick={() => {
                       setShowAccount(true);
                     }}
-                    className="NavLink"
+                    className="NavLink nav-link"
                   >
                     Profile
                   </Nav.Link>
@@ -150,21 +183,62 @@ class NavBar extends Component {
               ) : (
                 ""
               )}
-              <Nav.Link href="/positions" className="NavLink">
-                <div className="secondary_Text">Positions</div>
-              </Nav.Link>
-              <Nav.Link href="/voting" className="NavLink">
+              <NavLink
+                to="/positions"
+                className="NavLink nav-link"
+                style={styles}
+                activeClassName="selected"
+                onClick={() => this.setState({ expanded: false })}
+              >
+                <div>Positions</div>
+              </NavLink>
+              <NavLink
+                to="/voting"
+                className="NavLink nav-link"
+                style={styles}
+                activeClassName="selected"
+                onClick={() => this.setState({ expanded: false })}
+              >
                 Voting
-              </Nav.Link>
-              <Nav.Link href="/timeline" className="NavLink">
-                TimeLine
-              </Nav.Link>
-              <Nav.Link href="/important dates" className="NavLink">
+              </NavLink>
+              {
+                // <NavLink
+                // to="/timeline"
+                //  className="NavLink nav-link"
+                //</Nav> style={styles}
+                //  activeClassName="selected"
+                //  onClick={() => this.setState({ expanded: false })}
+                // >
+                //  TimeLine
+                // </NavLink>
+              }
+              <NavLink
+                to="/important dates"
+                className="NavLink nav-link"
+                style={styles}
+                activeClassName="selected"
+                onClick={() => this.setState({ expanded: false })}
+              >
                 Important Dates
-              </Nav.Link>
-              <Nav.Link href="/contact" className="NavLink">
-                Contact Us
-              </Nav.Link>
+              </NavLink>
+              <NavLink
+                to="/result"
+                className="NavLink nav-link"
+                style={styles}
+                activeClassName="selected"
+                onClick={() => this.setState({ expanded: false })}
+              >
+                Result
+              </NavLink>
+              <NavLink
+                to="/team"
+                className="NavLink nav-link"
+                style={styles}
+                activeClassName="selected"
+                onClick={() => this.setState({ expanded: false })}
+              >
+                Team
+              </NavLink>
             </Nav>
 
             <Nav fill>
@@ -190,24 +264,6 @@ class NavBar extends Component {
   }
 }
 
-class Contact extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-
-    };
-  }
-
-  render() {
-    return (
-      <div>
-        
-        <Results />
-      </div>
-    );
-  }
-}
-
 class ImportantDates extends Component {
   constructor(props) {
     super(props);
@@ -215,7 +271,7 @@ class ImportantDates extends Component {
   }
 
   render() {
-    return <h1>Important Dates</h1>;
+    return <Important />;
   }
 }
 
@@ -231,17 +287,6 @@ class TimeLine extends Component {
         <TimeLine1 />
       </div>
     );
-  }
-}
-
-class Voting extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  render() {
-    return <h1>Voting Page</h1>;
   }
 }
 
@@ -261,7 +306,7 @@ class Elections extends Component {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
       if (this.readyState === 4 && this.status === 200) {
-        robots_cand = JSON.parse(this.responseText);
+        //  robots_cand = JSON.parse(this.responseText);
         return JSON.parse(this.responseText);
       }
     };
@@ -269,10 +314,9 @@ class Elections extends Component {
     xhttp.send();
   }
   showPositions = (user, i) => {
-    this.getJson(user.candidatesLink);
     return (
       <Positions
-        robots={robots_cand}
+        robots={user.candidates}
         name={user.positionName}
         criteria={user.criteria}
         key={i}
@@ -280,7 +324,7 @@ class Elections extends Component {
     );
   };
   componentDidMount() {
-    fetch("http://127.0.0.1:5000/positions")
+    fetch("http://192.168.29.199:5000/positions")
       .then((response) => {
         return response.json();
       })
@@ -291,14 +335,54 @@ class Elections extends Component {
 
   render() {
     return (
-      <div>
-        <div className="positionsimghead"></div>
-        <img src="elections.jpg" alt="elections" className="positionsimghead" />
-        <div className="positionshead">Candidates</div>
-        {this.state.show ? <Video videourl={this.state.videourl} /> : " "}
-        <br />
-        {this.state.Positions_robots.map(this.showPositions)}
-      </div>
+      <OnImagesLoaded
+        onLoaded={() => {
+          this.setState({ showImages: true });
+          this.props.hideLoader();
+        }}
+        onTimeout={() => {
+          this.setState({ showImages: true });
+          this.props.hideLoader();
+        }}
+        timeout={7000}
+      >
+        <div style={{ opacity: this.state.showImages ? 1 : 0 }}>
+          <div className="teamdesk">
+            <div className="topbannerteam">
+              <div className="titlebanteam">
+                {" "}
+                Positions
+                <p>IIT Dharwad Elections 2020-21</p>
+              </div>
+              <img
+                src="position.png"
+                className="topbannerimgteam"
+                alt="position img"
+              />
+            </div>
+          </div>
+
+          <div className="teammobile">
+            <div className="topbannerteam">
+              <img
+                src="position.png"
+                className="topbannerimgteam"
+                alt="position img"
+              />
+
+              <div className="titlebanteam">
+                {" "}
+                Positions
+                <p>IIT Dharwad Elections 2020-21</p>
+              </div>
+            </div>
+          </div>
+
+          {this.state.show ? <Video videourl={this.state.videourl} /> : " "}
+          <br />
+          {this.state.Positions_robots.map(this.showPositions)}
+        </div>
+      </OnImagesLoaded>
     );
   }
 }
@@ -308,14 +392,15 @@ class Home extends Component {
     super(props);
     this.state = {};
   }
-  //    <img src='back.jpeg' className="back" width='100%'/>
 
   render() {
     return (
       <div>
-        <Homedetails />
+        <Homedetails
+          hideLoader={this.props.hideLoader}
+          showLoader={this.props.showLoader}
+        />
         <Countdown date={Date.now() + 1000000} renderer={Renderer} />
-        <Footer />
       </div>
     );
   }
@@ -383,7 +468,7 @@ class Account extends Component {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         fetch(
-          "http://127.0.0.1:5000/accountdetails?email=" +
+          "http://192.168.29.199:5000/accountdetails?email=" +
             firebase.auth().currentUser.email
         )
           .then((response) => {
@@ -407,6 +492,7 @@ class Account extends Component {
           }}
           animation={true}
           size="lg"
+          centered
         >
           <Modal.Header className="profileheadparent">
             <div className="profilehead">Profile</div>
@@ -473,6 +559,8 @@ class App extends Component {
       error: "",
       showError: false,
       showAccount: false,
+      showImages: false,
+      currenttab: "/",
     };
     // eslint-disable-next-line no-func-assign
     setError = setError.bind(this);
@@ -482,19 +570,99 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
-        <NavBar loginState={this.state.loginState} />
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/positions" component={Elections} />
-          <Route path="/voting" exact component={Voting} />
-          <Route path="/timeline" component={TimeLine} />
-          <Route path="/important dates" exact component={ImportantDates} />
-          <Route path="/contact" component={Contact} />
-        </Switch>
-        <Error msg={this.state.error} showError={this.state.showError} />
-        <Account show={this.state.showAccount} />
-      </Router>
+      <OnImagesLoaded
+        onLoaded={() => {
+          this.setState({ showImages: true });
+          this.props.hideLoader();
+        }}
+        onTimeout={() => {
+          this.setState({ showImages: true });
+          this.props.hideLoader();
+        }}
+        timeout={7000}
+      >
+        <Router>
+          <NavBar loginState={this.state.loginState} />
+          <Switch>
+            <Route
+              path="/"
+              exact
+              render={(props) => (
+                <Home
+                  {...props}
+                  hideLoader={this.props.hideLoader}
+                  showLoader={this.props.showLoader}
+                />
+              )}
+            />
+            <Route
+              path="/positions"
+              render={(props) => (
+                <Elections
+                  {...props}
+                  hideLoader={this.props.hideLoader}
+                  showLoader={this.props.showLoader}
+                />
+              )}
+            />
+            <Route
+              path="/voting"
+              exact
+              render={(props) => (
+                <Electioncard
+                  {...props}
+                  hideLoader={this.props.hideLoader}
+                  showLoader={this.props.showLoader}
+                />
+              )}
+            />
+            <Route
+              path="/timeline"
+              render={(props) => (
+                <TimeLine
+                  {...props}
+                  hideLoader={this.props.hideLoader}
+                  showLoader={this.props.showLoader}
+                />
+              )}
+            />
+            <Route
+              path="/important dates"
+              exact
+              render={(props) => (
+                <ImportantDates
+                  {...props}
+                  hideLoader={this.props.hideLoader}
+                  showLoader={this.props.showLoader}
+                />
+              )}
+            />
+            <Route
+              path="/result"
+              render={(props) => (
+                <Results
+                  {...props}
+                  hideLoader={this.props.hideLoader}
+                  showLoader={this.props.showLoader}
+                />
+              )}
+            />
+            <Route
+              path="/team"
+              render={(props) => (
+                <Teampage
+                  {...props}
+                  hideLoader={this.props.hideLoader}
+                  showLoader={this.props.showLoader}
+                />
+              )}
+            />
+          </Switch>
+          <Error msg={this.state.error} showError={this.state.showError} />
+          <Account show={this.state.showAccount} />
+          <Footer style={{ opacity: this.state.showImages ? 1 : 0 }} />
+        </Router>
+      </OnImagesLoaded>
     );
   }
 }
@@ -511,4 +679,4 @@ function setShowAccount(val) {
   this.setState({ showAccount: val });
 }
 
-export { App, Video, Elections, showModel };
+export { App, showModel };

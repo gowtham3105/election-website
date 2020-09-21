@@ -18,7 +18,7 @@ class Positions extends Component {
     return (
       <div>
         <Button onClick={this.handleCLick} className="Positions">
-          <div>{this.state.name}</div>
+          <div className="positionsname">{this.state.name}</div>
           <div className="eligibile">
             Eligibility Criteria to Vote:
             {this.props.criteria}
