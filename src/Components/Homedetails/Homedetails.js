@@ -2,7 +2,7 @@ import React from "react";
 import "./Homedetails.css";
 import logo from "./logog.png"; // with import
 import logoweb from "./fullart.png"; // with import
-import logowebx from "./homepagebanner.png"; // with import
+import logowebx from "./homebannernew.png"; // with import
 import CountUp from "react-countup";
 import bottomimg from "./bck.png"; // with import
 import Reveal from "react-reveal/Reveal";
@@ -111,9 +111,11 @@ class Homedetails extends React.Component {
                                           backgroundSize: "contain",
                                           backgroundRepeat: "no-repeat",
                                           width:"100%",
+                                          marginTop:"15vh",
+                                          marginRight:"-2vw",
                                     }}></div>
                                     <div className="infotxt">
-                                          <a>Student Council Elections</a> <br /> 
+                                          <a>Student Elections</a> <br /> 
                                           Some sample text should go here.
                                     </div>
                               </div>
