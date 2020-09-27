@@ -43,6 +43,7 @@
 
 
   }
+  
 
   .conti {
   width: 80%;
@@ -65,7 +66,7 @@
   height:auto;
   grid-gap: 30px;
   justify-items: center;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 
 }
 }
@@ -96,8 +97,8 @@
   width:100%;
   height:auto;
   align-self: end !important;
-  justify-self: start;
-    font-family: "Roboto", sans-serif;
+    justify-self: start;
+    font-family: "Quicksand", sans-serif;
     font-size: 5rem;
     margin: auto auto 50px auto;
     text-align: start;
@@ -110,12 +111,28 @@
 
 
   }
+  .fortheme{
+    width: 100%;
+    background:url(./themebg.png);
+    background-repeat: no-repeat;
+  background-position: left bottom; 
+
+  }
 
   .conti {
   width: 80%;
   margin: 0px auto 0 auto;
   color: #fff;
   min-width: 320px;
+}
+.bottombanner{
+  width: 100%;
+    background:url(./fullartcrop.png);
+    height:600px;
+    background-repeat: no-repeat;
+    background-position: left bottom; 
+    background-size:contain;
+
 }
 
 .headersect{
@@ -131,7 +148,7 @@
   display: grid;
   grid-gap: 30px;
   justify-items: center;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 
 }
 }

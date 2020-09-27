@@ -22,7 +22,7 @@ const Renderer = ({ days, hours, minutes, seconds, completed }) => {
   } else {
     return (
       <div>
-        <div className="show-mobile">
+        <div className="showmobile">
           <div className="enclose">
             <div className="timerdays">{days}</div>
 
@@ -49,7 +49,7 @@ const Renderer = ({ days, hours, minutes, seconds, completed }) => {
           </div>
         </div>
 
-        <div className="hide-mobile">
+        <div className="hidemobile">
           <div className="enclose">
             <div className="timerbox">
               <Flip value={day1} />

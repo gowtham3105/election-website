@@ -11,7 +11,7 @@ import Countdown from "react-countdown";
 import Nav from "react-bootstrap/Nav";
 import Swal from "sweetalert2";
 import "./App.css";
-import Positions from "./Components/Positons/Positions";
+import Positions from "./Components/Positions/Positions";
 import {
   BrowserRouter as Router,
   Route,
@@ -24,10 +24,16 @@ import Tick from "@pqina/flip";
 import Homedetails from "./Components/Homedetails/Homedetails";
 import Footer from "./Components/Footer/Footer";
 import Renderer from "./Components/Renderer";
+import Important from "./Components/ImpDates/Important";
 import "firebase/analytics";
 import "firebase/auth";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
 import TimeLine1 from "./Components/TimeLine-Past Positions/TimeLine";
 import OnImagesLoaded from "react-on-images-loaded";
+import Results from "./Components/Results/Results";
+
 
 var robots_cand = [];
 
@@ -69,6 +75,7 @@ class NavBar extends Component {
     //var show = false;
     this.state = {
       expanded: false,
+      value: "Sign In",
       show: false,
     };
     const firebaseConfig = {
@@ -85,6 +92,17 @@ class NavBar extends Component {
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
   }
+
+ componentDidMount() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({ value: "Sign Out" });
+      } else {
+        this.setState({ value: "Sign In" });
+      }
+    });
+  }
+
   login = () => {
     var provider = new firebase.auth.GoogleAuthProvider();
     firebase
@@ -135,7 +153,7 @@ class NavBar extends Component {
     };
     return (
       <div style={this.props.style}>
-        <Navbar expanded={this.state.expanded} collapseOnSelect expand="lg" variant="light" className="NavBar">
+        <Navbar expanded={this.state.expanded} collapseOnSelect expand="lg" variant="light" className="NavBar" id="navmob"> 
           <Navbar.Brand href="/" style={styles}>
             <img src={logo} className="logonav" alt="IIT Dh Elections" />
           </Navbar.Brand>
@@ -150,7 +168,7 @@ class NavBar extends Component {
                  aria-controls="responsive-navbar-nav" />
 
           <Navbar.Collapse id="responsive-navbar-nav" className="NavBar">
-            <Nav className="mr-auto" fill>
+            <Nav className="collapse navbar-collapse justify-content-end">
               <NavLink
                 to="/positions"
                 className="NavLink nav-link"
@@ -211,7 +229,7 @@ class NavBar extends Component {
                   }}
                   className="Button"
                 >
-                  {this.props.loginState ? "Sign Out" : "Sign In"}
+                  {this.props.loginState ? "Sign Out" : "SIGN IN"}
                 </Button>
               </Nav.Link>
             </Nav>
@@ -240,7 +258,7 @@ class ImportantDates extends Component {
   }
 
   render() {
-    return <h1>Important Dates</h1>;
+    return <Important />;
   }
 }
 
@@ -306,11 +324,54 @@ class Elections extends Component {
 
   render() {
     return (
-      <div>
-        {this.state.show ? <Video videourl={this.state.videourl} /> : " "}
-        <br />
-        {this.state.Positions_robots.map(this.showPositions)}
-      </div>
+      <OnImagesLoaded
+        onLoaded={() => {
+          this.setState({ showImages: true });
+          this.props.hideLoader();
+        }}
+        onTimeout={() => {
+          this.setState({ showImages: true });
+          this.props.hideLoader();
+        }}
+        timeout={7000}
+      >
+        <div style={{ opacity: this.state.showImages ? 1 : 0 }}>
+          <div className="teamdesk">
+            <div className="topbannerteam">
+              <div className="titlebanteam">
+                {" "}
+                Positions
+                <p>IIT Dharwad Elections 2020-21</p>
+              </div>
+              <img
+                src="position.png"
+                className="topbannerimgteam"
+                alt="position img"
+              />
+            </div>
+          </div>
+
+          <div className="teammobile">
+            <div className="topbannerteam">
+              <img
+                src="position.png"
+                className="topbannerimgteam"
+                alt="position img"
+              />
+
+              <div className="titlebanteam">
+                {" "}
+                Positions
+                <p>IIT Dharwad Elections 2020-21</p>
+              </div>
+            </div>
+          </div>
+
+          {this.state.show ? <Video videourl={this.state.videourl} /> : " "}
+          <br />
+          {this.state.Positions_robots.map(this.showPositions)}
+        </div>
+      </OnImagesLoaded>
     );
   }
 }
@@ -340,10 +401,142 @@ class Error extends Component {
   Error = () => {
     const handleClose = () => setError("", false);
 
-    return <div></div>;
+    return (
+      <>
+        <Modal show={this.props.showError} onHide={handleClose}>
+          <Modal.Header className="errorheader">
+            <i className="material-icons erroricon">error_outline</i>
+          </Modal.Header>
+
+          <Modal.Body>
+            <div className="ooops">Ooops!</div>
+            <h6 className="error">{this.props.msg}</h6>
+          </Modal.Body>
+
+          <Button
+            variant="secondary"
+            className="errorclose"
+            onClick={handleClose}
+          >
+            Close
+          </Button>
+          <br />
+        </Modal>
+      </>
+    );
   };
   render() {
     return <div>{this.Error()}</div>;
+  }
+}
+
+
+class Account extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      show: this.props.show,
+      details: {
+        Eligible_Positions: [],
+      },
+    };
+  }
+  showpos = () => {
+    return (
+      <ul>
+        {this.state.details.Eligible_Positions.map((reptile, i) => (
+          <li key={i}>{reptile}</li>
+        ))}
+      </ul>
+    );
+  };
+
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        fetch(
+          "http://192.168.29.199:5000/accountdetails?email=" +
+            firebase.auth().currentUser.email
+        )
+          .then((response) => {
+            return response.json();
+          })
+          .then((users) => {
+            this.setState({ details: users[0] });
+          });
+      }
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        {console.log(this.state.details.Eligible_Positions)}
+        <Modal
+          show={this.props.show && firebase.auth().currentUser.emailVerified}
+          onHide={() => {
+            setShowAccount(false);
+          }}
+          animation={true}
+          size="lg"
+          centered
+        >
+          <Modal.Header className="profileheadparent">
+            <div className="profilehead">Profile</div>
+          </Modal.Header>
+          <Modal.Body>
+            <Container>
+              <Row xs={1} md={2} lg={2}>
+                <Col>
+                  <div className="accountbasics">
+                    <div className="accountheading">
+                      Name
+                      <br />
+                    </div>
+                    {this.state.details.name}
+                    <br />
+                    <div className="accountheading">
+                      Branch
+                      <br />
+                    </div>
+                    {this.state.details.branch}
+                    <br />
+                    <div className="accountheading">
+                      Roll No
+                      <br />
+                    </div>
+                    {this.state.details.rollno}
+                    <br />
+                  </div>
+                  <br />
+                </Col>
+                <Col>
+                  <div className="accountposElement">
+                    <div className="accountheading">
+                      Eligible Voting Positions
+                      <br />
+                    </div>
+                    {this.showpos()}
+                  </div>
+                </Col>
+              </Row>
+            </Container>
+          </Modal.Body>
+          <div className="profileclosebtnparent">
+            <Button
+              variant="secondary"
+              className="profileclosebtn"
+              onClick={() => {
+                setShowAccount(false);
+              }}
+            >
+              Close
+            </Button>
+          </div>
+        </Modal>
+      </div>
+    );
   }
 }
 
@@ -480,6 +673,10 @@ function setError(val, state) {
 function showModel(val, url) {
   this.setState({ show: val });
   this.setState({ videourl: url });
+}
+
+function setShowAccount(val) {
+  this.setState({ showAccount: val });
 }
 
 export { App, Video, Elections, showModel };

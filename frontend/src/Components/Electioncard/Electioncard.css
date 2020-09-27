@@ -220,7 +220,7 @@
 	height:auto;
  	align-self: end !important;
  	justify-self: start;
-    font-family: "Roboto", sans-serif;
+    font-family: "Quicksand", sans-serif;
     font-size: 5rem;
     margin: auto auto 50px auto;
     text-align: start;
@@ -243,7 +243,12 @@
 .panel-accordion {
 	padding: 0px 0px !important;
 }
-
+.forthemeelec{
+	 width: 100%;
+    background:url(../Teampage/themebg.png);
+    background-repeat: no-repeat;
+  background-position: left bottom; 
+}
 .eleccard {
 	position: relative;
 	width: 100%;

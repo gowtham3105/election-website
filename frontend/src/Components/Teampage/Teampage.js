@@ -49,6 +49,7 @@ class Teampage extends React.Component {
         </div>
 
         <div className="teammobile">
+      
         <div className="topbannerteam">
 
                   <img src={teambanner} className="topbannerimgteam" />
@@ -61,7 +62,7 @@ class Teampage extends React.Component {
           </div>
         </div>
         </div>
-
+        <div className="fortheme">
         <div className="conti">
         <div className="headersect">Overall Coordinator</div>
         <div className="members">
@@ -81,9 +82,10 @@ class Teampage extends React.Component {
          <Teamcard name1="Omkar" name2="Jadhav" gitbool="true" position="Web dev" gitlink="https://github.com/" />
          </Fade>
         </div>
-        <div className="headersect">Overall Coordinator</div>
 
         </div>
+        <div className="bottombanner"></div>
+      </div>
       </div>
       </OnImagesLoaded>
     );

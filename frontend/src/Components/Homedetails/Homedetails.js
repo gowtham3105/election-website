@@ -2,7 +2,7 @@ import React from "react";
 import "./Homedetails.css";
 import logo from "./logog.png"; // with import
 import logoweb from "./fullart.png"; // with import
-import logowebx from "./art.png"; // with import
+import logowebx from "./homepagebanner.png"; // with import
 import CountUp from "react-countup";
 import bottomimg from "./bck.png"; // with import
 import Reveal from "react-reveal/Reveal";
@@ -10,6 +10,7 @@ import Fade from "react-reveal/Fade";
 import Bounce from "react-reveal/Bounce";
 import VisibilitySensor from "react-visibility-sensor";
 import OnImagesLoaded from 'react-on-images-loaded';
+import Ticker from "../Ticker.js"
 
 class Homedetails extends React.Component {
       constructor(props) {
@@ -17,9 +18,14 @@ class Homedetails extends React.Component {
             this.props.showLoader();
     this.state={
             showImages: false,
-
+            showelec :true,
+            showcand: true,
+            showtime:true,
+            showdate:true,
+            showmonth:true,
     }
       }
+
       render() {
             return (
                    <OnImagesLoaded
@@ -35,6 +41,7 @@ class Homedetails extends React.Component {
       >
       <div className="pogcont" style={{ opacity: this.state.showImages ? 1 : 0 }}>
                         <div className="show-mobile">
+
                               <div className="imgshow">
                                     <img className="logoimg" src={logo} />
                                     <div className="infotxt">
@@ -50,29 +57,7 @@ class Homedetails extends React.Component {
                                     <Fade>
                                           <div className="info">
                                                 <a className="tallinfo">
-                                                      <CountUp
-                                                            end={59}
-                                                            duration={3}
-                                                            redraw={true}
-                                                      >
-                                                            {({
-                                                                  countUpRef,
-                                                                  start,
-                                                            }) => (
-                                                                  <VisibilitySensor
-                                                                        onChange={
-                                                                              start
-                                                                        }
-                                                                        delayedCall
-                                                                  >
-                                                                        <span
-                                                                              ref={
-                                                                                    countUpRef
-                                                                              }
-                                                                        />
-                                                                  </VisibilitySensor>
-                                                            )}
-                                                      </CountUp>{" "}
+                                                      <Ticker className="count" end={59} duration={3} />{" "}
                                                       <i
                                                             className="fa fa-flag"
                                                             aria-hidden="true"
@@ -83,29 +68,7 @@ class Homedetails extends React.Component {
                                     <Fade>
                                           <div className="info">
                                                 <a className="tallinfo">
-                                                      <CountUp
-                                                            end={100}
-                                                            duration={3}
-                                                            redraw={true}
-                                                      >
-                                                            {({
-                                                                  countUpRef,
-                                                                  start,
-                                                            }) => (
-                                                                  <VisibilitySensor
-                                                                        onChange={
-                                                                              start
-                                                                        }
-                                                                        delayedCall
-                                                                  >
-                                                                        <span
-                                                                              ref={
-                                                                                    countUpRef
-                                                                              }
-                                                                        />
-                                                                  </VisibilitySensor>
-                                                            )}
-                                                      </CountUp>{" "}
+                                                      <Ticker className="count" end={200} duration={3} />{" "}
                                                       <i
                                                             class="fa fa-user"
                                                             aria-hidden="true"
@@ -116,29 +79,7 @@ class Homedetails extends React.Component {
                                     <Fade>
                                           <div className="info">
                                                 <a className="tallinfo">
-                                                      <CountUp
-                                                            end={10}
-                                                            duration={3}
-                                                            redraw={true}
-                                                      >
-                                                            {({
-                                                                  countUpRef,
-                                                                  start,
-                                                            }) => (
-                                                                  <VisibilitySensor
-                                                                        onChange={
-                                                                              start
-                                                                        }
-                                                                        delayedCall
-                                                                  >
-                                                                        <span
-                                                                              ref={
-                                                                                    countUpRef
-                                                                              }
-                                                                        />
-                                                                  </VisibilitySensor>
-                                                            )}
-                                                      </CountUp>
+                                                      <Ticker className="count" end={10} duration={3} />
                                                       :00 am,{" "}
                                                 </a>
                                           </div>
@@ -146,53 +87,9 @@ class Homedetails extends React.Component {
                                     <Fade>
                                           <div className="info">
                                                 <a className="tallinfo">
-                                                      <CountUp
-                                                            end={5}
-                                                            duration={3}
-                                                            redraw={true}
-                                                      >
-                                                            {({
-                                                                  countUpRef,
-                                                                  start,
-                                                            }) => (
-                                                                  <VisibilitySensor
-                                                                        onChange={
-                                                                              start
-                                                                        }
-                                                                        delayedCall
-                                                                  >
-                                                                        <span
-                                                                              ref={
-                                                                                    countUpRef
-                                                                              }
-                                                                        />
-                                                                  </VisibilitySensor>
-                                                            )}
-                                                      </CountUp>
+                                                     <Ticker className="count" end={5} duration={3} />
                                                       /
-                                                      <CountUp
-                                                            end={6}
-                                                            duration={2}
-                                                            redraw={true}
-                                                      >
-                                                            {({
-                                                                  countUpRef,
-                                                                  start,
-                                                            }) => (
-                                                                  <VisibilitySensor
-                                                                        onChange={
-                                                                              start
-                                                                        }
-                                                                        delayedCall
-                                                                  >
-                                                                        <span
-                                                                              ref={
-                                                                                    countUpRef
-                                                                              }
-                                                                        />
-                                                                  </VisibilitySensor>
-                                                            )}
-                                                      </CountUp>
+                                                      <Ticker className="count" end={6} duration={3} />
                                                       /2020{" "}
                                                       <i
                                                             class="fa fa-calendar-check-o"
@@ -205,177 +102,63 @@ class Homedetails extends React.Component {
                         </div>
 
                         <div className="hide-mobile">
-                              <div
-                                    className="imgshow"
-                                    style={{
+                              <div className="imgshow">
+                                    
+                                    <div style={{
                                           backgroundImage:
-                                                "url(" + logowebx + ")",
-                                          backgroundPosition: "center",
-                                          backgroundSize: "cover",
+                                                "url("+ logowebx +")",
+                                          backgroundPosition: "bottom",
+                                          backgroundSize: "contain",
                                           backgroundRepeat: "no-repeat",
-                                    }}
-                              >
-                                    <div className="formargin">
-                                          <img className="logoimg" src={logo} />
-                                    </div>
-                                    <div></div>
+                                          width:"100%",
+                                    }}></div>
                                     <div className="infotxt">
-                                          <a>IIT Dharwad</a> <br /> Student
-                                          Council Elections
+                                          <a>Student Council Elections</a> <br /> 
+                                          Some sample text should go here.
                                     </div>
                               </div>
                               <div className="homeinfo">
                                     <div className="info">
-                                          <a className="tallinfo">
-                                                <CountUp
-                                                      end={59}
-                                                      duration={3}
-                                                      redraw={true}
-                                                >
-                                                      {({
-                                                            countUpRef,
-                                                            start,
-                                                      }) => (
-                                                            <VisibilitySensor
-                                                                  onChange={
-                                                                        start
-                                                                  }
-                                                                  delayedCall
-                                                            >
-                                                                  <span
-                                                                        ref={
-                                                                              countUpRef
-                                                                        }
-                                                                  />
-                                                            </VisibilitySensor>
-                                                      )}
-                                                </CountUp>{" "}
+                                          <div className="tallinfo">
+                                          <Ticker className="count" end={59} duration={3} />{" "}
+
                                                 <i
                                                       class="fa fa-flag"
                                                       aria-hidden="true"
                                                 ></i>
-                                          </a>
+                                          </div>
                                           <br />
                                     </div>
 
                                     <div className="info">
-                                          <a className="tallinfo">
-                                                <CountUp
-                                                      end={100}
-                                                      duration={3}
-                                                      redraw={true}
-                                                >
-                                                      {({
-                                                            countUpRef,
-                                                            start,
-                                                      }) => (
-                                                            <VisibilitySensor
-                                                                  onChange={
-                                                                        start
-                                                                  }
-                                                                  delayedCall
-                                                            >
-                                                                  <span
-                                                                        ref={
-                                                                              countUpRef
-                                                                        }
-                                                                  />
-                                                            </VisibilitySensor>
-                                                      )}
-                                                </CountUp>{" "}
+                                          <div className="tallinfo">
+                                          <Ticker className="count" end={100} duration={3}/>{" "}
                                                 <i
                                                       class="fa fa-user"
                                                       aria-hidden="true"
                                                 ></i>
-                                          </a>
+                                          </div>
                                           <br />
                                     </div>
 
                                     <div className="info">
-                                          <a className="tallinfo">
-                                                <CountUp
-                                                      end={10}
-                                                      duration={3}
-                                                      redraw={true}
-                                                >
-                                                      {({
-                                                            countUpRef,
-                                                            start,
-                                                      }) => (
-                                                            <VisibilitySensor
-                                                                  onChange={
-                                                                        start
-                                                                  }
-                                                                  delayedCall
-                                                            >
-                                                                  <span
-                                                                        ref={
-                                                                              countUpRef
-                                                                        }
-                                                                  />
-                                                            </VisibilitySensor>
-                                                      )}
-                                                </CountUp>
-                                                :00 am
-                                          </a>
+                                          <div className="tallinfo">
+                                          <Ticker className="count" end={10} duration={3} />:00 am
+                                          </div>
                                           <br />
                                     </div>
 
                                     <div className="info">
-                                          <a className="tallinfo">
-                                                <CountUp
-                                                      end={5}
-                                                      duration={3}
-                                                      redraw={true}
-                                                >
-                                                      {({
-                                                            countUpRef,
-                                                            start,
-                                                      }) => (
-                                                            <VisibilitySensor
-                                                                  onChange={
-                                                                        start
-                                                                  }
-                                                                  delayedCall
-                                                            >
-                                                                  <span
-                                                                        ref={
-                                                                              countUpRef
-                                                                        }
-                                                                  />
-                                                            </VisibilitySensor>
-                                                      )}
-                                                </CountUp>
+                                          <div className="tallinfo">
+                                                <Ticker className="count" end={21} duration={3} />
                                                 /
-                                                <CountUp
-                                                      end={6}
-                                                      duration={2}
-                                                      redraw={true}
-                                                >
-                                                      {({
-                                                            countUpRef,
-                                                            start,
-                                                      }) => (
-                                                            <VisibilitySensor
-                                                                  onChange={
-                                                                        start
-                                                                  }
-                                                                  delayedCall
-                                                            >
-                                                                  <span
-                                                                        ref={
-                                                                              countUpRef
-                                                                        }
-                                                                  />
-                                                            </VisibilitySensor>
-                                                      )}
-                                                </CountUp>
+                                                <Ticker className="count" end={5} duration={3} />
                                                 /2020{" "}
                                                 <i
                                                       class="fa fa-calendar-check-o"
                                                       aria-hidden="true"
                                                 ></i>
-                                          </a>
+                                          </div>
                                           <br />
                                     </div>
                                     <div className="emptydiv"></div>

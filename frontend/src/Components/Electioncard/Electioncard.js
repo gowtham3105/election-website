@@ -68,7 +68,6 @@ class Electioncard extends React.Component {
 
         <div className="elecmobile">
         <div className="topbanner">
-
                   <img src={votebanner} className="topbannerimg" />
 
           <div className="titleban">
@@ -80,7 +79,7 @@ class Electioncard extends React.Component {
           </div>
         </div>
         </div>
-
+        <div className="forthemeelec">
         <div className="cont">
           <CollapsibleComponent>
             <div>
@@ -88,7 +87,7 @@ class Electioncard extends React.Component {
                 <div className="elecname">General Seceratory Sports</div>
               </CollapsibleHead>
               <CollapsibleContent>
-                <Fade top>
+                <Fade top opposite={true}>
                   <div className="eleccard">
                     <div
                       className="candidate"
@@ -189,6 +188,9 @@ class Electioncard extends React.Component {
               </div>
             </CollapsibleContent>
           </CollapsibleComponent>
+        </div>
+                <div className="bottombanner"></div>
+
         </div>
         </div>
     </OnImagesLoaded>

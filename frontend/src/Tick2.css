@@ -1,8 +1,8 @@
 @media only screen and (max-device-width: 480px) {
-  .show-mobile {
+  .showmobile {
     display: block;
   }
-  .hide-mobile {
+  .hidemobile {
     display: none;
   }
   .tick {
@@ -130,11 +130,13 @@ align-items: center;
 }
 
 @media only screen and (min-device-width: 481px) {
-  .show-mobile {
+  .showmobile {
     display: none;
+
   }
-  .hide-mobile {
+  .hidemobile {
     display: block;
+    padding-bottom:100px;
   }
 
   .tick {
