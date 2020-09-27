@@ -3,7 +3,6 @@ Website for internal elections of IIT Dharwad
 
 To run the project locally, execute following commands:
 
-### `cd frontend`
 ### `npm install`
 ### `npm start`
 
