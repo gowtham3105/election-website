@@ -1,3 +1,8 @@
+body {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
+}
+
 ::-webkit-scrollbar {
   width: 4px;
 }
@@ -29,8 +34,10 @@
   transition: box-shadow, transform, -webkit-transform;
   -webkit-transition-duration: 0.1s;
   transition-duration: 0.1s;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
   border-radius: 5px;
+  letter-spacing: 1px;
 }
 .candidate-result:hover {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
@@ -40,10 +47,11 @@
 .candidate__name {
   font-size: 22px;
   margin-bottom: 0.2em;
+  letter-spacing: 1px;
+  font-weight: 700;
 }
 .candidate__description {
   font-size: 0.8em;
-  font-weight: 300;
 }
 .candidate__percent {
   position: absolute;
@@ -66,7 +74,8 @@
   width: 90%;
   max-width: 400px;
   margin: auto;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
   position: relative;
   top: 0;
   right: 10%;
@@ -79,32 +88,37 @@
   border-right: groove;
   overflow-y: auto;
   overflow-x: hidden;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
   width: 80%;
 }
 .positionsItem {
-  width: 89%;
+  width: 95%;
   padding-top: 10px;
   padding-bottom: 10px;
   max-height: 80px;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
   text-align: center;
   border-radius: 0px 20px 20px 0px !important;
+  font-weight: 600;
 }
 .positionsItem:hover {
-  width: 89%;
+  width: 95%;
   padding-top: 7px;
   padding-bottom: 7px;
   max-height: 80px;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
   text-align: center;
   background-color: white;
   color: black;
-  transform: scale(1.2);
+  transform: scale(1.1);
   cursor: pointer;
   border-style: solid;
   border-width: 2px;
   border-color: maroon;
+  border-left: none;
   border-radius: 0px 20px 20px 0px !important;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -120,7 +134,8 @@
   );
   color: white !important;
   border-color: white !important;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
   font-size: 21px !important;
   text-decoration: none !important;
   box-shadow: 0 0 0 0rem rgba(0, 123, 255, 0.25) !important;
@@ -128,15 +143,15 @@
 }
 .positiongroupdrop {
   width: 100%;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
 }
 .positionname {
-  font-family: "Roboto", "sans-serif";
+  font-family: "Quicksand", sans-serif;
   text-align: center;
   margin-top: 15px;
-  margin-bottom: 15px;
   font-size: 32px;
-  font-weight: 1000;
+  font-weight: 800;
   color: white !important;
   width: 100%;
   padding: 20px;
@@ -147,13 +162,13 @@
     #6f2891 100%,
     rgba(0, 212, 255, 1) 100%
   );
-  margin-bottom: 25px;
+  margin-bottom: 0px;
 }
 .positionslistcol {
   padding-left: 0px !important;
 }
-.headimg{
-  margin:auto;
+.headimg {
+  margin: auto;
 }
 @media only screen and (max-width: 1150px) {
   .positionsItem {
@@ -185,7 +200,8 @@
     width: 90%;
     max-width: 400px;
     margin: auto;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 500;
     position: relative;
     top: 0;
     right: 0;
@@ -201,7 +217,8 @@
     background-color: white !important;
     color: #6f2891 !important;
     border-color: #6f2891 !important;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 500;
     box-shadow: none !important;
   }
   .modalbody {
@@ -215,29 +232,34 @@
     border-right: none;
     overflow-y: auto;
     overflow-x: hidden;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 500;
     width: 95%;
     margin: auto;
+    font-size: 18px;
   }
   .positionsItem {
     width: 100%;
     padding-top: 10px;
     padding-bottom: 10px;
     max-height: 80px;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 500;
     text-align: center;
     font-size: 14px;
     padding-right: 26.5px;
     padding-left: 26.5px;
     border-radius: 10px;
     margin: auto;
+    font-weight: 600;
   }
   .positionsItem:hover {
     width: 85%;
     padding-top: 10px;
     padding-bottom: 10px;
     max-height: 80px;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 500;
     text-align: center;
     background-color: white;
     color: black;
@@ -246,6 +268,7 @@
     font-size: 14px;
     border-radius: 10px;
     border-radius: 5px 5px 5px 5px !important;
+
     margin: auto;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -268,7 +291,8 @@
     background-color: white !important;
     color: white !important;
     border-color: white !important;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 500;
     font-size: 21px !important;
     text-decoration: none !important;
     box-shadow: 0 0 0 0rem rgba(0, 123, 255, 0.25) !important;
@@ -276,15 +300,101 @@
     border-radius: 7px !important;
   }
   .positionname {
-    font-family: "Roboto", "sans-serif";
+    font-family: "Quicksand", sans-serif;
     letter-spacing: 1px;
     text-align: center;
     margin-top: 15px;
-    margin-bottom: 15px;
+
     font-size: 20px;
-    font-weight: 1000;
+    font-weight: 800;
     color: white !important;
     width: 100%;
     padding: 20px;
   }
+}
+@media only screen and (max-device-width: 480px) {
+  .teammobile {
+    display: block;
+  }
+  .teamdesk {
+    display: none;
+  }
+
+  .topbannerteam {
+    max-width: 100%;
+    height: auto !important;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-gap: 10px;
+  }
+
+  .topbannerimgteam {
+    margin-top: 10px;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .titlebanteam {
+    width: 100%;
+    height: auto;
+    align-self: end !important;
+    justify-self: start;
+    font-family: "Quicksand", sans-serif;
+    font-size: 2rem;
+    margin: auto;
+    text-align: start;
+    color: #752a87;
+    padding-left: 1rem;
+    font-weight: 600;
+  }
+  .titlebanteam p {
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (min-device-width: 481px) {
+  .teammobile {
+    display: none;
+  }
+  .teamdesk {
+    display: block;
+  }
+  .topbannerteam {
+    max-width: 100%;
+    height: auto !important;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    grid-gap: 10px;
+  }
+
+  .topbannerimgteam {
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+  }
+
+  .titlebanteam {
+    width: 100%;
+    height: auto;
+    align-self: end !important;
+    justify-self: start;
+    font-family: "Quicksand", sans-serif;
+    font-size: 5rem;
+    margin: auto auto 50px auto;
+    text-align: start;
+    color: #752a87;
+    padding-left: 4rem;
+    font-weight: 600;
+  }
+  .titlebanteam p {
+    font-size: 2.5rem;
+  }
+}
+
+.resultsinfo {
+  padding-top: 35px;
+  padding-bottom: 45px;
+  background-image: url(themebgflip.png);
+  background-repeat: no-repeat;
+  background-position: right bottom;
 }

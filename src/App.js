@@ -4,12 +4,10 @@ import logo from "./Components/Homedetails/logog.png"; // with import
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Navbar from "react-bootstrap/Navbar";
-import CardList from "./Components/Cardlist/CardList";
 import Teampage from "./Components/Teampage/Teampage";
 import Electioncard from "./Components/Electioncard/Electioncard";
 import Countdown from "react-countdown";
 import Nav from "react-bootstrap/Nav";
-import Swal from "sweetalert2";
 import "./App.css";
 import Positions from "./Components/Positions/Positions";
 import {
@@ -19,23 +17,18 @@ import {
   NavLink,
 } from "react-router-dom";
 import * as firebase from "firebase/app";
-import Flip from "./Flip";
-import Tick from "@pqina/flip";
 import Homedetails from "./Components/Homedetails/Homedetails";
 import Footer from "./Components/Footer/Footer";
 import Renderer from "./Components/Renderer";
-import Important from "./Components/ImpDates/Important";
 import "firebase/analytics";
 import "firebase/auth";
+import TimeLine1 from "./Components/TimeLine-Past Positions/TimeLine";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
-import TimeLine1 from "./Components/TimeLine-Past Positions/TimeLine";
+import Important from "./Components/Important Dates/Important";
 import OnImagesLoaded from "react-on-images-loaded";
 import Results from "./Components/Results/Results";
-
-
-var robots_cand = [];
 
 class Video extends Component {
   constructor(props) {
@@ -72,11 +65,10 @@ class NavBar extends Component {
   constructor(props) {
     super(props);
 
-    //var show = false;
     this.state = {
-      expanded: false,
-      value: "Sign In",
       show: false,
+      value: "SIGN IN",
+      expanded: false,
     };
     const firebaseConfig = {
       apiKey: "AIzaSyDlX7lmjT-hyijYWx3nX1XoWWFrThy8f1U",
@@ -93,46 +85,46 @@ class NavBar extends Component {
     firebase.analytics();
   }
 
- componentDidMount() {
+  componentDidMount() {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        this.setState({ value: "Sign Out" });
+        this.setState({ value: "SIGN OUT" });
       } else {
-        this.setState({ value: "Sign In" });
+        this.setState({ value: "SIGN IN" });
       }
     });
   }
 
   login = () => {
     var provider = new firebase.auth.GoogleAuthProvider();
+
     firebase
       .auth()
       .signInWithPopup(provider)
       .then(function (result) {
-        var token = result.credential.accessToken;
         var user = result.user;
-        console.log(user.email);
         if (user.email.slice(-12) === "@iitdh.ac.in") {
-          setLoginState(true, user.email);
+          console.log("logged in");
         } else {
-          Swal.fire({
-            icon: "error",
-            title:
-              '<div style="color:crimson";>Oops.. Unauthorised user.</div>',
-            text: "Please login with IIT Dh email address",
-          });
-          // setError('Unauthorised User\nPlease Login with valid email id', true)
+          firebase
+            .auth()
+            .signOut()
+            .then(function () {
+              console.log("Signed Out");
+            })
+            .catch(function (error) {
+              setError("Unable to Sign Out Please Try Again", true);
+            });
+          setError(
+            "Oops.. Unauthorised user.\nPlease login with IIT Dh email address",
+            true
+          );
         }
-        console.log(user.email.slice(-12));
       })
       .catch(function (error) {
-        // Handle Errors here.
-        var errorCode = error.code;
         var errorMessage = error.message;
-        // The email of the user's account used.
-        var email = error.email;
-
-        // ...
+        setError("Error while Logging In Please Try Again", true);
+        console.log(errorMessage);
       });
   };
 
@@ -142,77 +134,122 @@ class NavBar extends Component {
       .signOut()
       .then(function () {
         console.log("Signed Out");
-        setLoginState(false, "");
       })
-      .catch(function (error) {});
+      .catch(function (error) {
+        setError("Unable to Sign Out Please Try Again", true);
+      });
   };
 
   render() {
     let styles = {
-      zIndex: 100,
+      zIndex: 10,
     };
     return (
-      <div style={this.props.style}>
-        <Navbar expanded={this.state.expanded} collapseOnSelect expand="lg" variant="light" className="NavBar" id="navmob"> 
-          <Navbar.Brand href="/" style={styles}>
+      <div>
+        <Navbar
+          expanded={this.state.expanded}
+          collapseOnSelect
+          expand="lg"
+          variant="light"
+          className="NavBar"
+        >
+          <NavLink to="" style={styles}>
             <img src={logo} className="logonav" alt="IIT Dh Elections" />
-          </Navbar.Brand>
-          <Navbar.Toggle onClick={() =>
-               {
-                if(this.state.expanded==="expanded")
-                this.setState({expanded:false})
-                else
-                this.setState({expanded:"expanded"})
+          </NavLink>
+
+          <Navbar.Toggle
+            onClick={() => {
+              if (this.state.expanded === "expanded")
+                this.setState({ expanded: false });
+              else this.setState({ expanded: "expanded" });
             }}
+            aria-controls="responsive-navbar-nav"
+          />
 
-                 aria-controls="responsive-navbar-nav" />
-
-          <Navbar.Collapse id="responsive-navbar-nav" className="NavBar">
-            <Nav className="collapse navbar-collapse justify-content-end">
+          <Navbar.Collapse
+            id="responsive-navbar-nav"
+            className="NavBar navbar-toggle"
+          >
+            <Nav className="mr-auto " fill>
+              <NavLink
+                exact
+                to="/"
+                className="NavLink nav-link"
+                style={styles}
+                activeClassName="selected"
+                onClick={() => this.setState({ expanded: false })}
+              >
+                <div>Home</div>
+              </NavLink>
+              {firebase.auth().currentUser ? (
+                <>
+                  <Nav.Link
+                    onClick={() => {
+                      setShowAccount(true);
+                    }}
+                    className="NavLink nav-link"
+                  >
+                    Profile
+                  </Nav.Link>
+                </>
+              ) : (
+                ""
+              )}
               <NavLink
                 to="/positions"
                 className="NavLink nav-link"
                 style={styles}
                 activeClassName="selected"
-                onClick={() => this.setState({expanded:false})}
+                onClick={() => this.setState({ expanded: false })}
               >
-                <div className="secondary_Text">Positions</div>
+                <div>Positions</div>
               </NavLink>
               <NavLink
                 to="/voting"
                 className="NavLink nav-link"
                 style={styles}
                 activeClassName="selected"
-                onClick={() => this.setState({expanded:false})}
+                onClick={() => this.setState({ expanded: false })}
               >
-                <div className="secondary_Text">Voting</div>
+                Voting
               </NavLink>
-              <NavLink
-                to="/timeline"
-                className="NavLink nav-link"
-                style={styles}
-                activeClassName="selected"
-                onClick={() => this.setState({expanded:false})}
-              >
-                <div className="secondary_Text">TimeLine</div>
-              </NavLink>
+              {
+                // <NavLink
+                // to="/timeline"
+                //  className="NavLink nav-link"
+                //</Nav> style={styles}
+                //  activeClassName="selected"
+                //  onClick={() => this.setState({ expanded: false })}
+                // >
+                //  TimeLine
+                // </NavLink>
+              }
               <NavLink
                 to="/important dates"
                 className="NavLink nav-link"
                 style={styles}
                 activeClassName="selected"
-                onClick={() => this.setState({expanded:false})}
+                onClick={() => this.setState({ expanded: false })}
               >
-                <div className="secondary_Text">Important Dates</div>
+                Important Dates
+              </NavLink>
+              <NavLink
+                to="/result"
+                className="NavLink nav-link"
+                style={styles}
+                activeClassName="selected"
+                onClick={() => this.setState({ expanded: false })}
+              >
+                Result
               </NavLink>
               <NavLink
                 to="/team"
                 className="NavLink nav-link"
                 style={styles}
                 activeClassName="selected"
-                onClick={() => this.setState({expanded:false})}
+                onClick={() => this.setState({ expanded: false })}
               >
-                <div className="secondary_Text">Team</div>
+                Team
               </NavLink>
             </Nav>
 
@@ -220,8 +257,7 @@ class NavBar extends Component {
               <Nav.Link>
                 <Button
                   onClick={() => {
-                    console.log(this.props.loginState);
-                    if (!this.props.loginState) {
+                    if (!firebase.auth().currentUser) {
                       this.login();
                     } else {
                       this.logout();
@@ -229,7 +265,7 @@ class NavBar extends Component {
                   }}
                   className="Button"
                 >
-                  {this.props.loginState ? "Sign Out" : "SIGN IN"}
+                  {this.state.value}
                 </Button>
               </Nav.Link>
             </Nav>
@@ -237,17 +273,6 @@ class NavBar extends Component {
         </Navbar>
       </div>
     );
-  }
-}
-
-class Contact extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  render() {
-    return <h1>Contact Page</h1>;
   }
 }
 
@@ -277,8 +302,6 @@ class TimeLine extends Component {
   }
 }
 
-
-
 class Elections extends Component {
   constructor(props) {
     super(props);
@@ -288,13 +311,14 @@ class Elections extends Component {
       robots: [],
       Positions_robots: [],
     };
+    // eslint-disable-next-line no-func-assign
     showModel = showModel.bind(this);
   }
   getJson(link) {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
       if (this.readyState === 4 && this.status === 200) {
-        robots_cand = JSON.parse(this.responseText);
+        //  robots_cand = JSON.parse(this.responseText);
         return JSON.parse(this.responseText);
       }
     };
@@ -302,10 +326,9 @@ class Elections extends Component {
     xhttp.send();
   }
   showPositions = (user, i) => {
-    this.getJson(user.candidatesLink);
     return (
       <Positions
-        robots={robots_cand}
+        robots={user.candidates}
         name={user.positionName}
         criteria={user.criteria}
         key={i}
@@ -385,8 +408,10 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Homedetails hideLoader={this.props.hideLoader}
-                  showLoader={this.props.showLoader} />
+        <Homedetails
+          hideLoader={this.props.hideLoader}
+          showLoader={this.props.showLoader}
+        />
         <Countdown date={Date.now() + 1000000} renderer={Renderer} />
       </div>
     );
@@ -429,7 +454,6 @@ class Error extends Component {
     return <div>{this.Error()}</div>;
   }
 }
-
 
 class Account extends Component {
   constructor(props) {
@@ -543,22 +567,19 @@ class Account extends Component {
 class App extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      showImages: false,
-      currenttab: "/",
-      loginState: false,
-      email: "",
       error: "",
       showError: false,
+      showAccount: false,
+      showImages: false,
+      currenttab: "/",
     };
-    setLoginState = setLoginState.bind(this);
+    // eslint-disable-next-line no-func-assign
     setError = setError.bind(this);
+    // eslint-disable-next-line no-func-assign
+    setShowAccount = setShowAccount.bind(this);
   }
 
-  componentDidMount() {
-    //this.props.hideLoader();
-  }
   render() {
     return (
       <OnImagesLoaded
@@ -573,13 +594,19 @@ class App extends Component {
         timeout={7000}
       >
         <Router>
-          <NavBar
-            style={{ opacity: this.state.showImages ? 1 : 0 }}
-            loginState={this.state.loginState}
-          />
+          <NavBar loginState={this.state.loginState} />
           <Switch>
-            <Route path="/" exact render={(props) => <Home {...props} hideLoader={this.props.hideLoader}
-                  showLoader={this.props.showLoader}/>} />
+            <Route
+              path="/"
+              exact
+              render={(props) => (
+                <Home
+                  {...props}
+                  hideLoader={this.props.hideLoader}
+                  showLoader={this.props.showLoader}
+                />
+              )}
+            />
             <Route
               path="/positions"
               render={(props) => (
@@ -623,9 +650,9 @@ class App extends Component {
               )}
             />
             <Route
-              path="/contact"
+              path="/result"
               render={(props) => (
-                <Contact
+                <Results
                   {...props}
                   hideLoader={this.props.hideLoader}
                   showLoader={this.props.showLoader}
@@ -644,6 +671,7 @@ class App extends Component {
             />
           </Switch>
           <Error msg={this.state.error} showError={this.state.showError} />
+          <Account show={this.state.showAccount} />
           <Footer style={{ opacity: this.state.showImages ? 1 : 0 }} />
         </Router>
       </OnImagesLoaded>
@@ -651,32 +679,16 @@ class App extends Component {
   }
 }
 
-function setLoginState(val, email) {
-  this.setState({ loginState: val });
-  var user = firebase.auth().currentUser;
-  if (val) {
-    if (user.email.slice(-12) === "@iitdh.ac.in") {
-      this.setState({ email: user.email });
-    } else {
-      return 0;
-    }
-  } else {
-    this.setState({ email: "" });
-  }
-}
 function setError(val, state) {
-  console.log("error");
   this.setState({ showError: state });
   this.setState({ error: val });
 }
-
 function showModel(val, url) {
   this.setState({ show: val });
   this.setState({ videourl: url });
 }
-
 function setShowAccount(val) {
   this.setState({ showAccount: val });
 }
 
-export { App, Video, Elections, showModel };
+export { App, showModel };

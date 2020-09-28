@@ -89,8 +89,8 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
     height: 110vh;
-    grid-gap: -20px;
-    background-color: #e9d8ff;
+    grid-gap: 10px;
+    background-color: #e9deff;
     width: 100%;
 
     overflow: visible;
@@ -110,23 +110,17 @@
 
   .infotxt {
     padding-left:1vw;
-        padding-right:1vw;
-
     padding-bottom: 2vh;
-    text-align:start;
-    margin-left:-2vw !important;
-    justify-self:start;
-    align-self: start !important;
+    align-self: end !important;
     font-family: "Quicksand", sans-serif;
-    font-size: 2rem;
+    font-size: 3rem;
     margin: auto auto auto auto;
     text-align: start;
     line-height: 1.2;
     color: #752a87;
   }
   .infotxt a {
-    font-size: 4.5rem;
-    white-space: nowrap;
+    font-size: 5rem;
   }
   .bottomimg {
     max-width: 90%;

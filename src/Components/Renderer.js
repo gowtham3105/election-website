@@ -1,6 +1,5 @@
 import React from "react";
 import Flip from "../Flip";
-import Tick from "@pqina/flip";
 import "../Tick2.css";
 
 const Renderer = ({ days, hours, minutes, seconds, completed }) => {
@@ -22,7 +21,7 @@ const Renderer = ({ days, hours, minutes, seconds, completed }) => {
   } else {
     return (
       <div>
-        <div className="showmobile">
+        <div className="show-mobile">
           <div className="enclose">
             <div className="timerdays">{days}</div>
 
@@ -49,7 +48,7 @@ const Renderer = ({ days, hours, minutes, seconds, completed }) => {
           </div>
         </div>
 
-        <div className="hidemobile">
+        <div className="hide-mobile">
           <div className="enclose">
             <div className="timerbox">
               <Flip value={day1} />
