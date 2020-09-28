@@ -276,17 +276,6 @@ class NavBar extends Component {
   }
 }
 
-class ImportantDates extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  render() {
-    return <Important />;
-  }
-}
-
 class TimeLine extends Component {
   constructor(props) {
     super(props);
@@ -642,7 +631,7 @@ class App extends Component {
               path="/important dates"
               exact
               render={(props) => (
-                <ImportantDates
+                <Important
                   {...props}
                   hideLoader={this.props.hideLoader}
                   showLoader={this.props.showLoader}
