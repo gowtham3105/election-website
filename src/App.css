@@ -30,11 +30,14 @@ html * {
 .Button {
   background-color: #8930b1 !important;
   border-color: #8930b1 !important;
-  margin: 10px;
+  margin: 10px 30px;
   font-family: "Quicksand", sans-serif;
-  font-weight: 600;
+  font-weight: 600!important;
   color: white;
   border-radius: 30px !important;
+  padding:5px 15px!important;
+  font-size: 1.3rem!important;
+  
 }
 .Button:focus,
 .Button:active {
@@ -45,10 +48,10 @@ html * {
 .Button:hover {
   background-color: #6f2891 !important;
   border-color: #6f2891 !important;
-  margin: 10px;
+  margin: 10px 30px;
   font-family: "Quicksand", sans-serif;
   font-weight: 600;
-  border-radius: 5px !important;
+  border-radius: 30px !important;
 }
 
 .NavBar {
@@ -247,6 +250,13 @@ html * {
   .NavLink:hover::before {
     width: 90%;
   }
+  .secondary_Text {
+  font-family: 'Quicksand', sans-serif ;
+  font-weight: 600 !important;
+  font-size: 1.4rem !important;
+    text-align:center !important;
+
+}
 }
 
 @media only screen and (max-width: 599px) {
@@ -284,6 +294,16 @@ html * {
     font-weight: 1000;
     opacity: 1 !important;
   }
+  .secondary_Text {
+    display: block;
+  padding: 3px;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin: 0 10px;
+
+  font-family: 'Roboto', sans-serif ;
+  font-size: 1rem !important;
+}
 }
 
 @media only screen and (max-device-width: 480px) {

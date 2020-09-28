@@ -107,12 +107,12 @@ text-align: center;
 */	}
 
 .footer-container{
-	width: 95%;
+	width: 90%;
 	height: auto;
 	margin: auto;
 	display: grid;
 	grid-gap: 10px;
-	grid-template-columns:1fr 2fr 1.5fr;
+	grid-template-columns:1.5fr 2fr 1.5fr;
 }
 .footer-main{
 	display:grid;

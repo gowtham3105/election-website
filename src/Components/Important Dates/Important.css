@@ -240,6 +240,13 @@ header p {
   z-index: 15;
   font-size: 20px;
 }
+.timelineinfo {
+  padding-top: 55px;
+  padding-bottom: 55px;
+  background-image: url(themebgflip.png);
+  background-repeat: no-repeat;
+  background-position: right bottom;
+}
 
 @media (min-width: 768px) {
   .timeline {

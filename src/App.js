@@ -170,17 +170,7 @@ class NavBar extends Component {
             id="responsive-navbar-nav"
             className="NavBar navbar-toggle"
           >
-            <Nav className="navbar-collapse justify-content-end"  >
-              <NavLink
-                exact
-                to="/"
-                className="NavLink nav-link"
-                style={styles}
-                activeClassName="selected"
-                onClick={() => this.setState({ expanded: false })}
-              >
-                <div>Home</div>
-              </NavLink>
+            <Nav className="navbar-collapse justify-content-end">
               {firebase.auth().currentUser ? (
                 <>
                   <Nav.Link
@@ -189,7 +179,7 @@ class NavBar extends Component {
                     }}
                     className="NavLink nav-link"
                   >
-                    Profile
+                    <div className="secondary_Text">Profile</div>
                   </Nav.Link>
                 </>
               ) : (
@@ -202,7 +192,7 @@ class NavBar extends Component {
                 activeClassName="selected"
                 onClick={() => this.setState({ expanded: false })}
               >
-                <div>Positions</div>
+                <div className="secondary_Text">Positions</div>
               </NavLink>
               <NavLink
                 to="/voting"
@@ -211,7 +201,7 @@ class NavBar extends Component {
                 activeClassName="selected"
                 onClick={() => this.setState({ expanded: false })}
               >
-                Voting
+                <div className="secondary_Text">Voting</div>
               </NavLink>
               {
                 // <NavLink
@@ -231,7 +221,7 @@ class NavBar extends Component {
                 activeClassName="selected"
                 onClick={() => this.setState({ expanded: false })}
               >
-                Important Dates
+                <div className="secondary_Text">Important Dates</div>
               </NavLink>
               <NavLink
                 to="/result"
@@ -240,7 +230,7 @@ class NavBar extends Component {
                 activeClassName="selected"
                 onClick={() => this.setState({ expanded: false })}
               >
-                Result
+                <div className="secondary_Text">Result</div>
               </NavLink>
               <NavLink
                 to="/team"
@@ -249,7 +239,7 @@ class NavBar extends Component {
                 activeClassName="selected"
                 onClick={() => this.setState({ expanded: false })}
               >
-                Team
+                <div className="secondary_Text">Team</div>
               </NavLink>
             </Nav>
 

@@ -37,6 +37,7 @@ class Important extends Component {
                     <a
                       href="https://calendar.google.com/calendar/u/0?cid=Y185Ym9rMGQ3Z2JmOGRrOG0zNTcydjdwZDZkNEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t"
                       style={{ margin: "10px" }}
+                      target="_blank"
                     >
                       <img
                         src="plus.jpeg"
@@ -76,6 +77,7 @@ class Important extends Component {
                     <a
                       href="https://calendar.google.com/calendar/u/0?cid=Y185Ym9rMGQ3Z2JmOGRrOG0zNTcydjdwZDZkNEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t"
                       style={{ margin: "10px" }}
+                      target="_blank"
                     >
                       <img
                         src="plus.jpeg"
@@ -89,75 +91,76 @@ class Important extends Component {
               </div>
             </div>
           </div>
-
-          <ul className="timeline">
-            <li>
-              <div className="direction-r">
-                <div className="flag-wrapper">
-                  <span className="hexa"></span>
-                  <Fade left>
-                    <span className="flag">Nomination Day</span>
-                    <span className="time-wrapper">
-                      <span className="time">Sep 1</span>
-                    </span>
-                  </Fade>
-                </div>
-                <Fade left>
-                  <div className="desc">
-                    Candidates should fill the form and enroll for nomination
-                  </div>
-                </Fade>
-              </div>
-            </li>
-            <li>
-              <div className="direction-l">
-                <div className="flag-wrapper">
-                  <span className="hexa"></span>
-                  <Fade left>
-                    <span className="flag">Campaign Day</span>
-                    <span className="time-wrapper">
-                      <span className="time">Sep 2</span>
-                    </span>
-                  </Fade>
-                </div>
-                <Fade left>
-                  <div className="desc">Campaigning Starts</div>
-                </Fade>
-              </div>
-            </li>
-            <li>
-              <div className="direction-r">
-                <div className="flag-wrapper">
-                  <Fade left>
+          <div className="timelineinfo">
+            <ul className="timeline">
+              <li>
+                <div className="direction-r">
+                  <div className="flag-wrapper">
                     <span className="hexa"></span>
-                    <span className="flag">Voting Day</span>
-                    <span className="time-wrapper">
-                      <span className="time">Sep 3</span>
-                    </span>
-                  </Fade>
-                </div>
-                <Fade left>
-                  <div className="desc">Voting starts at 10Am</div>
-                </Fade>
-              </div>
-            </li>
-            <li>
-              <div className="direction-l">
-                <div className="flag-wrapper">
-                  <span className="hexa"></span>
+                    <Fade left>
+                      <span className="flag">Nomination Day</span>
+                      <span className="time-wrapper">
+                        <span className="time">Sep 1</span>
+                      </span>
+                    </Fade>
+                  </div>
                   <Fade left>
-                    <span className="flag">Results Day</span>
-                    <span className="time-wrapper">
-                      <span className="time">Sep 4</span>
-                    </span>
+                    <div className="desc">
+                      Candidates should fill the form and enroll for nomination
+                    </div>
                   </Fade>
                 </div>
-                <Fade left>
-                  <div className="desc">Elections will be Declared</div>
-                </Fade>
-              </div>
-            </li>
-          </ul>
+              </li>
+              <li>
+                <div className="direction-l">
+                  <div className="flag-wrapper">
+                    <span className="hexa"></span>
+                    <Fade right>
+                      <span className="flag">Campaign Day</span>
+                      <span className="time-wrapper">
+                        <span className="time">Sep 2</span>
+                      </span>
+                    </Fade>
+                  </div>
+                  <Fade right>
+                    <div className="desc">Campaigning Starts</div>
+                  </Fade>
+                </div>
+              </li>
+              <li>
+                <div className="direction-r">
+                  <div className="flag-wrapper">
+                    <Fade left>
+                      <span className="hexa"></span>
+                      <span className="flag">Voting Day</span>
+                      <span className="time-wrapper">
+                        <span className="time">Sep 3</span>
+                      </span>
+                    </Fade>
+                  </div>
+                  <Fade left>
+                    <div className="desc">Voting starts at 10Am</div>
+                  </Fade>
+                </div>
+              </li>
+              <li>
+                <div className="direction-l">
+                  <div className="flag-wrapper">
+                    <span className="hexa"></span>
+                    <Fade right>
+                      <span className="flag">Results Day</span>
+                      <span className="time-wrapper">
+                        <span className="time">Sep 4</span>
+                      </span>
+                    </Fade>
+                  </div>
+                  <Fade right>
+                    <div className="desc">Elections will be Declared</div>
+                  </Fade>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </OnImagesLoaded>
     );
