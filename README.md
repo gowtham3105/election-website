@@ -1,15 +1,10 @@
 # election-website
 Website for internal elections of IIT Dharwad
 
-# cd election-website
-open election-website directory
-# npm install
-Installs all Dependencies required for npm 
-# npm start
-starts npm server
+To run the project locally, execute following commands:
 
-# python test.py
-Run Test Flask Server to see all features
-<br>
-Lib Requirements :flask, flask_cors
+### `npm install`
+### `npm start`
 
+This will launch the website at localhost:3000 .<br/>
+It will auto refresh when any changes are made.
