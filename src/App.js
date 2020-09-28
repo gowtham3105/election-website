@@ -315,7 +315,7 @@ class Elections extends Component {
     );
   };
   componentDidMount() {
-    fetch("http://192.168.29.199:5000/positions")
+    fetch("http://127.0.0.1:5000/positions")
       .then((response) => {
         return response.json();
       })
@@ -459,7 +459,7 @@ class Account extends Component {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         fetch(
-          "http://192.168.29.199:5000/accountdetails?email=" +
+          "http://127.0.0.1:5000/accountdetails?email=" +
             firebase.auth().currentUser.email
         )
           .then((response) => {
