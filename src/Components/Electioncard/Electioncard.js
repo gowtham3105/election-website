@@ -83,10 +83,10 @@ class Electioncard extends React.Component {
         <div className="cont">
           <CollapsibleComponent>
             <div>
-              <CollapsibleHead className="elecbar">
+              <CollapsibleHead className="elecbar" >
                 <div className="elecname">General Seceratory Sports</div>
               </CollapsibleHead>
-              <CollapsibleContent>
+              <CollapsibleContent isExpanded={true}>
                 <Fade top opposite={true}>
                   <div className="eleccard">
                     <div
