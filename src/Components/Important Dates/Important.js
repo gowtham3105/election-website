@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./Important.css";
 import Fade from "react-reveal/Fade";
-import Button from "react-bootstrap/Button";
 class Important extends Component {
   constructor(props) {
     super(props);
@@ -12,7 +11,7 @@ class Important extends Component {
     return (
       <div className="importantDates">
         <div className="teamdesk">
-          <div className="topbannerteam">
+          <div className="topbannerteam_imp">
             <div className="titlebanteam">
               {" "}
               Important Dates
@@ -20,7 +19,10 @@ class Important extends Component {
                 Deadlines for Student Council Elections 2020-21. <br />
                 <div className="markdate">
                   Mark My Calander
-                  <a href="" style={{ margin: "10px" }}>
+                  <a
+                    href="https://calendar.google.com/calendar/u/0?cid=Y185Ym9rMGQ3Z2JmOGRrOG0zNTcydjdwZDZkNEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t"
+                    style={{ margin: "10px" }}
+                  >
                     <img
                       src="plus.jpeg"
                       alt="plus"
@@ -41,7 +43,7 @@ class Important extends Component {
         </div>
 
         <div className="teammobile">
-          <div className="topbannerteam">
+          <div className="topbannerteam_imp">
             <img
               width="70%"
               src="dateimp.jpeg"
@@ -56,7 +58,10 @@ class Important extends Component {
                 Deadlines for Student Council Elections 2020-21. <br />
                 <div className="markdate">
                   Mark My Calander
-                  <a href="" style={{ margin: "10px" }}>
+                  <a
+                    href="https://calendar.google.com/calendar/u/0?cid=Y185Ym9rMGQ3Z2JmOGRrOG0zNTcydjdwZDZkNEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t"
+                    style={{ margin: "10px" }}
+                  >
                     <img
                       src="plus.jpeg"
                       alt="plus"

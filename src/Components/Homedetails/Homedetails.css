@@ -17,7 +17,7 @@
     margin-top:-100vh;
     padding-top:100vh;
     grid-gap: 10px;
-    background-color: #e9deff;
+    background-color: #eadfff;
     width: 100vw;
     border-bottom-left-radius: 10vh;
     border-bottom-right-radius: 10vh;
@@ -89,8 +89,8 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
     height: 110vh;
-    grid-gap: 10px;
-    background-color: #e9deff;
+    grid-gap: -20px;
+    background-color: #eadfff;
     width: 100%;
 
     overflow: visible;
@@ -110,17 +110,23 @@
 
   .infotxt {
     padding-left:1vw;
+        padding-right:1vw;
+
     padding-bottom: 2vh;
-    align-self: end !important;
+    text-align:start;
+    margin-left:-2vw !important;
+    justify-self:start;
+    align-self: start !important;
     font-family: "Quicksand", sans-serif;
-    font-size: 3rem;
+    font-size: 2rem;
     margin: auto auto auto auto;
     text-align: start;
     line-height: 1.2;
     color: #752a87;
   }
   .infotxt a {
-    font-size: 5rem;
+    font-size: 4.5rem;
+    white-space: nowrap;
   }
   .bottomimg {
     max-width: 90%;

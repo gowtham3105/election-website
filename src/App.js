@@ -170,7 +170,7 @@ class NavBar extends Component {
             id="responsive-navbar-nav"
             className="NavBar navbar-toggle"
           >
-            <Nav className="mr-auto " fill>
+            <Nav className="navbar-collapse justify-content-end"  >
               <NavLink
                 exact
                 to="/"

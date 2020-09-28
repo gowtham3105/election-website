@@ -1,57 +1,60 @@
-.Positions{
-    margin-left: 7.5%;
-    margin-right:7.5%;
-    margin-top:25px;
-    margin-bottom:25px;
-    width:85%;
-    height:200px;
-    max-width:1400px;
-    font-size:20px!important;
-    color: black!important;
-    background-color: white!important;
-    border-color:#6f2891!important;
-    font-family: 'Open Sans', sans-serif;
-    font-weight:600;
-    border-width: 3px!important;
-    border-radius: 10px!important;
-    outline: none !important;
+body {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
 }
 
-
-.eligibile{
-    font-size:16px!important;
-    color: black!important;
-    background-color: white!important;
-    font-weight:200;
-
+.Positions {
+  margin-left: 7.5%;
+  margin-right: 7.5%;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  width: 85%;
+  height: 200px;
+  max-width: 1400px;
+  font-size: 20px !important;
+  color: black !important;
+  background-color: white !important;
+  border-color: #6f2891 !important;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+  font-weight: 600;
+  border-width: 3px !important;
+  border-radius: 10px !important;
+  outline: none !important;
 }
-.positionsname{
-    font-size:28px;
 
+.eligibile {
+  font-size: 16px !important;
+  color: black !important;
+  background-color: white !important;
+  font-weight: 500;
+}
+.positionsname {
+  font-size: 28px;
+  font-weight: 600;
 }
 
 @media only screen and (max-width: 1150px) {
-.positionsname {
-  font-size:25px;
-}
-.eligibile{
-    font-size:15px!important;
-}
-
+  .positionsname {
+    font-size: 25px;
+  }
+  .eligibile {
+    font-size: 15px !important;
+  }
 }
 @media only screen and (max-width: 960px) {
-.positionsname {
-  font-size:22px;
-}
-.eligibile{
-    font-size:14px!important;
-}
+  .positionsname {
+    font-size: 22px;
+  }
+  .eligibile {
+    font-size: 14px !important;
+  }
 }
 @media only screen and (max-width: 760px) {
-.positionsname {
-  font-size:20px;
-}
-.eligibile{
-    font-size:12px!important;
-}
+  .positionsname {
+    font-size: 20px;
+  }
+  .eligibile {
+    font-size: 12px !important;
+  }
 }

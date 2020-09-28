@@ -1,6 +1,6 @@
 body {
   font-family: "Quicksand", sans-serif;
-  font-weight: 500;
+  font-weight: 600;
 }
 .card {
   position: relative;
@@ -16,7 +16,7 @@ body {
   background: #e7dfdd;
   overflow: hidden;
   font-family: "Quicksand", sans-serif;
-  font-weight: 500;
+  font-weight: 600;
 }
 .card .ds-top {
   position: absolute;
