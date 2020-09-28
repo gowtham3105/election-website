@@ -22,7 +22,7 @@ class Results extends Component {
   }
 
   componentDidMount() {
-    fetch("http://192.168.29.199:5000/results")
+    fetch("http://127.0.0.1:5000/results")
       .then((response) => {
         return response.json();
       })
