@@ -19,7 +19,7 @@ def positions():
 def details():
     email = request.args.get('email')
     print(email)
-    f = open('190010036.json', "r")
+    f = open('voter.json', "r")
     r = f.read()
     r = json.loads(r)
     return jsonify(r)

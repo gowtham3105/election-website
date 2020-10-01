@@ -17,6 +17,7 @@ class Positions extends Component {
   render() {
     return (
       <div>
+        
         <Button onClick={this.handleCLick} className="Positions">
           <div className="positionsname">{this.state.name}</div>
           <div className="eligibile">

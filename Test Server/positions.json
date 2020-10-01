@@ -1,492 +1,61 @@
 [
-    {
-        "id":1,
-        "positionName":"General Seceratory Election",
-        "criteria":"Member of IIT Dharwad",
-        "candidates":
-           [
-            {
-                "id": 1,
-                "name": "Leanne Graham",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=IUN664s7N-c",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
-                "email": "abhiram123_45@gmail.co.in"
-            },
-            {
-                "id": 2,
-                "name": "Putti Gowtham Sai",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=PAFxkxFVLIM",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1820405/profile/profile-512.jpg?1533058950",
-                "email": "abhiram123_45@gmail.co.in"
-            },
-            {
-                "id": 3,
-                "name": "Omkar Rocks",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=PAFxkxFVLIM",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
-                "email": "abhiram123_45@gmail.co.in"
-            },
-            {
-                "id": 4,
-                "name": "Omkar Rocks",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=PAFxkxFVLIM",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
-                "email": "abhiram123_45@gmail.co.in"
-            },
-            {
-                "id": 5,
-                "name": "Omkar Rocks",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=PAFxkxFVLIM",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
-                "email": "abhiram123_45@gmail.co.in"
-            },
-            {
-                "id": 6,
-                "name": "Omkar Rocks",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=PAFxkxFVLIM",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
-                "email": "abhiram123_45@gmail.co.in"
-            }
-        ]
-    },
-    {
-        "id": 2,
-        "positionName": "General Seceratory Techinical Affairs Election",
-        "criteria": "Student of IIT Dharwad",
-        "candidates":  [
-            {
-                "id": 1,
-                "name": "Leanne Graham",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=IUN664s7N-c",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
-                "email": "abhiram123_45@gmail.co.in"
-            },
-            {
-                "id": 2,
-                "name": "Putti Gowtham Sai",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=PAFxkxFVLIM",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1820405/profile/profile-512.jpg?1533058950",
-                "email": "abhiram123_45@gmail.co.in"
-            },
-            {
-                "id": 3,
-                "name": "Omkar Rocks",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=PAFxkxFVLIM",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
-                "email": "abhiram123_45@gmail.co.in"
-            },
-            {
-                "id": 4,
-                "name": "Omkar Rocks",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=PAFxkxFVLIM",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
-                "email": "abhiram123_45@gmail.co.in"
-            },
-            {
-                "id": 5,
-                "name": "Omkar Rocks",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=PAFxkxFVLIM",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
-                "email": "abhiram123_45@gmail.co.in"
-            },
-            {
-                "id": 6,
-                "name": "Omkar Rocks",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=PAFxkxFVLIM",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
-                "email": "abhiram123_45@gmail.co.in"
-            }
-        ]
-    },
-    {
-        "id": 3,
-        "positionName": "General Seceratory Cultural Election",
-        "criteria": "Student of IIT Dharwad",
-        "candidates":  [
-            {
-                "id": 1,
-                "name": "Leanne Graham",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=IUN664s7N-c",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
-                "email": "abhiram123_45@gmail.co.in"
-            },
-            {
-                "id": 2,
-                "name": "Putti Gowtham Sai",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=PAFxkxFVLIM",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1820405/profile/profile-512.jpg?1533058950",
-                "email": "abhiram123_45@gmail.co.in"
-            },
-            {
-                "id": 3,
-                "name": "Omkar Rocks",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=PAFxkxFVLIM",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
-                "email": "abhiram123_45@gmail.co.in"
-            },
-            {
-                "id": 4,
-                "name": "Omkar Rocks",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=PAFxkxFVLIM",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
-                "email": "abhiram123_45@gmail.co.in"
-            },
-            {
-                "id": 5,
-                "name": "Omkar Rocks",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=PAFxkxFVLIM",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
-                "email": "abhiram123_45@gmail.co.in"
-            },
-            {
-                "id": 6,
-                "name": "Omkar Rocks",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=PAFxkxFVLIM",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
-                "email": "abhiram123_45@gmail.co.in"
-            }
-        ]
-    },
-    {
-        "id": 4,
-        "positionName": "General Seceratory Sports Election",
-        "criteria": "Student of IIT Dharwad",
-        "candidates":  [
-            {
-                "id": 1,
-                "name": "Leanne Graham",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=IUN664s7N-c",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
-                "email": "abhiram123_45@gmail.co.in"
-            },
-            {
-                "id": 2,
-                "name": "Putti Gowtham Sai",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=PAFxkxFVLIM",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1820405/profile/profile-512.jpg?1533058950",
-                "email": "abhiram123_45@gmail.co.in"
-            },
-            {
-                "id": 3,
-                "name": "Omkar Rocks",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=PAFxkxFVLIM",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
-                "email": "abhiram123_45@gmail.co.in"
-            },
-            {
-                "id": 4,
-                "name": "Omkar Rocks",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=PAFxkxFVLIM",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
-                "email": "abhiram123_45@gmail.co.in"
-            },
-            {
-                "id": 5,
-                "name": "Omkar Rocks",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=PAFxkxFVLIM",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
-                "email": "abhiram123_45@gmail.co.in"
-            },
-            {
-                "id": 6,
-                "name": "Omkar Rocks",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=PAFxkxFVLIM",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
-                "email": "abhiram123_45@gmail.co.in"
-            }
-        ]
-    },
-    {
-        "id": 5,
-        "positionName": "General Seceratory Hostel Election",
-        "criteria": "Student of IIT Dharwad",
-        "candidates":  [
-            {
-                "id": 1,
-                "name": "Leanne Graham",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=IUN664s7N-c",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
-                "email": "abhiram123_45@gmail.co.in"
-            },
-            {
-                "id": 2,
-                "name": "Putti Gowtham Sai",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=PAFxkxFVLIM",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1820405/profile/profile-512.jpg?1533058950",
-                "email": "abhiram123_45@gmail.co.in"
-            },
-            {
-                "id": 3,
-                "name": "Omkar Rocks",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=PAFxkxFVLIM",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
-                "email": "abhiram123_45@gmail.co.in"
-            },
-            {
-                "id": 4,
-                "name": "Omkar Rocks",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=PAFxkxFVLIM",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
-                "email": "abhiram123_45@gmail.co.in"
-            },
-            {
-                "id": 5,
-                "name": "Omkar Rocks",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=PAFxkxFVLIM",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
-                "email": "abhiram123_45@gmail.co.in"
-            },
-            {
-                "id": 6,
-                "name": "Omkar Rocks",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=PAFxkxFVLIM",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
-                "email": "abhiram123_45@gmail.co.in"
-            }
-        ]
-    },
-    {
-        "id": 6,
-        "positionName": "Robotics Club Seceratory Election",
-        "criteria": "Member of Robotics Club",
-        "candidates":  [
-            {
-                "id": 1,
-                "name": "Leanne Graham",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=IUN664s7N-c",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
-                "email": "abhiram123_45@gmail.co.in"
-            },
-            {
-                "id": 2,
-                "name": "Putti Gowtham Sai",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=PAFxkxFVLIM",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1820405/profile/profile-512.jpg?1533058950",
-                "email": "abhiram123_45@gmail.co.in"
-            },
-            {
-                "id": 3,
-                "name": "Omkar Rocks",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=PAFxkxFVLIM",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
-                "email": "abhiram123_45@gmail.co.in"
-            },
-            {
-                "id": 4,
-                "name": "Omkar Rocks",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=PAFxkxFVLIM",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
-                "email": "abhiram123_45@gmail.co.in"
-            },
-            {
-                "id": 5,
-                "name": "Omkar Rocks",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=PAFxkxFVLIM",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
-                "email": "abhiram123_45@gmail.co.in"
-            },
-            {
-                "id": 6,
-                "name": "Omkar Rocks",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=PAFxkxFVLIM",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
-                "email": "abhiram123_45@gmail.co.in"
-            }
-        ]
-    },
-    {
-        "id": 7,
-        "positionName": "Coding Club Seceratory Election",
-        "criteria": "Member of Coding Club",
-        "candidates":  [
-            {
-                "id": 1,
-                "name": "Leanne Graham",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=IUN664s7N-c",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
-                "email": "abhiram123_45@gmail.co.in"
-            },
-            {
-                "id": 2,
-                "name": "Putti Gowtham Sai",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=PAFxkxFVLIM",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1820405/profile/profile-512.jpg?1533058950",
-                "email": "abhiram123_45@gmail.co.in"
-            },
-            {
-                "id": 3,
-                "name": "Omkar Rocks",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=PAFxkxFVLIM",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
-                "email": "abhiram123_45@gmail.co.in"
-            },
-            {
-                "id": 4,
-                "name": "Omkar Rocks",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=PAFxkxFVLIM",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
-                "email": "abhiram123_45@gmail.co.in"
-            },
-            {
-                "id": 5,
-                "name": "Omkar Rocks",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=PAFxkxFVLIM",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
-                "email": "abhiram123_45@gmail.co.in"
-            },
-            {
-                "id": 6,
-                "name": "Omkar Rocks",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=PAFxkxFVLIM",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
-                "email": "abhiram123_45@gmail.co.in"
-            }
-        ]
-    },
-    {
-        "id": 8,
-        "positionName": "Data Science Club Seceratory Election",
-        "criteria": "Member of Data Science",
-        "candidates":  [
-            {
-                "id": 1,
-                "name": "Leanne Graham",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=IUN664s7N-c",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
-                "email": "abhiram123_45@gmail.co.in"
-            },
-            {
-                "id": 2,
-                "name": "Putti Gowtham Sai",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=PAFxkxFVLIM",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1820405/profile/profile-512.jpg?1533058950",
-                "email": "abhiram123_45@gmail.co.in"
-            },
-            {
-                "id": 3,
-                "name": "Omkar Rocks",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=PAFxkxFVLIM",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
-                "email": "abhiram123_45@gmail.co.in"
-            },
-            {
-                "id": 4,
-                "name": "Omkar Rocks",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=PAFxkxFVLIM",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
-                "email": "abhiram123_45@gmail.co.in"
-            },
-            {
-                "id": 5,
-                "name": "Omkar Rocks",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=PAFxkxFVLIM",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
-                "email": "abhiram123_45@gmail.co.in"
-            },
-            {
-                "id": 6,
-                "name": "Omkar Rocks",
-                "branch": "3rd Year,CSE",
-                "introUrl": "https://www.youtube.com/watch?v=PAFxkxFVLIM",
-                "manifestoUrl": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
-                "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
-                "email": "abhiram123_45@gmail.co.in"
-            }
-        ]
-    }
-
+	{
+		"elec_id": 1,
+		"elec_name": "General Seceratory",
+		"elec_vote_criteria": "Student of IIT Dharwad",
+		"elec_candidates": [
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			},
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010034,
+				"cand_name": "Putti Gowtham Sai",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			},
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			}
+		]
+	},
+	{
+		"elec_id": 2,
+		"elec_name": "General Seceratory Sports",
+		"elec_vote_criteria": "Student of IIT Dharwad",
+		"elec_candidates": [
+			{
+				"cand_elec_id": 2,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			},
+			{
+				"cand_elec_id": 2,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			}
+		]
+	}
 ]

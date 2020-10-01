@@ -1,0 +1,27 @@
+[
+    {
+        "voter_id": 190010029,
+        "voter_name": "Leanne Graham",
+        "voter_branch": "3rd Year,CSE",
+        "voter_rights": [
+            {
+                "elec_id": 1,
+                "elec_name": "General Sectory Technical",
+                "elec_isvoted": false,
+                "elec_votedto": null
+            },
+            {
+                "elec_id": 2,
+                "elec_name": "General Sectory Sports",
+                "elec_isvoted": true,
+                "elec_votedto": 190010029
+            },
+            {
+                "elec_id": 3,
+                "elec_name": "General Sectory Cultural",
+                "elec_isvoted": false,
+                "elec_votedto": null
+            }
+        ]
+    }
+]

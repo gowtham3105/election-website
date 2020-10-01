@@ -13,13 +13,13 @@ const CardList = ({ robots }) => {
           return (
             <Card
               key={i}
-              id={robots[i].id}
-              imgUrl={robots[i].imgUrl}
-              name={robots[i].name}
-              email={robots[i].email}
-              branch={robots[i].branch}
-              manifestoUrl={robots[i].manifestoUrl}
-              introUrl={robots[i].introUrl}
+              cand_elec_id={robots[i].cand_elec_id}
+              cand_imgsrc={robots[i].cand_imgsrc}
+              cand_name={robots[i].cand_name}
+              cand_id={robots[i].cand_id}
+              cand_branch={robots[i].cand_branch}
+              cand_manifesto={robots[i].cand_manifesto}
+              cand_intro={robots[i].cand_intro}
             />
           );
         })

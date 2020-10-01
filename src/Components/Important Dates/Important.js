@@ -38,6 +38,7 @@ class Important extends Component {
                       href="https://calendar.google.com/calendar/u/0?cid=Y185Ym9rMGQ3Z2JmOGRrOG0zNTcydjdwZDZkNEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t"
                       style={{ margin: "10px" }}
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <img
                         src="plus.jpeg"
@@ -78,6 +79,7 @@ class Important extends Component {
                       href="https://calendar.google.com/calendar/u/0?cid=Y185Ym9rMGQ3Z2JmOGRrOG0zNTcydjdwZDZkNEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t"
                       style={{ margin: "10px" }}
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <img
                         src="plus.jpeg"

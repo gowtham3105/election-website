@@ -1,128 +1,486 @@
 {
-    "GenSec": [
-        {
-            "Name": "Gowtham Sai",
-            "branch": "Computer Science",
-            "percentage": "23.4%",
-            "width": "100%",
-            "backcolor": "#b850eb",
-            "frontcolor": "#6f2891"
-        },
-        {
-            "Name": "Omkar",
-            "branch": "Electrical",
-            "percentage": "15.2%",
-            "width": "85%",
-            "backcolor": "#5239cc",
-            "frontcolor": " #2100c4"
-        },
-        {
-            "Name": "Ramoji",
-            "branch": "Mechanical",
-            "percentage": "10.5%",
-            "width": "72.53%",
-            "backcolor": "#4cd966",
-            "frontcolor": "#00c424"
-        },
-        {
-            "Name": "Avinash",
-            "branch": "Electrical",
-            "percentage": "9.4%",
-            "width": "62.89%",
-            "backcolor": "#f79e5e",
-            "frontcolor": "#fc6a00"
-        },
-        {
-            "Name": "Lokesh",
-            "branch": "Computer Science",
-            "percentage": "6.4%",
-            "width": "41.23%",
-            "backcolor": "#ade6f7",
-            "frontcolor": "#00c1fc"
-        }
-    ],
-    "GenSecTech": [
-      {
-        "Name": "Eeswar",
-        "branch": "Computer Science",
-        "percentage": "21.8%",
-        "width": "80%",
-        "backcolor": "#b850eb",
-        "frontcolor": "#6f2891"
-    },
-    {
-        "Name": "Omkar",
-        "branch": "Electrical",
-        "percentage": "18.5%",
-        "width": "72%",
-        "backcolor": "#5239cc",
-        "frontcolor": " #2100c4"
-    },
-    {
-        "Name": "Ramoji",
-        "branch": "Mechanical",
-        "percentage": "11.8%",
-        "width": "65.52%",
-        "backcolor": "#4cd966",
-        "frontcolor": "#00c424"
-    },
-    {
-        "Name": "Avinash",
-        "branch": "Electrical",
-        "percentage": "9.4%",
-        "width": "57.56%",
-        "backcolor": "#f79e5e",
-        "frontcolor": "#fc6a00"
-    },
-    {
-        "Name": "Lokesh",
-        "branch": "Computer Science",
-        "percentage": "6.4%",
-        "width": "98%",
-        "backcolor": "#ade6f7",
-        "frontcolor": "#00c1fc"
-    }
-    ],
-    "GenSecCultural": [
-      {
-        "Name": "Naveen",
-        "branch": "Computer Science",
-        "percentage": "26.4%",
-        "width": "90%",
-        "backcolor": "#b850eb",
-        "frontcolor": "#6f2891"
-    },
-    {
-        "Name": "Omkar",
-        "branch": "Electrical",
-        "percentage": "14.2%",
-        "width": "87%",
-        "backcolor": "#5239cc",
-        "frontcolor": " #2100c4"
-    },
-    {
-        "Name": "Ramoji",
-        "branch": "Mechanical",
-        "percentage": "12.5%",
-        "width": "65.53%",
-        "backcolor": "#4cd966",
-        "frontcolor": "#00c424"
-    },
-    {
-        "Name": "Avinash",
-        "branch": "Electrical",
-        "percentage": "11.4%",
-        "width": "59.89%",
-        "backcolor": "#f79e5e",
-        "frontcolor": "#fc6a00"
-    },
-    {
-        "Name": "Lokesh",
-        "branch": "Computer Science",
-        "percentage": "8.4%",
-        "width": "32.23%",
-        "backcolor": "#ade6f7",
-        "frontcolor": "#00c1fc"
-    }
-    ]
+	"GenELections": [
+		{
+			"elec_id": 1,
+			"elec_name": "General Seceratory",
+			"elec_result_cand": [
+				{
+					"cand_id": 190010029,
+					"cand_name": "Omkar D J",
+					"cand_branch": "3rd Year,CSE",
+					"cand_imgsrc": "www.linktoprofilepic.com",
+					"cand_vote_percent": "23.4%",
+					"cand_vote_num": 98,
+					"cand_result_width": "100%",
+					"cand_backcolor": "#b850eb",
+					"cand_frontcolor": "#6f2891"
+				},
+				{
+					"cand_id": 190010029,
+					"cand_name": "Omkar D J",
+					"cand_branch": "3rd Year,CSE",
+					"cand_imgsrc": "www.linktoprofilepic.com",
+					"cand_vote_percent": "23.4%",
+					"cand_vote_num": 98,
+					"cand_result_width": "80%",
+					"cand_backcolor": "#b850eb",
+					"cand_frontcolor": "#6f2891"
+				},
+				{
+					"cand_id": 190010029,
+					"cand_name": "Omkar D J",
+					"cand_branch": "3rd Year,CSE",
+					"cand_imgsrc": "www.linktoprofilepic.com",
+					"cand_vote_percent": "23.4%",
+					"cand_vote_num": 98,
+					"cand_result_width": "60%",
+					"cand_backcolor": "#b850eb",
+					"cand_frontcolor": "#6f2891"
+				}
+			]
+		},
+		{
+			"elec_id": 2,
+			"elec_name": "General Seceratory Sports",
+			"elec_result_cand": [
+				{
+					"cand_id": 190010029,
+					"cand_name": "Omkar D J",
+					"cand_branch": "3rd Year,CSE",
+					"cand_imgsrc": "www.linktoprofilepic.com",
+					"cand_vote_percent": "23.4%",
+					"cand_vote_num": 98,
+					"cand_result_width": "100%",
+					"cand_backcolor": "#b850eb",
+					"cand_frontcolor": "#6f2891"
+				},
+				{
+					"cand_id": 190010029,
+					"cand_name": "Omkar D J",
+					"cand_branch": "3rd Year,CSE",
+					"cand_imgsrc": "www.linktoprofilepic.com",
+					"cand_vote_percent": "23.4%",
+					"cand_vote_num": 98,
+					"cand_result_width": "100%",
+					"cand_backcolor": "#b850eb",
+					"cand_frontcolor": "#6f2891"
+				}
+			]
+		}
+	],
+	"TechClubElections": [
+		{
+			"elec_id": 1,
+			"elec_name": "Robotics Club Seceratory",
+			"elec_result_cand": [
+				{
+					"cand_id": 190010029,
+					"cand_name": "Omkar D J",
+					"cand_branch": "3rd Year,CSE",
+					"cand_imgsrc": "www.linktoprofilepic.com",
+					"cand_vote_percent": "23.4%",
+					"cand_vote_num": 98,
+					"cand_result_width": "100%",
+					"cand_backcolor": "#b850eb",
+					"cand_frontcolor": "#6f2891"
+				},
+				{
+					"cand_id": 190010029,
+					"cand_name": "Gowtham Sai",
+					"cand_branch": "3rd Year,CSE",
+					"cand_imgsrc": "www.linktoprofilepic.com",
+					"cand_vote_percent": "23.4%",
+					"cand_vote_num": 98,
+					"cand_result_width": "100%",
+					"cand_backcolor": "#b850eb",
+					"cand_frontcolor": "#6f2891"
+				},
+				{
+					"cand_id": 190010029,
+					"cand_name": "Omkar D J",
+					"cand_branch": "3rd Year,CSE",
+					"cand_imgsrc": "www.linktoprofilepic.com",
+					"cand_vote_percent": "23.4%",
+					"cand_vote_num": 98,
+					"cand_result_width": "50%",
+					"cand_backcolor": "#b850eb",
+					"cand_frontcolor": "#6f2891"
+				}
+			]
+		},
+		{
+			"elec_id": 2,
+			"elec_name": "Coding Club Seceratory",
+			"elec_result_cand": [
+				{
+					"cand_id": 190010029,
+					"cand_name": "Omkar D J",
+					"cand_branch": "3rd Year,CSE",
+					"cand_imgsrc": "www.linktoprofilepic.com",
+					"cand_vote_percent": "23.4%",
+					"cand_vote_num": 98,
+					"cand_result_width": "100%",
+					"cand_backcolor": "#b850eb",
+					"cand_frontcolor": "#6f2891"
+				},
+				{
+					"cand_id": 190010029,
+					"cand_name": "Omkar D J",
+					"cand_branch": "3rd Year,CSE",
+					"cand_imgsrc": "www.linktoprofilepic.com",
+					"cand_vote_percent": "23.4%",
+					"cand_vote_num": 98,
+					"cand_result_width": "100%",
+					"cand_backcolor": "#b850eb",
+					"cand_frontcolor": "#6f2891"
+				}
+			]
+		}
+	],
+	"CulturalClubElections": [
+		{
+			"elec_id": 1,
+			"elec_name": "Dance Club Seceratory",
+			"elec_result_cand": [
+				{
+					"cand_id": 190010029,
+					"cand_name": "Omkar D J",
+					"cand_branch": "3rd Year,CSE",
+					"cand_imgsrc": "www.linktoprofilepic.com",
+					"cand_vote_percent": "23.4%",
+					"cand_vote_num": 98,
+					"cand_result_width": "100%",
+					"cand_backcolor": "#b850eb",
+					"cand_frontcolor": "#6f2891"
+				},
+				{
+					"cand_id": 190010029,
+					"cand_name": "Omkar D J",
+					"cand_branch": "3rd Year,CSE",
+					"cand_imgsrc": "www.linktoprofilepic.com",
+					"cand_vote_percent": "23.4%",
+					"cand_vote_num": 98,
+					"cand_result_width": "100%",
+					"cand_backcolor": "#b850eb",
+					"cand_frontcolor": "#6f2891"
+				},
+				{
+					"cand_id": 190010029,
+					"cand_name": "Omkar D J",
+					"cand_branch": "3rd Year,CSE",
+					"cand_imgsrc": "www.linktoprofilepic.com",
+					"cand_vote_percent": "23.4%",
+					"cand_vote_num": 98,
+					"cand_result_width": "100%",
+					"cand_backcolor": "#b850eb",
+					"cand_frontcolor": "#6f2891"
+				}
+			]
+		},
+		{
+			"elec_id": 2,
+			"elec_name": "Singing CLub Seceratory Sports",
+			"elec_result_cand": [
+				{
+					"cand_id": 190010029,
+					"cand_name": "Omkar D J",
+					"cand_branch": "3rd Year,CSE",
+					"cand_imgsrc": "www.linktoprofilepic.com",
+					"cand_vote_percent": "23.4%",
+					"cand_vote_num": 98,
+					"cand_result_width": "100%",
+					"cand_backcolor": "#b850eb",
+					"cand_frontcolor": "#6f2891"
+				},
+				{
+					"cand_id": 190010029,
+					"cand_name": "Omkar D J",
+					"cand_branch": "3rd Year,CSE",
+					"cand_imgsrc": "www.linktoprofilepic.com",
+					"cand_vote_percent": "23.4%",
+					"cand_vote_num": 98,
+					"cand_result_width": "100%",
+					"cand_backcolor": "#b850eb",
+					"cand_frontcolor": "#6f2891"
+				}
+			]
+		}
+	],
+	"SportsClubElections": [
+		{
+			"elec_id": 1,
+			"elec_name": "Dance Club Seceratory",
+			"elec_result_cand": [
+				{
+					"cand_id": 190010029,
+					"cand_name": "Omkar D J",
+					"cand_branch": "3rd Year,CSE",
+					"cand_imgsrc": "www.linktoprofilepic.com",
+					"cand_vote_percent": "23.4%",
+					"cand_vote_num": 98,
+					"cand_result_width": "100%",
+					"cand_backcolor": "#b850eb",
+					"cand_frontcolor": "#6f2891"
+				},
+				{
+					"cand_id": 190010029,
+					"cand_name": "Omkar D J",
+					"cand_branch": "3rd Year,CSE",
+					"cand_imgsrc": "www.linktoprofilepic.com",
+					"cand_vote_percent": "23.4%",
+					"cand_vote_num": 98,
+					"cand_result_width": "100%",
+					"cand_backcolor": "#b850eb",
+					"cand_frontcolor": "#6f2891"
+				},
+				{
+					"cand_id": 190010029,
+					"cand_name": "Omkar D J",
+					"cand_branch": "3rd Year,CSE",
+					"cand_imgsrc": "www.linktoprofilepic.com",
+					"cand_vote_percent": "23.4%",
+					"cand_vote_num": 98,
+					"cand_result_width": "100%",
+					"cand_backcolor": "#b850eb",
+					"cand_frontcolor": "#6f2891"
+				}
+			]
+		},
+		{
+			"elec_id": 2,
+			"elec_name": "Singing CLub Seceratory Sports",
+			"elec_result_cand": [
+				{
+					"cand_id": 190010029,
+					"cand_name": "Omkar D J",
+					"cand_branch": "3rd Year,CSE",
+					"cand_imgsrc": "www.linktoprofilepic.com",
+					"cand_vote_percent": "23.4%",
+					"cand_vote_num": 98,
+					"cand_result_width": "100%",
+					"cand_backcolor": "#b850eb",
+					"cand_frontcolor": "#6f2891"
+				},
+				{
+					"cand_id": 190010029,
+					"cand_name": "Omkar D J",
+					"cand_branch": "3rd Year,CSE",
+					"cand_imgsrc": "www.linktoprofilepic.com",
+					"cand_vote_percent": "23.4%",
+					"cand_vote_num": 98,
+					"cand_result_width": "100%",
+					"cand_backcolor": "#b850eb",
+					"cand_frontcolor": "#6f2891"
+				}
+			]
+		}
+	],
+	"MessSecretaryElections": [
+		{
+			"elec_id": 1,
+			"elec_name": "Keervani Hostel Mess Seceratory",
+			"elec_result_cand": [
+				{
+					"cand_id": 190010029,
+					"cand_name": "Omkar D J",
+					"cand_branch": "3rd Year,CSE",
+					"cand_imgsrc": "www.linktoprofilepic.com",
+					"cand_vote_percent": "23.4%",
+					"cand_vote_num": 98,
+					"cand_result_width": "100%",
+					"cand_backcolor": "#b850eb",
+					"cand_frontcolor": "#6f2891"
+				},
+				{
+					"cand_id": 190010029,
+					"cand_name": "Omkar D J",
+					"cand_branch": "3rd Year,CSE",
+					"cand_imgsrc": "www.linktoprofilepic.com",
+					"cand_vote_percent": "23.4%",
+					"cand_vote_num": 98,
+					"cand_result_width": "100%",
+					"cand_backcolor": "#b850eb",
+					"cand_frontcolor": "#6f2891"
+				},
+				{
+					"cand_id": 190010029,
+					"cand_name": "Omkar D J",
+					"cand_branch": "3rd Year,CSE",
+					"cand_imgsrc": "www.linktoprofilepic.com",
+					"cand_vote_percent": "23.4%",
+					"cand_vote_num": 98,
+					"cand_result_width": "100%",
+					"cand_backcolor": "#b850eb",
+					"cand_frontcolor": "#6f2891"
+				}
+			]
+		},
+		{
+			"elec_id": 2,
+			"elec_name": "Boopali Mess Seceratory",
+			"elec_result_cand": [
+				{
+					"cand_id": 190010029,
+					"cand_name": "Omkar D J",
+					"cand_branch": "3rd Year,CSE",
+					"cand_imgsrc": "www.linktoprofilepic.com",
+					"cand_vote_percent": "23.4%",
+					"cand_vote_num": 98,
+					"cand_result_width": "100%",
+					"cand_backcolor": "#b850eb",
+					"cand_frontcolor": "#6f2891"
+				},
+				{
+					"cand_id": 190010029,
+					"cand_name": "Omkar D J",
+					"cand_branch": "3rd Year,CSE",
+					"cand_imgsrc": "www.linktoprofilepic.com",
+					"cand_vote_percent": "23.4%",
+					"cand_vote_num": 98,
+					"cand_result_width": "100%",
+					"cand_backcolor": "#b850eb",
+					"cand_frontcolor": "#6f2891"
+				}
+			]
+		}
+	],
+	"HostelSecretaryElections": [
+		{
+			"elec_id": 1,
+			"elec_name": "Hostel 1 Seceratory",
+			"elec_result_cand": [
+				{
+					"cand_id": 190010029,
+					"cand_name": "Omkar D J",
+					"cand_branch": "3rd Year,CSE",
+					"cand_imgsrc": "www.linktoprofilepic.com",
+					"cand_vote_percent": "23.4%",
+					"cand_vote_num": 98,
+					"cand_result_width": "100%",
+					"cand_backcolor": "#b850eb",
+					"cand_frontcolor": "#6f2891"
+				},
+				{
+					"cand_id": 190010029,
+					"cand_name": "Omkar D J",
+					"cand_branch": "3rd Year,CSE",
+					"cand_imgsrc": "www.linktoprofilepic.com",
+					"cand_vote_percent": "23.4%",
+					"cand_vote_num": 98,
+					"cand_result_width": "100%",
+					"cand_backcolor": "#b850eb",
+					"cand_frontcolor": "#6f2891"
+				},
+				{
+					"cand_id": 190010029,
+					"cand_name": "Omkar D J",
+					"cand_branch": "3rd Year,CSE",
+					"cand_imgsrc": "www.linktoprofilepic.com",
+					"cand_vote_percent": "23.4%",
+					"cand_vote_num": 98,
+					"cand_result_width": "100%",
+					"cand_backcolor": "#b850eb",
+					"cand_frontcolor": "#6f2891"
+				}
+			]
+		},
+		{
+			"elec_id": 2,
+			"elec_name": "Hostel 2 Seceratory",
+			"elec_result_cand": [
+				{
+					"cand_id": 190010029,
+					"cand_name": "Omkar D J",
+					"cand_branch": "3rd Year,CSE",
+					"cand_imgsrc": "www.linktoprofilepic.com",
+					"cand_vote_percent": "23.4%",
+					"cand_vote_num": 98,
+					"cand_result_width": "100%",
+					"cand_backcolor": "#b850eb",
+					"cand_frontcolor": "#6f2891"
+				},
+				{
+					"cand_id": 190010029,
+					"cand_name": "Omkar D J",
+					"cand_branch": "3rd Year,CSE",
+					"cand_imgsrc": "www.linktoprofilepic.com",
+					"cand_vote_percent": "23.4%",
+					"cand_vote_num": 98,
+					"cand_result_width": "100%",
+					"cand_backcolor": "#b850eb",
+					"cand_frontcolor": "#6f2891"
+				}
+			]
+		}
+	],
+	"AcademicCRElections": [
+		{
+			"elec_id": 1,
+			"elec_name": "Hostel 1 Seceratory",
+			"elec_result_cand": [
+				{
+					"cand_id": 190010029,
+					"cand_name": "Omkar D J",
+					"cand_branch": "3rd Year,CSE",
+					"cand_imgsrc": "www.linktoprofilepic.com",
+					"cand_vote_percent": "23.4%",
+					"cand_vote_num": 98,
+					"cand_result_width": "100%",
+					"cand_backcolor": "#b850eb",
+					"cand_frontcolor": "#6f2891"
+				},
+				{
+					"cand_id": 190010029,
+					"cand_name": "Omkar D J",
+					"cand_branch": "3rd Year,CSE",
+					"cand_imgsrc": "www.linktoprofilepic.com",
+					"cand_vote_percent": "23.4%",
+					"cand_vote_num": 98,
+					"cand_result_width": "100%",
+					"cand_backcolor": "#b850eb",
+					"cand_frontcolor": "#6f2891"
+				},
+				{
+					"cand_id": 190010029,
+					"cand_name": "Omkar D J",
+					"cand_branch": "3rd Year,CSE",
+					"cand_imgsrc": "www.linktoprofilepic.com",
+					"cand_vote_percent": "23.4%",
+					"cand_vote_num": 98,
+					"cand_result_width": "100%",
+					"cand_backcolor": "#b850eb",
+					"cand_frontcolor": "#6f2891"
+				}
+			]
+		},
+		{
+			"elec_id": 2,
+			"elec_name": "Hostel 2 Seceratory",
+			"elec_result_cand": [
+				{
+					"cand_id": 190010029,
+					"cand_name": "Omkar D J",
+					"cand_branch": "3rd Year,CSE",
+					"cand_imgsrc": "www.linktoprofilepic.com",
+					"cand_vote_percent": "23.4%",
+					"cand_vote_num": 98,
+					"cand_result_width": "100%",
+					"cand_backcolor": "#b850eb",
+					"cand_frontcolor": "#6f2891"
+				},
+				{
+					"cand_id": 190010029,
+					"cand_name": "Omkar D J",
+					"cand_branch": "3rd Year,CSE",
+					"cand_imgsrc": "www.linktoprofilepic.com",
+					"cand_vote_percent": "23.4%",
+					"cand_vote_num": 98,
+					"cand_result_width": "100%",
+					"cand_backcolor": "#b850eb",
+					"cand_frontcolor": "#6f2891"
+				}
+			]
+		}
+	]
 }
+

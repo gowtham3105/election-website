@@ -307,9 +307,9 @@ class Elections extends Component {
   showPositions = (user, i) => {
     return (
       <Positions
-        robots={user.candidates}
-        name={user.positionName}
-        criteria={user.criteria}
+        robots={user.elec_candidates}
+        name={user.elec_name}
+        criteria={user.elec_vote_criteria}
         key={i}
       />
     );
@@ -441,15 +441,19 @@ class Account extends Component {
     this.state = {
       show: this.props.show,
       details: {
-        Eligible_Positions: [],
+        voter_rights: [],
       },
     };
+    // eslint-disable-next-line no-func-assign
+    setDetails = setDetails.bind(this);
+    // eslint-disable-next-line no-func-assign
+    getDetails = getDetails.bind(this);
   }
   showpos = () => {
     return (
       <ul>
-        {this.state.details.Eligible_Positions.map((reptile, i) => (
-          <li key={i}>{reptile}</li>
+        {this.state.details.voter_rights.map((pos, i) => (
+          <li key={i}>{pos.elec_name}</li>
         ))}
       </ul>
     );
@@ -467,6 +471,7 @@ class Account extends Component {
           })
           .then((users) => {
             this.setState({ details: users[0] });
+            //setDetails(0, 190010036);
           });
       }
     });
@@ -475,7 +480,6 @@ class Account extends Component {
   render() {
     return (
       <div>
-        {console.log(this.state.details.Eligible_Positions)}
         <Modal
           show={this.props.show && firebase.auth().currentUser.emailVerified}
           onHide={() => {
@@ -497,19 +501,19 @@ class Account extends Component {
                       Name
                       <br />
                     </div>
-                    {this.state.details.name}
+                    {this.state.details.voter_name}
                     <br />
                     <div className="accountheading">
                       Branch
                       <br />
                     </div>
-                    {this.state.details.branch}
+                    {this.state.details.voter_branch}
                     <br />
                     <div className="accountheading">
                       Roll No
                       <br />
                     </div>
-                    {this.state.details.rollno}
+                    {this.state.details.voter_id}
                     <br />
                   </div>
                   <br />
@@ -670,4 +674,25 @@ function setShowAccount(val) {
   this.setState({ showAccount: val });
 }
 
-export { App, showModel };
+function setDetails(index, val) {
+  if (firebase.auth().currentUser && this.state.details.voter_rights.length) {
+    var det = this.state.details;
+    det.voter_rights[index].elec_votedto = val;
+    det.voter_rights[index].elec_isvoted = true;
+
+    this.setState({ details: det });
+
+    console.log(this.state.details.voter_rights);
+    return true;
+  } else {
+    return false;
+  }
+}
+function getDetails() {
+  if (firebase.auth().currentUser && this.state.details.voter_rights.length) {
+    return this.state.details;
+  } else {
+    return false;
+  }
+}
+export { App, setDetails, getDetails, showModel };

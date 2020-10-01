@@ -70,22 +70,26 @@ html {
   /*	 animation: fadeIn 2s ease-in;
 */
 }
-.card .name a {
+.card .name div {
   color: #0e0b16;
   text-decoration: none;
   font-weight: 700;
 }
-.card .name a:hover {
+.card .name div:hover {
   color: crimson;
 }
 #namex {
-  font-size: 22px;
+  margin-top: 5%;
+  line-height: 27px;
+  font-size: 24px;
 }
 #dept {
-  font-size: 18px;
+  line-height: 27px;
+  font-size: 20px;
 }
 #email {
-  font-size: 15px;
+  line-height: 27px;
+  font-size: 17px;
 }
 .buttonhold {
   position: absolute;

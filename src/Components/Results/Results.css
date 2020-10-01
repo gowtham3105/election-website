@@ -252,6 +252,7 @@ html {
     border-radius: 10px;
     margin: auto;
     font-weight: 600;
+    
   }
   .positionsItem:hover {
     width: 85%;
@@ -268,7 +269,9 @@ html {
     font-size: 14px;
     border-radius: 10px;
     border-radius: 5px 5px 5px 5px !important;
-
+    border-color: maroon;
+    border-width: 2px;
+    border-left-style: solid;
     margin: auto;
     margin-top: 5px;
     margin-bottom: 5px;
