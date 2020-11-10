@@ -29,7 +29,7 @@ import Container from "react-bootstrap/Container";
 import Important from "./Components/Important Dates/Important";
 import OnImagesLoaded from "react-on-images-loaded";
 import Results from "./Components/Results/Results";
-
+import positionImg from "./position.png";
 class Video extends Component {
   constructor(props) {
     super(props);
@@ -315,7 +315,7 @@ class Elections extends Component {
     );
   };
   componentDidMount() {
-    fetch("http://127.0.0.1:5000/positions")
+    fetch("https://election-website-test.herokuapp.com/positions")
       .then((response) => {
         return response.json();
       })
@@ -346,7 +346,7 @@ class Elections extends Component {
                 <p>IIT Dharwad Elections 2020-21</p>
               </div>
               <img
-                src="position.png"
+                src={positionImg}
                 className="topbannerimgteam"
                 alt="position img"
               />
@@ -356,7 +356,7 @@ class Elections extends Component {
           <div className="teammobile">
             <div className="topbannerteam">
               <img
-                src="position.png"
+                src={positionImg}
                 className="topbannerimgteam"
                 alt="position img"
               />
@@ -463,7 +463,7 @@ class Account extends Component {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         fetch(
-          "http://127.0.0.1:5000/accountdetails?email=" +
+          "https://election-website-test.herokuapp.com/accountdetails?email=" +
             firebase.auth().currentUser.email
         )
           .then((response) => {

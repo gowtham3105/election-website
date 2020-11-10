@@ -81,6 +81,10 @@ html * {
   font-size: 18px;
   color: #6f2891;
 }
+.accountposElement ul{
+max-height:180px;
+overflow-y: auto;
+}
 .back {
   position: fixed;
   width: 100%;
@@ -92,6 +96,7 @@ html * {
   font-weight: 540;
   color: black;
 }
+
 .error {
   color: #434e65;
   text-align: center;

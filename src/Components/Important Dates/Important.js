@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./Important.css";
 import Fade from "react-reveal/Fade";
 import OnImagesLoaded from "react-on-images-loaded";
+import dateimpImg from "./dateimp.jpeg";
+import plus from "./plus.jpeg";
 class Important extends Component {
   constructor(props) {
     super(props);
@@ -41,7 +43,7 @@ class Important extends Component {
                       rel="noopener noreferrer"
                     >
                       <img
-                        src="plus.jpeg"
+                        src={plus}
                         alt="plus"
                         width="10%"
                         className="markdateimg"
@@ -52,7 +54,7 @@ class Important extends Component {
               </div>
               <img
                 width="70%"
-                src="dateimp.jpeg"
+                src={dateimpImg}
                 className="topbannerimgteam"
                 alt="dateimp.jpeg"
               />
@@ -63,7 +65,7 @@ class Important extends Component {
             <div className="topbannerteam_imp">
               <img
                 width="70%"
-                src="dateimp.jpeg"
+                src={dateimpImg}
                 className="topbannerimgteam"
                 alt="dateimp.jpeg"
               />
@@ -82,7 +84,7 @@ class Important extends Component {
                       rel="noopener noreferrer"
                     >
                       <img
-                        src="plus.jpeg"
+                        src={plus}
                         alt="plus"
                         width="10%"
                         className="markdateimg"

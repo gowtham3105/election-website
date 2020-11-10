@@ -93,35 +93,29 @@ html {
   width: 80%;
 }
 .positionsItem {
-  width: 95%;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  max-height: 80px;
-  font-family: "Quicksand", sans-serif;
-  font-weight: 600;
-  text-align: center;
-  border-radius: 0px 20px 20px 0px !important;
-  font-weight: 600;
-}
-.positionsItem:hover {
-  width: 95%;
+  width: 90%;
   padding-top: 7px;
   padding-bottom: 7px;
   max-height: 80px;
   font-family: "Quicksand", sans-serif;
   font-weight: 600;
+  border-style: solid;
+  border-width: 2px;
+  border-color: transparent;
   text-align: center;
-  background-color: white;
+  border-radius: 0px 20px 20px 0px !important;
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.positionsItem:hover {
+  background-color: white!important;
   color: black;
   transform: scale(1.1);
   cursor: pointer;
-  border-style: solid;
-  border-width: 2px;
-  border-color: maroon;
-  border-left: none;
+  border-color: maroon!important;
+  border-left: none!important;
   border-radius: 0px 20px 20px 0px !important;
-  margin-top: 10px;
-  margin-bottom: 10px;
 }
 .positionlistgroup {
   width: 100%;
@@ -400,4 +394,8 @@ html {
   background-image: url(themebgflip.png);
   background-repeat: no-repeat;
   background-position: right bottom;
+}
+
+.resultsinfo .row{
+  min-height:450px;
 }

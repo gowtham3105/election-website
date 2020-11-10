@@ -7,10 +7,12 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Modal from "react-bootstrap/Modal";
 import OnImagesLoaded from "react-on-images-loaded";
-
+import resultsImg from "./result.jpeg";
+import Fade from "react-reveal/Fade";
 class Results extends Component {
   constructor(props) {
     super(props);
+    
     this.props.showLoader();
     this.state = {
       results: {
@@ -30,7 +32,7 @@ class Results extends Component {
   }
 
   componentDidMount() {
-    fetch("http://127.0.0.1:5000/results")
+    fetch("https://election-website-test.herokuapp.com/results")
       .then((response) => {
         return response.json();
       })
@@ -65,7 +67,7 @@ class Results extends Component {
                 <p>IIT Dharwad Elections 2020-21</p>
               </div>
               <img
-                src="result.jpeg"
+                src={resultsImg}
                 className="topbannerimgteam"
                 alt="result.jpeg"
               />
@@ -75,7 +77,7 @@ class Results extends Component {
           <div className="teammobile">
             <div className="topbannerteam">
               <img
-                src="result.jpeg"
+                src={resultsImg}
                 className="topbannerimgteam"
                 alt="result.jpeg"
               />
@@ -351,7 +353,9 @@ class Results extends Component {
               Select Position
             </Button>
           </div>
-          <div className="positionname">{this.state.positionName}</div>
+          <div className="positionname">
+            <Fade spy={this.state.positionName}>{this.state.positionName}</Fade>
+          </div>
           <div className="resultsinfo">
             <Container fluid>
               <Row>
@@ -584,10 +588,12 @@ class Results extends Component {
                 <Col>
                   <div className="resultshead">
                     {this.state.activeResults.map((user, i) => {
+                      //user.cand_frontcolor = "#ff0000";
+                      var cand_backcolor = user.cand_frontcolor + "80";
                       return (
                         <div
                           className="candidate-result"
-                          style={{ background: user.cand_backcolor }}
+                          style={{ background: cand_backcolor }}
                           key={i}
                         >
                           <h2 className="candidate__name">{user.cand_name}</h2>
