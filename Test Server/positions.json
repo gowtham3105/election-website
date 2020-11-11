@@ -1,6 +1,7 @@
 [
 	{
 		"elec_id": 1,
+		"elec_cato": "General Elections",
 		"elec_name": "General Seceratory",
 		"elec_vote_criteria": "Student of IIT Dharwad",
 		"elec_candidates": [
@@ -35,6 +36,7 @@
 	},
 	{
 		"elec_id": 2,
+		"elec_cato": "Academic Elections",
 		"elec_name": "General Seceratory Sports",
 		"elec_vote_criteria": "Student of IIT Dharwad",
 		"elec_candidates": [
@@ -49,6 +51,643 @@
 			},
 			{
 				"cand_elec_id": 2,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			}
+		]
+	},
+	{
+		"elec_id": 1,
+		"elec_cato": "Academic Elections",
+		"elec_name": "General Seceratory",
+		"elec_vote_criteria": "Student of IIT Dharwad",
+		"elec_candidates": [
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			},
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010034,
+				"cand_name": "Putti Gowtham Sai",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			},
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			}
+		]
+	},
+	{
+		"elec_id": 2,
+		"elec_cato": "Techinical Club Elections",
+		"elec_name": "General Seceratory Sports",
+		"elec_vote_criteria": "Student of IIT Dharwad",
+		"elec_candidates": [
+			{
+				"cand_elec_id": 2,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			},
+			{
+				"cand_elec_id": 2,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			}
+		]
+	},
+	{
+		"elec_id": 1,
+		"elec_cato": "Techinical Club Elections",
+		"elec_name": "General Seceratory",
+		"elec_vote_criteria": "Student of IIT Dharwad",
+		"elec_candidates": [
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			},
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010034,
+				"cand_name": "Putti Gowtham Sai",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			},
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			}
+		]
+	},
+	{
+		"elec_id": 2,
+		"elec_cato": "Cultural Club Elections",
+		"elec_name": "General Seceratory Sports",
+		"elec_vote_criteria": "Student of IIT Dharwad",
+		"elec_candidates": [
+			{
+				"cand_elec_id": 2,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			},
+			{
+				"cand_elec_id": 2,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			}
+		]
+	},
+	{
+		"elec_id": 1,
+		"elec_cato": "Cultural Club Elections",
+		"elec_name": "General Seceratory",
+		"elec_vote_criteria": "Student of IIT Dharwad",
+		"elec_candidates": [
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			},
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010034,
+				"cand_name": "Putti Gowtham Sai",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			},
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			}
+		]
+	},
+	{
+		"elec_id": 2,
+		"elec_cato": "Cultural Club Elections",
+		"elec_name": "General Seceratory Sports",
+		"elec_vote_criteria": "Student of IIT Dharwad",
+		"elec_candidates": [
+			{
+				"cand_elec_id": 2,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			},
+			{
+				"cand_elec_id": 2,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			}
+		]
+	},
+	{
+		"elec_id": 1,
+		"elec_cato": "Cultural Club Elections",
+		"elec_name": "General Seceratory",
+		"elec_vote_criteria": "Student of IIT Dharwad",
+		"elec_candidates": [
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			},
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010034,
+				"cand_name": "Putti Gowtham Sai",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			},
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			}
+		]
+	},
+	{
+		"elec_id": 2,
+		"elec_cato": "Cultural Club Elections",
+		"elec_name": "General Seceratory Sports",
+		"elec_vote_criteria": "Student of IIT Dharwad",
+		"elec_candidates": [
+			{
+				"cand_elec_id": 2,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			},
+			{
+				"cand_elec_id": 2,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			}
+		]
+	},
+	{
+		"elec_id": 1,
+		"elec_cato": "Hostel Elections",
+		"elec_name": "General Seceratory",
+		"elec_vote_criteria": "Student of IIT Dharwad",
+		"elec_candidates": [
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			},
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010034,
+				"cand_name": "Putti Gowtham Sai",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			},
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			}
+		]
+	},
+	{
+		"elec_id": 2,
+		"elec_cato": "Hostel Elections",
+		"elec_name": "General Seceratory Sports",
+		"elec_vote_criteria": "Student of IIT Dharwad",
+		"elec_candidates": [
+			{
+				"cand_elec_id": 2,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			},
+			{
+				"cand_elec_id": 2,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			}
+		]
+	},
+	{
+		"elec_id": 1,
+		"elec_cato": "Hostel Elections",
+		"elec_name": "General Seceratory",
+		"elec_vote_criteria": "Student of IIT Dharwad",
+		"elec_candidates": [
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			},
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010034,
+				"cand_name": "Putti Gowtham Sai",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			},
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			}
+		]
+	},
+	{
+		"elec_id": 2,
+		"elec_cato": "Hostel Elections",
+		"elec_name": "General Seceratory Sports",
+		"elec_vote_criteria": "Student of IIT Dharwad",
+		"elec_candidates": [
+			{
+				"cand_elec_id": 2,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			},
+			{
+				"cand_elec_id": 2,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			}
+		]
+	},
+	{
+		"elec_id": 1,
+		"elec_cato": "Hostel Elections",
+		"elec_name": "General Seceratory",
+		"elec_vote_criteria": "Student of IIT Dharwad",
+		"elec_candidates": [
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			},
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010034,
+				"cand_name": "Putti Gowtham Sai",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			},
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			}
+		]
+	},
+	{
+		"elec_id": 2,
+		"elec_cato": "Hostel Elections",
+		"elec_name": "General Seceratory Sports",
+		"elec_vote_criteria": "Student of IIT Dharwad",
+		"elec_candidates": [
+			{
+				"cand_elec_id": 2,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			},
+			{
+				"cand_elec_id": 2,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			}
+		]
+	},
+	{
+		"elec_id": 1,
+		"elec_cato": "Sports Club Elections",
+		"elec_name": "General Seceratory",
+		"elec_vote_criteria": "Student of IIT Dharwad",
+		"elec_candidates": [
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			},
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010034,
+				"cand_name": "Putti Gowtham Sai",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			},
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			}
+		]
+	},
+	{
+		"elec_id": 1,
+		"elec_cato": "Academic Elections",
+		"elec_name": "General Seceratory",
+		"elec_vote_criteria": "Student of IIT Dharwad",
+		"elec_candidates": [
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			},
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010034,
+				"cand_name": "Putti Gowtham Sai",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			},
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			}
+		]
+	},
+	{
+		"elec_id": 1,
+		"elec_cato": "Sports Club Elections",
+		"elec_name": "General Seceratory",
+		"elec_vote_criteria": "Student of IIT Dharwad",
+		"elec_candidates": [
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			},
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010034,
+				"cand_name": "Putti Gowtham Sai",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			},
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			}
+		]
+	},
+	{
+		"elec_id": 1,
+		"elec_cato": "General Elections",
+		"elec_name": "General Seceratory",
+		"elec_vote_criteria": "Student of IIT Dharwad",
+		"elec_candidates": [
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			},
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010034,
+				"cand_name": "Putti Gowtham Sai",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			},
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			}
+		]
+	},
+	{
+		"elec_id": 1,
+		"elec_cato": "Sports Club Elections",
+		"elec_name": "General Seceratory",
+		"elec_vote_criteria": "Student of IIT Dharwad",
+		"elec_candidates": [
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			},
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010034,
+				"cand_name": "Putti Gowtham Sai",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			},
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			}
+		]
+	},
+	{
+		"elec_id": 1,
+		"elec_cato": "General Elections",
+		"elec_name": "General Seceratory",
+		"elec_vote_criteria": "Student of IIT Dharwad",
+		"elec_candidates": [
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010029,
+				"cand_name": "Omkar D J",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			},
+			{
+				"cand_elec_id": 1,
+				"cand_id": 190010034,
+				"cand_name": "Putti Gowtham Sai",
+				"cand_branch": "3rd Year,CSE",
+				"cand_imgsrc": "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/ef/33/rich-history-great-people.jpg",
+				"cand_manifesto": "http://media.nationalgeographic.org/assets/reference/assets/ring-fire-1.pdf",
+				"cand_intro": "https://www.youtube.com/watch?v=IUN664s7N-c"
+			},
+			{
+				"cand_elec_id": 1,
 				"cand_id": 190010029,
 				"cand_name": "Omkar D J",
 				"cand_branch": "3rd Year,CSE",

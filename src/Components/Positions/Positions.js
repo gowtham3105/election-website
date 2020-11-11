@@ -8,6 +8,7 @@ class Positions extends Component {
     this.state = {
       name: this.props.name,
       show: false,
+      
     };
   }
 
@@ -24,7 +25,8 @@ class Positions extends Component {
             Eligibility Criteria to Vote:
             {this.props.criteria}
             <br />
-            For More, Check Your Profile.
+            For More, Check Your Profile.<br/>
+            {this.props.category}
           </div>
         </Button>
 

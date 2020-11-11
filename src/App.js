@@ -26,6 +26,9 @@ import TimeLine1 from "./Components/TimeLine-Past Positions/TimeLine";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
+import ToggleButtonGroup from "react-bootstrap/ToggleButtonGroup";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
+import ToggleButton from "react-bootstrap/ToggleButton";
 import Important from "./Components/Important Dates/Important";
 import OnImagesLoaded from "react-on-images-loaded";
 import Results from "./Components/Results/Results";
@@ -123,8 +126,22 @@ class NavBar extends Component {
       })
       .catch(function (error) {
         var errorMessage = error.message;
-        setError("Error while Logging In Please Try Again", true);
-        console.log(errorMessage);
+        if (
+          error.code !== "auth/popup-closed-by-user" ||
+          error.code !== "auth/cancelled-popup-request"
+        ) {
+          setError("Error while Logging In Please Try Again", true);
+          console.log(errorMessage);
+          firebase
+            .auth()
+            .signOut()
+            .then(function () {
+              console.log("Signed Out");
+            })
+            .catch(function (error) {
+              setError("Unable to Sign Out Please Try Again", true);
+            });
+        }
       });
   };
 
@@ -289,6 +306,17 @@ class Elections extends Component {
       videourl: "https://www.youtube.com/watch?v=qmN1Gf8rRc8",
       robots: [],
       Positions_robots: [],
+      filter: [
+        "Academic Elections",
+        "Techinical Club Elections",
+        "Cultural Club Elections",
+        "Sports Club Elections",
+        "General Elections",
+        "Mess Elections",
+        "Hostel Elections"
+      ],
+      filterbtnState: [true, true, true, true, true, true, true],
+      showMobFilter:false
     };
     // eslint-disable-next-line no-func-assign
     showModel = showModel.bind(this);
@@ -305,17 +333,89 @@ class Elections extends Component {
     xhttp.send();
   }
   showPositions = (user, i) => {
-    return (
+    return this.state.filter.includes(user.elec_cato) ? (
       <Positions
         robots={user.elec_candidates}
         name={user.elec_name}
         criteria={user.elec_vote_criteria}
+        category={user.elec_cato}
         key={i}
       />
+    ) : (
+      ""
     );
   };
+  removeFilterArrElement = (filterarr,val) => {
+    
+     return filterarr.filter(function (ele) {
+       return ele !== val;
+     });
+  }
+
+  toogleFilterState = (val) => {
+    
+    var r = this.state.filterbtnState;
+    r[val] = !r[val];
+    this.setState({ filterbtnState: r });
+    var filterarr = this.state.filter;
+    if (val === 0) {
+      if (filterarr.includes('General Elections')) {
+        filterarr = this.removeFilterArrElement(filterarr, "General Elections");
+      } else {
+        filterarr.push("General Elections");
+      }
+    } else if (val === 1) {
+      if (filterarr.includes('Techinical Club Elections')) {
+        filterarr = this.removeFilterArrElement(
+          filterarr,
+          "Techinical Club Elections"
+        );
+      } else {
+        filterarr.push("Techinical Club Elections");
+      }
+    } else if (val === 2) {
+      if (filterarr.includes("Cultural Club Elections")) {
+        filterarr = this.removeFilterArrElement(
+          filterarr,
+          "Cultural Club Elections"
+        );
+      } else {
+        filterarr.push("Cultural Club Elections");
+      }
+    } else if (val === 3) {
+      if (filterarr.includes("Sports Club Elections")) {
+        filterarr = this.removeFilterArrElement(
+          filterarr,
+          "Sports Club Elections"
+        );
+      } else {
+        filterarr.push("Sports Club Elections");
+      }
+    } else if (val === 4) {
+      if (filterarr.includes('Mess Elections')) {
+        filterarr = this.removeFilterArrElement(filterarr, "Mess Elections");
+      } else {
+        filterarr.push("Mess Elections");
+      }
+    } else if (val === 5) {
+      if (filterarr.includes('Hostel Elections')) {
+        filterarr = this.removeFilterArrElement(filterarr, "Hostel Elections");
+      } else {
+        filterarr.push("Hostel Elections");
+      }
+    } else if (val === 6) {
+      if (filterarr.includes('Academic Elections')) {
+        filterarr = this.removeFilterArrElement(filterarr, "Academic Elections");
+      } else {
+        filterarr.push("Academic Elections");
+      }
+    }
+    this.setState({ filter: filterarr });
+    console.log(this.state.filter);
+
+  };
   componentDidMount() {
-    fetch("https://election-website-test.herokuapp.com/positions")
+    fetch("http://192.168.29.199:5000/positions")
       .then((response) => {
         return response.json();
       })
@@ -352,7 +452,6 @@ class Elections extends Component {
               />
             </div>
           </div>
-
           <div className="teammobile">
             <div className="topbannerteam">
               <img
@@ -368,9 +467,217 @@ class Elections extends Component {
               </div>
             </div>
           </div>
-
           {this.state.show ? <Video videourl={this.state.videourl} /> : " "}
-          <br />
+
+          <hr />
+          <div className="mobfilterbtngrp">
+            <Button
+              className="filtermodalbtn-show"
+              variant="primary"
+              onClick={() => {
+                this.setState({ showMobFilter: true });
+              }}
+            >
+              Filter
+            </Button>
+
+            <Modal
+              show={this.state.showMobFilter}
+              onHide={() => {
+                this.setState({ showMobFilter: false });
+              }}
+              backdrop="static"
+              centered
+            >
+              <Modal.Header className="mobfilterbtngrp-head">
+                <Modal.Title>Filter</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                <div className="mobfilterbtngrp-body">
+                  <Button
+                    className={
+                      this.state.filterbtnState[0]
+                        ? "activefilterbtn"
+                        : "inactivefilterbtn"
+                    }
+                    onClick={() => {
+                      this.toogleFilterState(0);
+                    }}
+                  >
+                    General Elections
+                  </Button>
+                  <Button
+                    className={
+                      this.state.filterbtnState[1]
+                        ? "activefilterbtn"
+                        : "inactivefilterbtn"
+                    }
+                    onClick={() => {
+                      this.toogleFilterState(1);
+                    }}
+                  >
+                    Techinical Club Elections
+                  </Button>
+                  <Button
+                    className={
+                      this.state.filterbtnState[2]
+                        ? "activefilterbtn"
+                        : "inactivefilterbtn"
+                    }
+                    onClick={() => {
+                      this.toogleFilterState(2);
+                    }}
+                  >
+                    Cultural Club Elections
+                  </Button>
+                  <Button
+                    className={
+                      this.state.filterbtnState[3]
+                        ? "activefilterbtn"
+                        : "inactivefilterbtn"
+                    }
+                    onClick={() => {
+                      this.toogleFilterState(3);
+                    }}
+                  >
+                    Sports Club Elections
+                  </Button>
+                  <Button
+                    className={
+                      this.state.filterbtnState[4]
+                        ? "activefilterbtn"
+                        : "inactivefilterbtn"
+                    }
+                    onClick={() => {
+                      this.toogleFilterState(4);
+                    }}
+                  >
+                    Mess Elections
+                  </Button>
+                  <Button
+                    className={
+                      this.state.filterbtnState[5]
+                        ? "activefilterbtn"
+                        : "inactivefilterbtn"
+                    }
+                    onClick={() => {
+                      this.toogleFilterState(5);
+                    }}
+                  >
+                    Hostel Elections
+                  </Button>
+                  <Button
+                    className={
+                      this.state.filterbtnState[6]
+                        ? "activefilterbtn"
+                        : "inactivefilterbtn"
+                    }
+                    onClick={() => {
+                      this.toogleFilterState(6);
+                    }}
+                  >
+                    Academic Elections
+                  </Button>
+                </div>
+              </Modal.Body>
+
+              <Button
+                className="filtermodalbtn-apply"
+                onClick={() => {
+                  this.setState({ showMobFilter: false });
+                }}
+              >
+                Apply
+              </Button>
+            </Modal>
+          </div>
+          <div className="deskfilterbtngrp">
+            <Button
+              className={
+                this.state.filterbtnState[0]
+                  ? "activefilterbtn"
+                  : "inactivefilterbtn"
+              }
+              onClick={() => {
+                this.toogleFilterState(0);
+              }}
+            >
+              General Elections
+            </Button>
+            <Button
+              className={
+                this.state.filterbtnState[1]
+                  ? "activefilterbtn"
+                  : "inactivefilterbtn"
+              }
+              onClick={() => {
+                this.toogleFilterState(1);
+              }}
+            >
+              Techinical Club Elections
+            </Button>
+            <Button
+              className={
+                this.state.filterbtnState[2]
+                  ? "activefilterbtn"
+                  : "inactivefilterbtn"
+              }
+              onClick={() => {
+                this.toogleFilterState(2);
+              }}
+            >
+              Cultural Club Elections
+            </Button>
+            <Button
+              className={
+                this.state.filterbtnState[3]
+                  ? "activefilterbtn"
+                  : "inactivefilterbtn"
+              }
+              onClick={() => {
+                this.toogleFilterState(3);
+              }}
+            >
+              Sports Club Elections
+            </Button>
+            <Button
+              className={
+                this.state.filterbtnState[4]
+                  ? "activefilterbtn"
+                  : "inactivefilterbtn"
+              }
+              onClick={() => {
+                this.toogleFilterState(4);
+              }}
+            >
+              Mess Elections
+            </Button>
+            <Button
+              className={
+                this.state.filterbtnState[5]
+                  ? "activefilterbtn"
+                  : "inactivefilterbtn"
+              }
+              onClick={() => {
+                this.toogleFilterState(5);
+              }}
+            >
+              Hostel Elections
+            </Button>
+            <Button
+              className={
+                this.state.filterbtnState[6]
+                  ? "activefilterbtn"
+                  : "inactivefilterbtn"
+              }
+              onClick={() => {
+                this.toogleFilterState(6);
+              }}
+            >
+              Academic Elections
+            </Button>
+          </div>
+          <hr />
           {this.state.Positions_robots.map(this.showPositions)}
         </div>
       </OnImagesLoaded>

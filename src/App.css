@@ -32,12 +32,11 @@ html * {
   border-color: #8930b1 !important;
   margin: 10px 30px;
   font-family: "Quicksand", sans-serif;
-  font-weight: 600!important;
+  font-weight: 600 !important;
   color: white;
   border-radius: 30px !important;
-  padding:5px 15px!important;
-  font-size: 1.3rem!important;
-  
+  padding: 5px 15px !important;
+  font-size: 1.3rem !important;
 }
 .Button:focus,
 .Button:active {
@@ -81,9 +80,9 @@ html * {
   font-size: 18px;
   color: #6f2891;
 }
-.accountposElement ul{
-max-height:180px;
-overflow-y: auto;
+.accountposElement ul {
+  max-height: 180px;
+  overflow-y: auto;
 }
 .back {
   position: fixed;
@@ -172,6 +171,33 @@ overflow-y: auto;
   margin-top: 10px;
   margin-bottom: 10px;
 }
+.deskfilterbtngrp {
+  text-align: center;
+}
+.deskfilterbtngrp .btn {
+  margin: 0.5%;
+}
+.mobfilterbtngrp {
+  display: none;
+}
+.activefilterbtn {
+  background-color: #8930b1 !important; /* Blue background */
+  border: 2px solid #8930b1 !important;
+  border-radius: 15px !important;
+  color: white !important; /* White text */
+  padding: 3px 3px; /* Some padding */
+  font-size: 16px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+}
+.inactivefilterbtn {
+  background-color: white !important; /* Blue background */
+  border: 2px solid #8930b1 !important;
+  border-radius: 15px !important;
+  color: #8930b1 !important; /* White text */
+  padding: 3px 3px; /* Some padding */
+  font-size: 16px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+}
 
 @media only screen and (max-width: 1150px) {
   .positionshead {
@@ -256,12 +282,11 @@ overflow-y: auto;
     width: 90%;
   }
   .secondary_Text {
-  font-family: 'Quicksand', sans-serif ;
-  font-weight: 600 !important;
-  font-size: 1.4rem !important;
-    text-align:center !important;
-
-}
+    font-family: "Quicksand", sans-serif;
+    font-weight: 600 !important;
+    font-size: 1.4rem !important;
+    text-align: center !important;
+  }
 }
 
 @media only screen and (max-width: 599px) {
@@ -301,14 +326,14 @@ overflow-y: auto;
   }
   .secondary_Text {
     display: block;
-  padding: 3px;
-  text-decoration: none;
-  text-transform: uppercase;
-  margin: 0 10px;
+    padding: 3px;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin: 0 10px;
 
-  font-family: 'Roboto', sans-serif ;
-  font-size: 1rem !important;
-}
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem !important;
+  }
 }
 
 @media only screen and (max-device-width: 480px) {
@@ -347,6 +372,55 @@ overflow-y: auto;
   }
   .titlebanteam p {
     font-size: 1.5rem;
+  }
+  .mobfilterbtngrp {
+    display: block;
+    text-align: center;
+  }
+  .filtermodalbtn-show{
+    color: #6f2891!important;
+    border:2px solid  #6f2891!important;
+    background-color: white!important;
+    width:50%;
+    font-weight: 600;
+    font-size:22px!important;
+  }
+  .mobfilterbtngrp-head {
+    text-align: center;
+    font-size: 40px;
+    background-color: #6f2891;
+    background: linear-gradient(
+      -90deg,
+      #2a073a,
+      #6f2891 100%,
+      rgba(0, 212, 255, 1) 100%
+    );
+    color: white;
+    width: 100%;
+    font-size: 24px;
+    font-weight:600!important;
+  }
+  .mobfilterbtngrp-head .h4 {
+    font-size: 32px !important;
+    margin:auto;
+  }
+  .mobfilterbtngrp-body {
+    margin: 2%;
+    text-align: center;
+  }
+  .mobfilterbtngrp-body .btn {
+    margin: 2%;
+    width: 90%;
+    font-size: 18px;
+  }
+  .filtermodalbtn-apply{
+    color:white!important;
+    background-color: #581677!important;
+    font-size: 22px!important;
+    font-weight:500!important;
+  }
+  .deskfilterbtngrp {
+    display: none;
   }
 }
 

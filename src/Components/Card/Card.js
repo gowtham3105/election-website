@@ -57,6 +57,7 @@ const Card = ({
           <i className="fa fa-youtube-play" aria-hidden="true"></i> Intro
         </button>
       </div>
+      
     </div>
   );
 };
