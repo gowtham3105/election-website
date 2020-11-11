@@ -415,7 +415,7 @@ class Elections extends Component {
 
   };
   componentDidMount() {
-    fetch("http://192.168.29.199:5000/positions")
+    fetch("https://election-website-test.herokuapp.com/positions")
       .then((response) => {
         return response.json();
       })
