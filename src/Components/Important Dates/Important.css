@@ -1,6 +1,9 @@
 .importantDates {
   font-family: "Quicksand", sans-serif;
   font-weight: 600;
+  transition: opacity 0.6s;
+
+
 }
 header h1 {
   text-align: center;
@@ -230,6 +233,8 @@ header p {
   -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
   z-index: 15;
+  background-color:transparent;
+
 }
 
 .direction-l .desc,
@@ -364,6 +369,7 @@ header p {
     width: 380px;
     float: right;
     text-align: left;
+
   }
 }
 

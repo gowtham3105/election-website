@@ -1,6 +1,57 @@
-html * {
-  font-family: "Quicksand", sans-serif;
-  font-weight: 600;
+@media screen and (max-width: 480px) {
+  html * {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 600;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  html * {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 600;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  html * {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 600;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  html * {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 600;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  html * {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 600;
+  }
+}
+
+@media screen and (max-width: 1680px) {
+  html * {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 600;
+  }
+}
+
+@media screen and (max-width: 1920px) {
+  html * {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 600;
+  }
+}
+
+@media screen and (min-width: 1921px) {
+  html * {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 600;
+  }
 }
 
 .App {
@@ -171,11 +222,17 @@ html * {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+.forpos {
+  transition: opacity 1s;
+}
 .deskfilterbtngrp {
   text-align: center;
 }
 .deskfilterbtngrp .btn {
   margin: 0.5%;
+}
+.deskfilterbtngrp .btn:focus {
+  box-shadow: 0 0 0 0rem rgb(38 143 255 / 0%)!important;
 }
 .mobfilterbtngrp {
   display: none;
@@ -185,18 +242,13 @@ html * {
   border: 2px solid #8930b1 !important;
   border-radius: 15px !important;
   color: white !important; /* White text */
-  padding: 3px 3px; /* Some padding */
-  font-size: 16px; /* Set a font size */
-  cursor: pointer; /* Mouse pointer on hover */
 }
 .inactivefilterbtn {
   background-color: white !important; /* Blue background */
   border: 2px solid #8930b1 !important;
   border-radius: 15px !important;
   color: #8930b1 !important; /* White text */
-  padding: 3px 3px; /* Some padding */
-  font-size: 16px; /* Set a font size */
-  cursor: pointer; /* Mouse pointer on hover */
+  opacity: 0.6;
 }
 
 @media only screen and (max-width: 1150px) {
@@ -377,13 +429,13 @@ html * {
     display: block;
     text-align: center;
   }
-  .filtermodalbtn-show{
-    color: #6f2891!important;
-    border:2px solid  #6f2891!important;
-    background-color: white!important;
-    width:50%;
+  .filtermodalbtn-show {
+    color: #6f2891 !important;
+    border: 2px solid #6f2891 !important;
+    background-color: white !important;
+    width: 50%;
     font-weight: 600;
-    font-size:22px!important;
+    font-size: 22px !important;
   }
   .mobfilterbtngrp-head {
     text-align: center;
@@ -398,11 +450,11 @@ html * {
     color: white;
     width: 100%;
     font-size: 24px;
-    font-weight:600!important;
+    font-weight: 600 !important;
   }
   .mobfilterbtngrp-head .h4 {
     font-size: 32px !important;
-    margin:auto;
+    margin: auto;
   }
   .mobfilterbtngrp-body {
     margin: 2%;
@@ -413,11 +465,16 @@ html * {
     width: 90%;
     font-size: 18px;
   }
-  .filtermodalbtn-apply{
-    color:white!important;
-    background-color: #581677!important;
-    font-size: 22px!important;
-    font-weight:500!important;
+  .mobfilterbtngrp-body .btn:focus {
+    box-shadow: 0 0 0 0rem rgb(38 143 255 / 0%)!important;
+  }
+  .filtermodalbtn-apply {
+    color: white !important;
+    background-color: #581677 !important;
+    border-color: #581677 !important;
+    border-radius: 0;
+    font-size: 22px !important;
+    font-weight: 500 !important;
   }
   .deskfilterbtngrp {
     display: none;

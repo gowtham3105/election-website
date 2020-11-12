@@ -35,7 +35,7 @@ class Important extends Component {
                 <div className="subhead">
                   Deadlines for Student Council Elections 2020-21. <br />
                   <div className="markdate">
-                    Mark My Calander
+                    Mark My Calender
                     <a
                       href="https://calendar.google.com/calendar/u/0?cid=Y185Ym9rMGQ3Z2JmOGRrOG0zNTcydjdwZDZkNEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t"
                       style={{ margin: "10px" }}

@@ -22,6 +22,9 @@ html {
   border-radius: 10px !important;
   outline: none !important;
 }
+.Positions:focus{
+  box-shadow: 0 0 0 0rem rgb(38 143 255 / 0%)!important;
+}
 
 .eligibile {
   font-size: 16px !important;

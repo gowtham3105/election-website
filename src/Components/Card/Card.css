@@ -116,6 +116,9 @@ html {
   background-color: #8930b1;
   color: white !important;
 }
+.Button_Secondary:focus {
+  outline:0!important;
+}
 .animtop {
   animation: dsTop 1.5s;
 }

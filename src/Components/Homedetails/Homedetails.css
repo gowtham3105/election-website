@@ -32,13 +32,13 @@
   .infotxt {
     align-self: start !important;
     font-family: "Quicksand", sans-serif;
-    font-size: 2rem;
+    font-size: 2vw;
     margin: auto;
     text-align: center;
     color: #752a87;
   }
   .infotxt a {
-    font-size: 3rem;
+    font-size: 3.5vw;
   }
   .bottomimg {
     max-width: 100%;
@@ -56,10 +56,12 @@
     align-items: center;
     grid-gap: 2px;
   }
+ 
   .info {
     font-size: 1.5rem;
     justify-self: center;
     align-self: center;
+    cursor: default;
     font-family: "Quicksand", sans-serif;
   }
 
@@ -74,6 +76,7 @@
     text-decoration: none !important;
     font-family: "Quicksand", sans-serif;
   }
+
 }
 
 @media only screen and (min-device-width: 481px) {
@@ -101,6 +104,9 @@
     margin-left: 3vw;
     align-self: end;
     margin-top: 5vh;
+  }
+  .formg{
+    margin-bottom: 75px;
   }
   .logoimg {
     max-width: 60% !important;
@@ -142,7 +148,7 @@
     width: 100%;
     height: auto;
     grid-template-columns: 1fr 1fr 1.2fr 1.2fr;
-    grid-template-rows: 2fr 3fr;
+    grid-template-rows: 2fr 5fr;
     background-image: linear-gradient(to bottom, rgba(233, 222, 255, 1), rgba(255, 255, 255, 0.5)),  url(./hands.png);
     background-repeat:repeat-x;
     background-position: center bottom; 
@@ -168,7 +174,8 @@
   }
 
   .tallinfo {
-    font-size: calc(4.5rem - 0.6vw);
+    /*font-size: calc(4.5rem - 0.6vw);*/
+    font-size: 3vw;
     color: #752a87;
     justify-self: center;
     align-self: center;
@@ -191,6 +198,7 @@
     text-decoration: none;
   }
   .emptydiv {
+    padding-bottom: 100px;
     grid-column-start: 1;
     grid-column-end: 5;
   }

@@ -19,16 +19,12 @@ import {
 import * as firebase from "firebase/app";
 import Homedetails from "./Components/Homedetails/Homedetails";
 import Footer from "./Components/Footer/Footer";
-import Renderer from "./Components/Renderer";
 import "firebase/analytics";
 import "firebase/auth";
 import TimeLine1 from "./Components/TimeLine-Past Positions/TimeLine";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
-import ToggleButtonGroup from "react-bootstrap/ToggleButtonGroup";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
-import ToggleButton from "react-bootstrap/ToggleButton";
 import Important from "./Components/Important Dates/Important";
 import OnImagesLoaded from "react-on-images-loaded";
 import Results from "./Components/Results/Results";
@@ -200,8 +196,8 @@ class NavBar extends Component {
                   </Nav.Link>
                 </>
               ) : (
-                ""
-              )}
+                  ""
+                )}
               <NavLink
                 to="/positions"
                 className="NavLink nav-link"
@@ -301,8 +297,11 @@ class TimeLine extends Component {
 class Elections extends Component {
   constructor(props) {
     super(props);
+    this.props.showLoader();
     this.state = {
-      show: false,
+      showVideo: false,
+      showImages: false,
+      loadContent: false,
       videourl: "https://www.youtube.com/watch?v=qmN1Gf8rRc8",
       robots: [],
       Positions_robots: [],
@@ -321,17 +320,17 @@ class Elections extends Component {
     // eslint-disable-next-line no-func-assign
     showModel = showModel.bind(this);
   }
-  getJson(link) {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-      if (this.readyState === 4 && this.status === 200) {
-        //  robots_cand = JSON.parse(this.responseText);
-        return JSON.parse(this.responseText);
-      }
-    };
-    xhttp.open("GET", link, false);
-    xhttp.send();
-  }
+  // getJson(link) {
+  //   var xhttp = new XMLHttpRequest();
+  //   xhttp.onreadystatechange = function () {
+  //     if (this.readyState === 4 && this.status === 200) {
+  //       //  robots_cand = JSON.parse(this.responseText);
+  //       return JSON.parse(this.responseText);
+  //     }
+  //   };
+  //   xhttp.open("GET", link, false);
+  //   xhttp.send();
+  // }
   showPositions = (user, i) => {
     return this.state.filter.includes(user.elec_cato) ? (
       <Positions
@@ -417,7 +416,11 @@ class Elections extends Component {
   componentDidMount() {
     fetch("https://election-website-test.herokuapp.com/positions")
       .then((response) => {
+        this.setState({loadContent: true});
+        if(this.state.showImages==true)
+          this.props.hideLoader();
         return response.json();
+
       })
       .then((users) => {
         this.setState({ Positions_robots: users });
@@ -429,15 +432,17 @@ class Elections extends Component {
       <OnImagesLoaded
         onLoaded={() => {
           this.setState({ showImages: true });
+          if(this.state.loadContent==true)
           this.props.hideLoader();
         }}
         onTimeout={() => {
           this.setState({ showImages: true });
+          if(this.state.loadContent==true)
           this.props.hideLoader();
         }}
         timeout={7000}
       >
-        <div style={{ opacity: this.state.showImages ? 1 : 0 }}>
+        <div className="forpos" style={{ opacity: this.state.showImages && this.state.loadContent ? 1 : 0 }}>
           <div className="teamdesk">
             <div className="topbannerteam">
               <div className="titlebanteam">
@@ -698,7 +703,6 @@ class Home extends Component {
           hideLoader={this.props.hideLoader}
           showLoader={this.props.showLoader}
         />
-        <Countdown date={Date.now() + 1000000} renderer={Renderer} />
       </div>
     );
   }
@@ -771,7 +775,7 @@ class Account extends Component {
       if (user) {
         fetch(
           "https://election-website-test.herokuapp.com/accountdetails?email=" +
-            firebase.auth().currentUser.email
+          firebase.auth().currentUser.email
         )
           .then((response) => {
             return response.json();
@@ -974,7 +978,7 @@ function setError(val, state) {
   this.setState({ error: val });
 }
 function showModel(val, url) {
-  this.setState({ show: val });
+  this.setState({ showVideo: val });
   this.setState({ videourl: url });
 }
 function setShowAccount(val) {

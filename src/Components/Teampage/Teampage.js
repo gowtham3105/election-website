@@ -66,7 +66,7 @@ class Teampage extends React.Component {
             <div className="conti">
               <div className="headersect">Overall Coordinator</div>
               <div className="members">
-                <Fade bottom>
+                <Fade bottom duration={2000}>
                   <Teamcard
                     name1="Sonu"
                     name2="Sourav"
@@ -92,7 +92,7 @@ class Teampage extends React.Component {
               </div>
               <div className="headersect">Overall Coordinator</div>
               <div className="members">
-                <Fade bottom>
+                <Fade bottom duration={2000}>
                   <Teamcard
                     name1="Sonu"
                     name2="Sourav"

@@ -4,6 +4,8 @@ import logo from "./logog.png"; // with import
 import logoweb from "./fullart.png"; // with import
 import logowebx from "./homebannernew.png"; // with import
 import CountUp from "react-countup";
+import Renderer from "../Renderer";
+import Countdown from "react-countdown";
 import bottomimg from "./bck.png"; // with import
 import Reveal from "react-reveal/Reveal";
 import Fade from "react-reveal/Fade";
@@ -18,6 +20,7 @@ class Homedetails extends React.Component {
     this.props.showLoader();
     this.state = {
       showImages: false,
+      linkLoaded:false,
       showelec: true,
       showcand: true,
       showtime: true,
@@ -146,12 +149,19 @@ class Homedetails extends React.Component {
                 </div>
                 <br />
               </div>
-              <div className="emptydiv"></div>
+              <div className="emptydiv">
+                <Fade delay={300}>
+                  <div className="markcal">Mark your calender!</div>
+                </Fade>
+                <div className="formg">
+                  <Countdown date={Date.now() + 1000000} renderer={Renderer} />
+                </div>
+              </div>
+              <div className="emptydiv">
+              </div>
             </div>
-            <Fade delay={300}>
-              <div className="markcal">Mark your calender!</div>
-            </Fade>
           </div>
+
         </div>
       </OnImagesLoaded>
     );
