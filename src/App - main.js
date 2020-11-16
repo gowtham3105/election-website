@@ -14,8 +14,11 @@ import {
   Switch,
   NavLink,
 } from "react-router-dom";
+import * as firebase from "firebase/app";
 import Homedetails from "./Components/Homedetails/Homedetails";
 import Footer from "./Components/Footer/Footer";
+import "firebase/analytics";
+import "firebase/auth";
 import TimeLine1 from "./Components/TimeLine-Past Positions/TimeLine";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -24,8 +27,6 @@ import Important from "./Components/Important Dates/Important";
 import OnImagesLoaded from "react-on-images-loaded";
 import Results from "./Components/Results/Results";
 import positionImg from "./position.png";
-import { GoogleLogin, GoogleLogout } from "react-google-login";
-import Admin from "./Components/Admin/Admin";
 
 class Video extends Component {
   constructor(props) {
@@ -50,7 +51,7 @@ class Video extends Component {
             width="100%"
             className="iframeVideo"
             height="420"
-            src={this.props.videourl + "?autoplay=1"}
+            src={this.props.videourl+"?autoplay=1"}
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
@@ -67,56 +68,98 @@ class NavBar extends Component {
 
     this.state = {
       show: false,
+      value: "SIGN IN",
       isSigned: false,
-      isAdmin: true,
-      isVoter:true,
-      tokenId: "",
-      authRes: "",
       expanded: false,
     };
-    // eslint-disable-next-line no-func-assign
-    getToken = getToken.bind(this);
+    const firebaseConfig = {
+      apiKey: "AIzaSyDlX7lmjT-hyijYWx3nX1XoWWFrThy8f1U",
+      authDomain: "election-website-950cb.firebaseapp.com",
+      databaseURL: "https://election-website-950cb.firebaseio.com",
+      projectId: "election-website-950cb",
+      storageBucket: "election-website-950cb.appspot.com",
+      messagingSenderId: "1013188453463",
+      appId: "1:1013188453463:web:7051145144d8175a482f12",
+      measurementId: "G-MDHD2F6PHR",
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
   }
 
-  signInOnSuccess = (res) => {
-    this.setState({
-      isSigned: true,
-      tokenId: res.tokenId,
-      authRes: res,
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({ value: "SIGN OUT" });
+      } else {
+        this.setState({ value: "SIGN IN" });
+      }
     });
-
-    var refresh = setInterval(function () {
-      var newRes = this.state.authRes.reloadAuthResponse();
-      this.setState({ tokenId: newRes.ij.id_token });
-    }, Number(this.state.authRes.tokenObj.expires_in) * 60000);
-
-    console.log(res);
-
-    setToken(this.state.tokenId);
-    this.isAdmin();
-  };
-  signInOnError = (err) => {
-    console.log(err);
-    setError("Unable to Sign In Please Try Again", true);
-  };
-
-  signOutOnError = (err) => {
-    console.log(err);
-    setError("Unable to Sign Out Please Try Again", true);
-  };
-
-  signOutOnSuccess = () => {
-    this.setState({
-      isSigned: false,
-      tokenId: "",
-      authRes: "",
-    });
-    setToken("");
-  };
-
-  isAdmin = () => {
-
   }
+
+  login = () => {
+    var provider = new firebase.auth.GoogleAuthProvider();
+
+    firebase
+      .auth()
+      .signInWithPopup(provider)
+      .then(function (result) {
+        var user = result.user;
+        if (
+          user.email.slice(-12) === "@iitdh.ac.in" &&
+          Number.isInteger(parseInt(user.email.slice(0, 9)))
+        ) {
+          console.log("logged in");
+        }
+        else {
+          firebase
+            .auth()
+            .signOut()
+            .then(function () {
+              console.log("Signed Out");
+            })
+            .catch(function (error) {
+              setError("Unable to Sign Out Please Try Again", true);
+            });
+          setError(
+            "Oops.. Unauthorised user.\nPlease login with IIT Dh email address",
+            true
+          );
+        }
+      })
+      .catch(function (error) {
+        var errorMessage = error.message;
+        if (
+          error.code !== "auth/popup-closed-by-user" ||
+          error.code !== "auth/cancelled-popup-request"
+        ) {
+          setError("Error while Logging In Please Try Again", true);
+          console.log(errorMessage);
+          firebase
+            .auth()
+            .signOut()
+            .then(function () {
+              console.log("Signed Out");
+            })
+            .catch(function (error) {
+              setError("Unable to Sign Out Please Try Again", true);
+            });
+        }
+      });
+  };
+
+  logout = () => {
+    firebase
+      .auth()
+      .signOut()
+      .then(function () {
+        console.log("Signed Out");
+      })
+      .catch(function (error) {
+        setError("Unable to Sign Out Please Try Again", true);
+      });
+  };
+
   render() {
     let styles = {
       zIndex: 10,
@@ -148,20 +191,7 @@ class NavBar extends Component {
             className="NavBar navbar-toggle"
           >
             <Nav className="navbar-collapse justify-content-end">
-              {this.state.isAdmin?<NavLink
-                to="/admin"
-                className="NavLink nav-link"
-                style={styles}
-                activeClassName="selected"
-                onClick={() => this.setState({ expanded: false })}
-              >
-                <div className="secondary_Text">Admin</div>
-              </NavLink>:""
-
-              }
-              
-
-              {this.state.isSigned ? (
+              {firebase.auth().currentUser ? (
                 <>
                   <Nav.Link
                     onClick={() => {
@@ -173,8 +203,8 @@ class NavBar extends Component {
                   </Nav.Link>
                 </>
               ) : (
-                  ""
-                )}
+                ""
+              )}
               <NavLink
                 to="/positions"
                 className="NavLink nav-link"
@@ -235,44 +265,18 @@ class NavBar extends Component {
 
             <Nav fill>
               <Nav.Link>
-                {!this.state.isSigned ? (
-                  <GoogleLogin
-                    clientId="352037303035-ld3gu55gulckmeo1m573kt8qocth524o.apps.googleusercontent.com"
-                    render={(renderProps) => (
-                      <Button
-                        className="Button"
-                        onClick={renderProps.onClick}
-                        disabled={renderProps.disabled}
-                      >
-                        SIGN IN
-                      </Button>
-                    )}
-                    buttonText={this.state.value}
-                    onSuccess={this.signInOnSuccess}
-                    onFailure={this.signInOnError}
-                    cookiePolicy={"single_host_origin"}
-                    hostedDomain="iitdh.ac.in"
-                    isSignedIn={true}
-                  />
-                ) : (
-                  <GoogleLogout
-                    clientId="352037303035-ld3gu55gulckmeo1m573kt8qocth524o.apps.googleusercontent.com"
-                    render={(renderProps) => (
-                      <Button
-                        className="Button"
-                        onClick={renderProps.onClick}
-                        disabled={renderProps.disabled}
-                      >
-                        SIGN OUT
-                      </Button>
-                    )}
-                    buttonText={this.state.value}
-                    onLogoutSuccess={this.signOutOnSuccess}
-                    onFailure={this.signOutOnError}
-                    hostedDomain="iitdh.ac.in"
-                    isSignedIn={true}
-                  />
-                )}
+                <Button
+                  onClick={() => {
+                    if (!firebase.auth().currentUser) {
+                      this.login();
+                    } else {
+                      this.logout();
+                    }
+                  }}
+                  className="Button"
+                >
+                  {this.state.value}
+                </Button>
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
@@ -477,7 +481,7 @@ class Elections extends Component {
             </div>
           </div>
           {this.state.showVideo ? (
-            <Video videourl={this.state.videourl} />
+            <Video videourl={this.state.videourl}  />
           ) : (
             " "
           )}
@@ -753,22 +757,20 @@ class Error extends Component {
   }
 }
 
-
 class Account extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      tokenId: "",
       show: this.props.show,
       details: {
         voter_rights: [],
       },
     };
     // eslint-disable-next-line no-func-assign
-    fetchDetails = fetchDetails.bind(this);
+    setDetails = setDetails.bind(this);
     // eslint-disable-next-line no-func-assign
-    setToken = setToken.bind(this);
+    getDetails = getDetails.bind(this);
   }
   showpos = () => {
     return (
@@ -779,26 +781,30 @@ class Account extends Component {
       </ul>
     );
   };
-  async getDetails() {
-    if (this.state.tokenId.length) {
-      await fetch(
-        "https://election-website-test.herokuapp.com/accountdetails?tokenId=" +
-          this.state.tokenId
-      )
-        .then((response) => {
-          return response.json();
-        })
-        .then((users) => {
-          this.setState({ details: users[0] });
-        });
-    }
+
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        fetch(
+          "https://election-website-test.herokuapp.com/accountdetails?email=" +
+            firebase.auth().currentUser.email
+        )
+          .then((response) => {
+            return response.json();
+          })
+          .then((users) => {
+            this.setState({ details: users[0] });
+            //setDetails(0, 190010036);
+          });
+      }
+    });
   }
 
   render() {
     return (
       <div>
         <Modal
-          show={this.props.show}
+          show={this.props.show && firebase.auth().currentUser.emailVerified}
           onHide={() => {
             setShowAccount(false);
           }}
@@ -908,16 +914,6 @@ class App extends Component {
               )}
             />
             <Route
-              path="/admin"
-              render={(props) => (
-                <Admin
-                  {...props}
-                  hideLoader={this.props.hideLoader}
-                  showLoader={this.props.showLoader}
-                />
-              )}
-            />
-            <Route
               path="/positions"
               render={(props) => (
                 <Elections
@@ -1000,12 +996,7 @@ function showModel(val, url) {
 function setShowAccount(val) {
   this.setState({ showAccount: val });
 }
-function setToken(val) {
-  this.setState({ tokenId: val });
-  console.log(this.state);
-  this.getDetails();
-}
-/*
+
 function setDetails(index, val) {
   if (firebase.auth().currentUser && this.state.details.voter_rights.length) {
     var det = this.state.details;
@@ -1020,23 +1011,11 @@ function setDetails(index, val) {
     return false;
   }
 }
-*/
-function getToken() {
-  if (this.state.tokenId.length) {
-    return { 'tokenId': this.state.tokenId,'isVoter':this.state.isVoter };
-  } else {
-    return false;
-  }
-}
-function fetchDetails(refresh) {
-  if (this.state.tokenId.length && this.state.details.voter_rights.length) {
-    if (refresh === 1) {
-      this.getDetails();
-    }
+function getDetails() {
+  if (firebase.auth().currentUser && this.state.details.voter_rights.length) {
     return this.state.details;
   } else {
     return false;
   }
 }
-
-export { App, showModel, fetchDetails };
+export { App, setDetails, getDetails, showModel };

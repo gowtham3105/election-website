@@ -77,7 +77,11 @@
 .App-link {
   color: #61dafb;
 }
-
+.iframeVideo{
+  max-height:420px;
+  
+  min-height:200px;
+}
 .Button {
   background-color: #8930b1 !important;
   border-color: #8930b1 !important;
@@ -478,6 +482,9 @@
   }
   .deskfilterbtngrp {
     display: none;
+  }
+  .iframeVideo{
+    height:50%;
   }
 }
 

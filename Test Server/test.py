@@ -17,7 +17,7 @@ def positions():
 
 @app.route("/accountdetails", methods=['GET'])
 def details():
-    email = request.args.get('email')
+    tokenId = request.args.get('tokenId')
     print(email)
     f = open('voter.json', "r")
     r = f.read()
