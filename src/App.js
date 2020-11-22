@@ -110,6 +110,7 @@ class NavBar extends Component {
       isSigned: false,
       tokenId: "",
       authRes: "",
+      isAdmin:false
     });
     setToken("");
   };
@@ -148,7 +149,7 @@ class NavBar extends Component {
             className="NavBar navbar-toggle"
           >
             <Nav className="navbar-collapse justify-content-end">
-              {this.state.isAdmin?<NavLink
+              {(this.state.isAdmin&&this.state.isSigned)?<NavLink
                 to="/admin"
                 className="NavLink nav-link"
                 style={styles}
