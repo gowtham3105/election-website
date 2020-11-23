@@ -75,7 +75,6 @@ class NavBar extends Component {
       expanded: false,
     };
     // eslint-disable-next-line no-func-assign
-    
   }
   refreshToken = (oldres) => {
     oldres.reloadAuthResponse().then((res) => {
@@ -98,7 +97,6 @@ class NavBar extends Component {
     this.setState({ refresh: refresh });
 
     this.isAdmin();
-    
   };
   signInOnError = (err) => {
     console.log(err);
@@ -119,7 +117,7 @@ class NavBar extends Component {
       isVoter: false,
     });
     clearInterval(this.state.refresh);
-    
+
     setInfo({
       isAdmin: this.state.isAdmin,
       isVoter: this.state.isVoter,
@@ -138,7 +136,6 @@ class NavBar extends Component {
           return response.json();
         })
         .then((user) => {
-          
           if (user.type === "adminANDvoter") {
             this.setState({ isAdmin: true, isVoter: true });
           } else if (user.type === "admin") {
@@ -160,7 +157,6 @@ class NavBar extends Component {
     }
   }
 
-  componentDidUpdate() {}
 
   render() {
     let styles = {
@@ -290,7 +286,7 @@ class NavBar extends Component {
                         onClick={renderProps.onClick}
                         disabled={renderProps.disabled}
                       >
-                        SIGN IN
+                        <div className="secondary_Text">SIGN IN</div>
                       </Button>
                     )}
                     buttonText={this.state.value}
@@ -309,7 +305,7 @@ class NavBar extends Component {
                         onClick={renderProps.onClick}
                         disabled={renderProps.disabled}
                       >
-                        SIGN OUT
+                        <div className="secondary_Text">SIGN OUT</div>
                       </Button>
                     )}
                     buttonText={this.state.value}
@@ -449,7 +445,6 @@ class Elections extends Component {
       }
     }
     this.setState({ filter: filterarr });
-    
   };
   componentDidMount() {
     fetch("https://election-website-test.herokuapp.com/positions")
@@ -640,10 +635,8 @@ class Elections extends Component {
             </Modal>
           </div>
           <div className="deskfilterbtngrp">
-            <div className="positions-Filter-head">
-                Filter
-            </div>
-            
+            <div className="positions-Filter-head">Filter</div>
+
             <Button
               className={
                 this.state.filterbtnState[0]
@@ -798,7 +791,7 @@ class Account extends Component {
 
     this.state = {
       tokenId: this.props.tokenId,
-      isVoter:this.props.isVoter,
+      isVoter: this.props.isVoter,
       show: this.props.show,
       details: {
         voter_rights: [],
@@ -824,7 +817,6 @@ class Account extends Component {
     ) {
       this.getDetails();
     }
-
   }
   async getDetails() {
     if (this.props.tokenId.length) {
@@ -836,7 +828,11 @@ class Account extends Component {
           return response.json();
         })
         .then((users) => {
-          this.setState({tokenId:this.props.tokenId,isVoter:this.props.isVoter, details: users[0] });
+          this.setState({
+            tokenId: this.props.tokenId,
+            isVoter: this.props.isVoter,
+            details: users[0],
+          });
         });
     }
   }
