@@ -238,6 +238,10 @@
 .deskfilterbtngrp .btn:focus {
   box-shadow: 0 0 0 0rem rgb(38 143 255 / 0%)!important;
 }
+.deskfilterbtngrp .positions-Filter-head{
+font-size: 28px;
+margin-bottom: 10px;
+}
 .mobfilterbtngrp {
   display: none;
 }

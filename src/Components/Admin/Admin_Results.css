@@ -6,7 +6,6 @@ html {
 ::-webkit-scrollbar {
   width: 4px;
 }
-
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #888;
@@ -58,6 +57,7 @@ html {
   right: 20px;
   top: 50%;
   margin-top: -0.5em;
+  
 }
 .candidate__bar {
   display: block;
@@ -400,6 +400,7 @@ html {
   background-image: url(themebgflip.png);
   background-repeat: no-repeat;
   background-position: right bottom;
+  
 }
 
 .resultsinfo .row{

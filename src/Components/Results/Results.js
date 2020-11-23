@@ -37,7 +37,7 @@ class Results extends Component {
         return response.json();
       })
       .then((users) => {
-        console.log(users);
+        
         this.setState({ results: users });
         this.setState({
           activeResults: users.GenELections[0].elec_result_cand,
@@ -601,7 +601,7 @@ class Results extends Component {
                             {user.cand_branch}
                           </span>
                           <span className="candidate__percent">
-                            {user.cand_vote_percent}
+                            {user.cand_vote_percent} ({user.cand_vote_num})
                           </span>
                           <div
                             className="candidate__bar"

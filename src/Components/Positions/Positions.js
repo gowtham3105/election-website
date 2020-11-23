@@ -17,7 +17,7 @@ class Positions extends Component {
   };
   render() {
     return (
-      <div>
+      <div style={{textAlign:'center'}}>
         
         <Button onClick={this.handleCLick} className="Positions">
           <div className="positionsname">{this.state.name}</div>
@@ -26,7 +26,7 @@ class Positions extends Component {
             {this.props.criteria}
             <br />
             For More, Check Your Profile.<br/>
-            {this.props.category}
+            
           </div>
         </Button>
 

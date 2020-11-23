@@ -68,15 +68,20 @@ class NavBar extends Component {
     this.state = {
       show: false,
       isSigned: false,
-      isAdmin: true,
-      isVoter:true,
+      isAdmin: false,
+      isVoter: false,
       tokenId: "",
       authRes: "",
       expanded: false,
     };
     // eslint-disable-next-line no-func-assign
-    getToken = getToken.bind(this);
+    
   }
+  refreshToken = (oldres) => {
+    oldres.reloadAuthResponse().then((res) => {
+      this.setState({ tokenId: res.id_token });
+    });
+  };
 
   signInOnSuccess = (res) => {
     this.setState({
@@ -85,15 +90,15 @@ class NavBar extends Component {
       authRes: res,
     });
 
-    var refresh = setInterval(function () {
-      var newRes = this.state.authRes.reloadAuthResponse();
-      this.setState({ tokenId: newRes.ij.id_token });
-    }, Number(this.state.authRes.tokenObj.expires_in) * 60000);
+    var refresh = setInterval(
+      this.refreshToken(res),
+      Number(this.state.authRes.tokenObj.expires_in) * 60000
+    );
 
-    console.log(res);
+    this.setState({ refresh: refresh });
 
-    setToken(this.state.tokenId);
     this.isAdmin();
+    
   };
   signInOnError = (err) => {
     console.log(err);
@@ -110,14 +115,53 @@ class NavBar extends Component {
       isSigned: false,
       tokenId: "",
       authRes: "",
-      isAdmin:false
+      isAdmin: false,
+      isVoter: false,
     });
-    setToken("");
+    clearInterval(this.state.refresh);
+    
+    setInfo({
+      isAdmin: this.state.isAdmin,
+      isVoter: this.state.isVoter,
+      isSigned: this.state.isSigned,
+      tokenId: this.state.tokenId,
+    });
   };
 
-  isAdmin = () => {
-
+  async isAdmin() {
+    if (this.state.tokenId.length) {
+      await fetch(
+        "https://election-website-test.herokuapp.com/userType?tokenId=" +
+          this.state.tokenId
+      )
+        .then((response) => {
+          return response.json();
+        })
+        .then((user) => {
+          
+          if (user.type === "adminANDvoter") {
+            this.setState({ isAdmin: true, isVoter: true });
+          } else if (user.type === "admin") {
+            this.setState({ isAdmin: true, isVoter: false });
+          } else if (user.type === "voter") {
+            this.setState({ isAdmin: false, isVoter: true });
+          } else {
+            this.setState({ isAdmin: false, isVoter: false });
+          }
+        })
+        .then(() => {
+          setInfo({
+            isAdmin: this.state.isAdmin,
+            isVoter: this.state.isVoter,
+            isSigned: this.state.isSigned,
+            tokenId: this.state.tokenId,
+          });
+        });
+    }
   }
+
+  componentDidUpdate() {}
+
   render() {
     let styles = {
       zIndex: 10,
@@ -149,18 +193,19 @@ class NavBar extends Component {
             className="NavBar navbar-toggle"
           >
             <Nav className="navbar-collapse justify-content-end">
-              {(this.state.isAdmin&&this.state.isSigned)?<NavLink
-                to="/admin"
-                className="NavLink nav-link"
-                style={styles}
-                activeClassName="selected"
-                onClick={() => this.setState({ expanded: false })}
-              >
-                <div className="secondary_Text">Admin</div>
-              </NavLink>:""
-
-              }
-              
+              {this.state.isAdmin && this.state.isSigned ? (
+                <NavLink
+                  to="/admin"
+                  className="NavLink nav-link"
+                  style={styles}
+                  activeClassName="selected"
+                  onClick={() => this.setState({ expanded: false })}
+                >
+                  <div className="secondary_Text">Admin</div>
+                </NavLink>
+              ) : (
+                ""
+              )}
 
               {this.state.isSigned ? (
                 <>
@@ -174,8 +219,8 @@ class NavBar extends Component {
                   </Nav.Link>
                 </>
               ) : (
-                  ""
-                )}
+                ""
+              )}
               <NavLink
                 to="/positions"
                 className="NavLink nav-link"
@@ -324,17 +369,6 @@ class Elections extends Component {
     // eslint-disable-next-line no-func-assign
     showModel = showModel.bind(this);
   }
-  // getJson(link) {
-  //   var xhttp = new XMLHttpRequest();
-  //   xhttp.onreadystatechange = function () {
-  //     if (this.readyState === 4 && this.status === 200) {
-  //       //  robots_cand = JSON.parse(this.responseText);
-  //       return JSON.parse(this.responseText);
-  //     }
-  //   };
-  //   xhttp.open("GET", link, false);
-  //   xhttp.send();
-  // }
   showPositions = (user, i) => {
     return this.state.filter.includes(user.elec_cato) ? (
       <Positions
@@ -415,7 +449,7 @@ class Elections extends Component {
       }
     }
     this.setState({ filter: filterarr });
-    console.log(this.state.filter);
+    
   };
   componentDidMount() {
     fetch("https://election-website-test.herokuapp.com/positions")
@@ -606,6 +640,10 @@ class Elections extends Component {
             </Modal>
           </div>
           <div className="deskfilterbtngrp">
+            <div className="positions-Filter-head">
+                Filter
+            </div>
+            
             <Button
               className={
                 this.state.filterbtnState[0]
@@ -754,13 +792,13 @@ class Error extends Component {
   }
 }
 
-
 class Account extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      tokenId: "",
+      tokenId: this.props.tokenId,
+      isVoter:this.props.isVoter,
       show: this.props.show,
       details: {
         voter_rights: [],
@@ -768,8 +806,6 @@ class Account extends Component {
     };
     // eslint-disable-next-line no-func-assign
     fetchDetails = fetchDetails.bind(this);
-    // eslint-disable-next-line no-func-assign
-    setToken = setToken.bind(this);
   }
   showpos = () => {
     return (
@@ -780,17 +816,27 @@ class Account extends Component {
       </ul>
     );
   };
+
+  componentDidUpdate() {
+    if (
+      this.state.tokenId !== this.props.tokenId ||
+      this.state.isVoter !== this.props.isVoter
+    ) {
+      this.getDetails();
+    }
+
+  }
   async getDetails() {
-    if (this.state.tokenId.length) {
+    if (this.props.tokenId.length) {
       await fetch(
         "https://election-website-test.herokuapp.com/accountdetails?tokenId=" +
-          this.state.tokenId
+          this.props.tokenId
       )
         .then((response) => {
           return response.json();
         })
         .then((users) => {
-          this.setState({ details: users[0] });
+          this.setState({tokenId:this.props.tokenId,isVoter:this.props.isVoter, details: users[0] });
         });
     }
   }
@@ -874,7 +920,13 @@ class App extends Component {
       showAccount: false,
       showImages: false,
       currenttab: "/",
+      isSigned: false,
+      isAdmin: false,
+      isVoter: false,
+      tokenId: "",
     };
+    // eslint-disable-next-line no-func-assign
+    setInfo = setInfo.bind(this);
     // eslint-disable-next-line no-func-assign
     setError = setError.bind(this);
     // eslint-disable-next-line no-func-assign
@@ -915,6 +967,9 @@ class App extends Component {
                   {...props}
                   hideLoader={this.props.hideLoader}
                   showLoader={this.props.showLoader}
+                  isSigned={this.state.isSigned}
+                  isAdmin={this.state.isAdmin}
+                  tokenId={this.state.tokenId}
                 />
               )}
             />
@@ -982,7 +1037,11 @@ class App extends Component {
             />
           </Switch>
           <Error msg={this.state.error} showError={this.state.showError} />
-          <Account show={this.state.showAccount} />
+          <Account
+            show={this.state.showAccount}
+            tokenId={this.state.tokenId}
+            isVoter={this.state.isVoter}
+          />
           <Footer style={{ opacity: this.state.showImages ? 1 : 0 }} />
         </Router>
       </OnImagesLoaded>
@@ -1001,33 +1060,13 @@ function showModel(val, url) {
 function setShowAccount(val) {
   this.setState({ showAccount: val });
 }
-function setToken(val) {
-  this.setState({ tokenId: val });
-  console.log(this.state);
-  this.getDetails();
-}
-/*
-function setDetails(index, val) {
-  if (firebase.auth().currentUser && this.state.details.voter_rights.length) {
-    var det = this.state.details;
-    det.voter_rights[index].elec_votedto = val;
-    det.voter_rights[index].elec_isvoted = true;
-
-    this.setState({ details: det });
-
-    console.log(this.state.details.voter_rights);
-    return true;
-  } else {
-    return false;
-  }
-}
-*/
-function getToken() {
-  if (this.state.tokenId.length) {
-    return { 'tokenId': this.state.tokenId,'isVoter':this.state.isVoter };
-  } else {
-    return false;
-  }
+function setInfo(val) {
+  this.setState({
+    tokenId: val.tokenId,
+    isAdmin: val.isAdmin,
+    isVoter: val.isVoter,
+    isSigned: val.isSigned,
+  });
 }
 function fetchDetails(refresh) {
   if (this.state.tokenId.length && this.state.details.voter_rights.length) {
