@@ -2,6 +2,8 @@ import json
 
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+from datetime import datetime
+import pytz
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -45,5 +47,11 @@ def changeImpDates():
 
 @app.route("/getimportantDates", methods=['GET'])
 def getimportantDates():
-    return jsonify(resultsDate="2020-11-04T18:30:00.000Z", electionDate="2020-11-12T18:30:00.000Z")
+    tz_IN = pytz.timezone('Asia/Kolkata') 
+    datetime_IN = datetime.now(tz_IN)
+    
+    return jsonify(resultsDate="Mon Nov 24 2020 17:28:11 GMT+0530 (India Standard Time)",
+     electionDate="Mon Nov 23 2020 10:30:00 GMT+0530 (India Standard Time)",
+      now=str(datetime_IN))
+
 app.run(debug='true', host='0.0.0.0')

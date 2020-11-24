@@ -157,7 +157,6 @@ class NavBar extends Component {
     }
   }
 
-
   render() {
     let styles = {
       zIndex: 10,
@@ -226,15 +225,20 @@ class NavBar extends Component {
               >
                 <div className="secondary_Text">Positions</div>
               </NavLink>
-              <NavLink
-                to="/voting"
-                className="NavLink nav-link"
-                style={styles}
-                activeClassName="selected"
-                onClick={() => this.setState({ expanded: false })}
-              >
-                <div className="secondary_Text">Voting</div>
-              </NavLink>
+              {this.props.isElectionDay ? (
+                <NavLink
+                  to="/voting"
+                  className="NavLink nav-link"
+                  style={styles}
+                  activeClassName="selected"
+                  onClick={() => this.setState({ expanded: false })}
+                >
+                  <div className="secondary_Text">Voting</div>
+                </NavLink>
+              ) : (
+                ""
+              )}
+
               {
                 // <NavLink
                 // to="/timeline"
@@ -255,15 +259,20 @@ class NavBar extends Component {
               >
                 <div className="secondary_Text">Important Dates</div>
               </NavLink>
-              <NavLink
-                to="/result"
-                className="NavLink nav-link"
-                style={styles}
-                activeClassName="selected"
-                onClick={() => this.setState({ expanded: false })}
-              >
-                <div className="secondary_Text">Result</div>
-              </NavLink>
+              {this.props.isResultsDay ? (
+                <NavLink
+                  to="/result"
+                  className="NavLink nav-link"
+                  style={styles}
+                  activeClassName="selected"
+                  onClick={() => this.setState({ expanded: false })}
+                >
+                  <div className="secondary_Text">Result</div>
+                </NavLink>
+              ) : (
+                ""
+              )}
+
               <NavLink
                 to="/team"
                 className="NavLink nav-link"
@@ -920,6 +929,8 @@ class App extends Component {
       isAdmin: false,
       isVoter: false,
       tokenId: "",
+      isElectionDay: false,
+      isResultsDay: false,
     };
     // eslint-disable-next-line no-func-assign
     setInfo = setInfo.bind(this);
@@ -928,7 +939,66 @@ class App extends Component {
     // eslint-disable-next-line no-func-assign
     setShowAccount = setShowAccount.bind(this);
   }
+  getDates = () => {
+fetch(
+  "https://election-website-test.herokuapp.com/getimportantDates"
+)
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    var timeTillResults = new Date(data.resultsDate) - new Date(data.now);
+    var timeTillElections = new Date(data.electionDate) - new Date(data.now);
+    if (
+      timeTillResults >= 0 &&
+      timeTillElections >= 0
+    ) {
+      if (
+        this.state.isElectionDay !== false ||
+        this.state.isResultsDay !== false
+      ) {
+        this.setState({ isElectionDay: false, isResultsDay: false });
+      }
+    } else if (
+      timeTillResults >= 0 &&
+      timeTillElections < 0
+    ) {
+      if (
+        this.state.isElectionDay !== true ||
+        this.state.isResultsDay !== false
+      ) {
+        this.setState({ isElectionDay: true, isResultsDay: false });
+      }
+    } else if (
+      timeTillResults < 0 &&
+      timeTillElections < 0
+    ) {
+      if (
+        this.state.isElectionDay !== true ||
+        this.state.isResultsDay !== true
+      ) {
+        this.setState({ isElectionDay: true, isResultsDay: true });
+      }
+    }
+    console.log(this.state);
+    console.log(data);
+    console.log(timeTillResults);
+    console.log(timeTillElections);
 
+    if (timeTillResults > 0 && timeTillElections > 0) {
+      if (timeTillElections < timeTillResults) {
+        setTimeout(this.getDates, Number(timeTillElections));
+      } else {
+        setTimeout(this.getDates, Number(timeTillResults));
+      }
+    } else if (timeTillResults > 0 && timeTillElections < 0) {
+      setTimeout(this.getDates, Number(timeTillResults));
+    } 
+  });
+  }
+  componentDidMount() {
+    this.getDates();    
+  }
   render() {
     return (
       <OnImagesLoaded
@@ -943,7 +1013,11 @@ class App extends Component {
         timeout={7000}
       >
         <Router>
-          <NavBar loginState={this.state.loginState} />
+          <NavBar
+            isSigned={this.state.isSigned}
+            isElectionDay={this.state.isElectionDay}
+            isResultsDay={this.state.isResultsDay}
+          />
           <Switch>
             <Route
               path="/"
@@ -990,16 +1064,18 @@ class App extends Component {
                 />
               )}
             />
-            <Route
-              path="/timeline"
-              render={(props) => (
-                <TimeLine
-                  {...props}
-                  hideLoader={this.props.hideLoader}
-                  showLoader={this.props.showLoader}
-                />
-              )}
+            {/*
+              <Route
+                path="/timeline"
+                render={(props) => (
+                  <TimeLine
+                    {...props}
+                    hideLoader={this.props.hideLoader}
+                    showLoader={this.props.showLoader}
+                  />
+                )}
             />
+            */}
             <Route
               path="/important dates"
               exact
@@ -1018,6 +1094,7 @@ class App extends Component {
                   {...props}
                   hideLoader={this.props.hideLoader}
                   showLoader={this.props.showLoader}
+                  isResultsDay={this.state.isResultsDay}
                 />
               )}
             />
@@ -1050,8 +1127,9 @@ function setError(val, state) {
   this.setState({ error: val });
 }
 function showModel(val, url) {
-  this.setState({ showVideo: val });
-  this.setState({ videourl: url });
+  if (this.state.showVideo !== val) {
+    this.setState({ showVideo: val, videourl: url });
+  }
 }
 function setShowAccount(val) {
   this.setState({ showAccount: val });

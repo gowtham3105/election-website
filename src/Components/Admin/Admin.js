@@ -8,7 +8,7 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Nav from "react-bootstrap/Nav";
 import Swal from "sweetalert2";
-
+import { Redirect } from "react-router-dom";
 
 class Admin extends Component {
   constructor(props) {
@@ -126,7 +126,7 @@ class Admin extends Component {
             </Tab.Container>
           </div>
         ) : (
-          ""
+          <Redirect to="/"/>
         )}
       </div>
     );

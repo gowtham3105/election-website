@@ -8,6 +8,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Modal from "react-bootstrap/Modal";
 import Fade from "react-reveal/Fade";
+import { Redirect } from "react-router-dom";
 
 class AdminVotes extends Component {
   constructor(props) {
@@ -581,7 +582,7 @@ class AdminVotes extends Component {
             </div>
           </div>
         ) : (
-          ""
+          <Redirect to="/" />
         )}
       </div>
     );
