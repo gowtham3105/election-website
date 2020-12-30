@@ -26,17 +26,33 @@ class AdminVotes extends Component {
       activeResults: [],
       showModal: false,
       positionName: "General Seceratory Elections",
+      barColors: [
+        "#6f2891",
+        "#e6a100",
+        "#e62300",
+        "#04de1e",
+        "#d904b5",
+        "#8bd904",
+        "#0066ff",
+        "#ff0055",
+        "#ff8800",
+        "#00d9ff",
+        "#1c5c13",
+        "#4d0e00",
+      ],
     };
+    this.remainingColors = this.state.barColors;
   }
 
   componentDidMount() {
-    fetch("https://election-website-test.herokuapp.com/results?tokenId=" +
-          this.props.tokenId)
+    fetch(
+      "http://localhost:8000/api/results?tokenId=" +
+        this.props.tokenId    
+    )
       .then((response) => {
         return response.json();
       })
       .then((users) => {
-        
         this.setState({ results: users });
         this.setState({
           activeResults: users.GenELections[0].elec_result_cand,
@@ -548,8 +564,12 @@ class AdminVotes extends Component {
                   <Col>
                     <div className="resultshead">
                       {this.state.activeResults.map((user, i) => {
-                        //user.cand_frontcolor = "#ff0000";
-                        var cand_backcolor = user.cand_frontcolor + "80";
+                        var cand_frontcolor = this.state.barColors[
+                          Math.floor(
+                            Math.random() * this.state.barColors.length
+                          )
+                        ];
+                        var cand_backcolor = cand_frontcolor + "80";
                         return (
                           <div
                             className="candidate-result"
@@ -568,7 +588,7 @@ class AdminVotes extends Component {
                             <div
                               className="candidate__bar"
                               style={{
-                                background: user.cand_frontcolor,
+                                background: cand_frontcolor,
                                 width: user.cand_result_width,
                               }}
                             ></div>

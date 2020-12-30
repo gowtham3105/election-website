@@ -129,8 +129,7 @@ class NavBar extends Component {
   async isAdmin() {
     if (this.state.tokenId.length) {
       await fetch(
-        "https://election-website-test.herokuapp.com/userType?tokenId=" +
-          this.state.tokenId
+        "http://localhost:8000/api/userType?tokenId=" + this.state.tokenId
       )
         .then((response) => {
           return response.json();
@@ -225,7 +224,7 @@ class NavBar extends Component {
               >
                 <div className="secondary_Text">Positions</div>
               </NavLink>
-              {this.props.isElectionDay ? (
+              {this.props.isElectionsDay ? (
                 <NavLink
                   to="/voting"
                   className="NavLink nav-link"
@@ -456,7 +455,7 @@ class Elections extends Component {
     this.setState({ filter: filterarr });
   };
   componentDidMount() {
-    fetch("https://election-website-test.herokuapp.com/positions")
+    fetch("http://localhost:8000/api/positions")
       .then((response) => {
         this.setState({ loadContent: true });
         if (this.state.showImages === true) this.props.hideLoader();
@@ -520,7 +519,6 @@ class Elections extends Component {
           ) : (
             " "
           )}
-
           <hr />
           <div className="mobfilterbtngrp">
             <Button
@@ -830,8 +828,7 @@ class Account extends Component {
   async getDetails() {
     if (this.props.tokenId.length) {
       await fetch(
-        "https://election-website-test.herokuapp.com/accountdetails?tokenId=" +
-          this.props.tokenId
+        "http://localhost:8000/api/accountdetails?tokenId=" + this.props.tokenId
       )
         .then((response) => {
           return response.json();
@@ -929,7 +926,7 @@ class App extends Component {
       isAdmin: false,
       isVoter: false,
       tokenId: "",
-      isElectionDay: false,
+      isElectionsDay: false,
       isResultsDay: false,
     };
     // eslint-disable-next-line no-func-assign
@@ -940,64 +937,55 @@ class App extends Component {
     setShowAccount = setShowAccount.bind(this);
   }
   getDates = () => {
-fetch(
-  "https://election-website-test.herokuapp.com/getimportantDates"
-)
-  .then((response) => {
-    return response.json();
-  })
-  .then((data) => {
-    var timeTillResults = new Date(data.resultsDate) - new Date(data.now);
-    var timeTillElections = new Date(data.electionDate) - new Date(data.now);
-    if (
-      timeTillResults >= 0 &&
-      timeTillElections >= 0
-    ) {
-      if (
-        this.state.isElectionDay !== false ||
-        this.state.isResultsDay !== false
-      ) {
-        this.setState({ isElectionDay: false, isResultsDay: false });
-      }
-    } else if (
-      timeTillResults >= 0 &&
-      timeTillElections < 0
-    ) {
-      if (
-        this.state.isElectionDay !== true ||
-        this.state.isResultsDay !== false
-      ) {
-        this.setState({ isElectionDay: true, isResultsDay: false });
-      }
-    } else if (
-      timeTillResults < 0 &&
-      timeTillElections < 0
-    ) {
-      if (
-        this.state.isElectionDay !== true ||
-        this.state.isResultsDay !== true
-      ) {
-        this.setState({ isElectionDay: true, isResultsDay: true });
-      }
-    }
-    console.log(this.state);
-    console.log(data);
-    console.log(timeTillResults);
-    console.log(timeTillElections);
+    fetch("http://localhost:8000/api/getImportantDates")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        var timeTillResults = new Date(data.resultsDate) - new Date(data.Now);
+        var timeTillElections =
+          new Date(data.electionsDate) - new Date(data.Now);
+        if (timeTillResults >= 0 && timeTillElections >= 0) {
+          if (
+            this.state.isElectionsDay !== false ||
+            this.state.isResultsDay !== false
+          ) {
+            this.setState({ isElectionsDay: false, isResultsDay: false });
+          }
+        } else if (timeTillResults >= 0 && timeTillElections < 0) {
+          if (
+            this.state.isElectionsDay !== true ||
+            this.state.isResultsDay !== false
+          ) {
+            this.setState({ isElectionsDay: true, isResultsDay: false });
+          }
+        } else if (timeTillResults < 0 && timeTillElections < 0) {
+          if (
+            this.state.isElectionsDay !== true ||
+            this.state.isResultsDay !== true
+          ) {
+            this.setState({ isElectionsDay: true, isResultsDay: true });
+          }
+        }
+        console.log(this.state);
+        console.log(data);
+        console.log(timeTillResults);
+        console.log(timeTillElections);
 
-    if (timeTillResults > 0 && timeTillElections > 0) {
-      if (timeTillElections < timeTillResults) {
-        setTimeout(this.getDates, Number(timeTillElections));
-      } else {
-        setTimeout(this.getDates, Number(timeTillResults));
-      }
-    } else if (timeTillResults > 0 && timeTillElections < 0) {
-      setTimeout(this.getDates, Number(timeTillResults));
-    } 
-  });
-  }
+        if (timeTillResults > 0 && timeTillElections > 0) {
+          if (timeTillElections < timeTillResults) {
+            setTimeout(this.getDates, Number(timeTillElections));
+          } else {
+            setTimeout(this.getDates, Number(timeTillResults));
+          }
+        } else if (timeTillResults > 0 && timeTillElections < 0) {
+          setTimeout(this.getDates, Number(timeTillResults));
+        }
+      } )
+    };
+
   componentDidMount() {
-    this.getDates();    
+    this.getDates();
   }
   render() {
     return (
@@ -1015,7 +1003,7 @@ fetch(
         <Router>
           <NavBar
             isSigned={this.state.isSigned}
-            isElectionDay={this.state.isElectionDay}
+            isElectionsDay={this.state.isElectionsDay}
             isResultsDay={this.state.isResultsDay}
           />
           <Switch>

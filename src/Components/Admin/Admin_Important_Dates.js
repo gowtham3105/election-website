@@ -11,7 +11,7 @@ class AdminImportantDates extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      electionDate: "",
+      electionsDate: "",
       resultsDate: "",
       responseMessage: "",
       errormsg: "",
@@ -24,13 +24,13 @@ class AdminImportantDates extends Component {
     this.setState({ responseMessage: "" });
   };
   sendDates = () => {
-    if (this.state.electionDate && this.state.resultsDate) {
-      fetch("https://election-website-test.herokuapp.com/changeImpDates", {
+    if (this.state.electionsDate && this.state.resultsDate) {
+      fetch("http://localhost:8000/api/changeImpDates", {
         method: "POST",
         mode: "cors",
         body: JSON.stringify({
           tokenId: this.props.tokenId,
-          electionDate: this.state.electionDate.toString(),
+          electionsDate: this.state.electionsDate.toString(),
           resultsDate: this.state.resultsDate.toString(),
         }),
       })
@@ -44,13 +44,13 @@ class AdminImportantDates extends Component {
     } else {
       this.setState({ errormsg: "Fill all the fields" });
     }
-    //https://election-website-test.herokuapp.com/changeImpDates
+    //http://localhost:8000/api/changeImpDates
   };
 
   componentDidMount() {
     fetch(
-      "https://election-website-test.herokuapp.com/getimportantDates?tokenId=" +
-        this.props.tokenId
+      "http://localhost:8000/api/getImportantDates?tokenId=" +
+        this.props.tokenId   
     )
       .then((response) => {
         return response.json();
@@ -58,7 +58,7 @@ class AdminImportantDates extends Component {
       .then((data) => {
         this.setState({
           resultsDate: new Date(data.resultsDate),
-          electionDate: new Date(data.electionDate),
+          electionsDate: new Date(data.electionsDate),
           show: true,
         });
       });
@@ -81,9 +81,9 @@ class AdminImportantDates extends Component {
                   <Col className="admin-impdates-col">
                     <DateTimePicker
                       onChange={(val) => {
-                        this.setState({ electionDate: val });
+                        this.setState({ electionsDate: val });
                       }}
-                      value={this.state.electionDate}
+                      value={this.state.electionsDate}
                       className="admin-datetimepicker"
                       format="dd-MM-y h:mm a"
                       clearIcon={null}

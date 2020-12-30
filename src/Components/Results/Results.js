@@ -50,7 +50,7 @@ class Results extends Component {
 
   componentDidMount() {
     if (this.props.isResultsDay) {
-      fetch("https://election-website-test.herokuapp.com/results")
+      fetch("http://localhost:8000/api/results")
         .then((response) => {
           return response.json();
         })
@@ -660,7 +660,7 @@ class Results extends Component {
             </div>
           </OnImagesLoaded>
         ) : (
-           <Redirect to="/" />
+          <Redirect to="/" />
         )}
       </div>
     );

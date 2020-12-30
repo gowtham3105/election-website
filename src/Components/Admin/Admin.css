@@ -31,7 +31,7 @@ html {
 .admin-datetimepicker {
   padding: 20px;
 }
-.row {
+.admin-parent .row {
   text-align: center;
 }
 .admin-impdates-label {
@@ -67,7 +67,7 @@ html {
     width: 90%;
     margin: auto;
   }
-  .row {
+  .admin-parent.row {
     margin-left: 0 !important;
     margin-right: 0 !important;
   }

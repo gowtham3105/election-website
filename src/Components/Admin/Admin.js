@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./Admin.css";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
-import  AdminVotes from "./Admin_Votes";
+import AdminVotes from "./Admin_Votes";
 import AdminImportantDates from "./Admin_Important_Dates";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
@@ -42,7 +42,7 @@ class Admin extends Component {
       showLoaderOnConfirm: true,
       preConfirm: (login) => {
         return fetch(
-          "https://election-website-test.herokuapp.com/accountdetails?tokenId=hello&rollno=" +
+          "http://localhost:8000/api/accountdetails?tokenId=hello&rollno=" +
             login
         )
           .then((response) => {
@@ -83,11 +83,11 @@ class Admin extends Component {
     return (
       <div>
         {this.props.isSigned && this.props.isAdmin ? (
-          <div>
+          <div className="admin-parent">
             <br />
             <Tab.Container defaultActiveKey="admin_votes">
               <Row>
-                <Nav variant="pills" style={{width:'100%'}}>
+                <Nav variant="pills" style={{ width: "100%" }}>
                   <Nav.Item className="admin-tab-bar">
                     <Nav.Link eventKey="admin_votes">VOTES</Nav.Link>
                   </Nav.Item>
@@ -100,11 +100,10 @@ class Admin extends Component {
                     <Button variant="primary" onClick={this.buttonfunc} as="a">
                       USER DETAILS
                     </Button>
-                   
                   </Nav.Item>
                 </Nav>
               </Row>
-              <hr/>
+              <hr />
               <Row>
                 <Tab.Content style={{ width: "100%" }}>
                   <Tab.Pane eventKey="admin_votes">
@@ -126,7 +125,7 @@ class Admin extends Component {
             </Tab.Container>
           </div>
         ) : (
-          <Redirect to="/"/>
+          <Redirect to="/" />
         )}
       </div>
     );
