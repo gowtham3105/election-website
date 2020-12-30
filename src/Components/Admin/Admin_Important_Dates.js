@@ -19,24 +19,29 @@ class AdminImportantDates extends Component {
       changeBtn: "Change Dates",
       changeBtnStatus: true,
     };
+    console.log(this.state);
   }
   removeMessage = () => {
     this.setState({ responseMessage: "" });
   };
   sendDates = () => {
     if (this.state.electionsDate && this.state.resultsDate) {
-      fetch("http://localhost:8000/api/changeImpDates", {
+      fetch("http://localhost:8000/api/changeImportantDates/", {
         method: "POST",
         mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+      
+        },
         body: JSON.stringify({
-          tokenId: this.props.tokenId,
+          tokenId: this.props.tokenId.toString(),
           electionsDate: this.state.electionsDate.toString(),
           resultsDate: this.state.resultsDate.toString(),
         }),
       })
         .then((response) => response.json())
         .then((json) => {
-          this.setState({ responseMessage: json.responseMessage });
+          this.setState({ responseMessage: json.Message });
           setTimeout(this.removeMessage, 7000);
           this.setState({ changeBtn: "Change Dates", changeBtnStatus: true });
         });
@@ -61,6 +66,7 @@ class AdminImportantDates extends Component {
           electionsDate: new Date(data.electionsDate),
           show: true,
         });
+        console.log(this.state);
       });
   }
   render() {
@@ -82,6 +88,7 @@ class AdminImportantDates extends Component {
                     <DateTimePicker
                       onChange={(val) => {
                         this.setState({ electionsDate: val });
+                         console.log(this.state);
                       }}
                       value={this.state.electionsDate}
                       className="admin-datetimepicker"
@@ -144,6 +151,3 @@ class AdminImportantDates extends Component {
 }
 
 export default AdminImportantDates;
-/*
- 
-          */

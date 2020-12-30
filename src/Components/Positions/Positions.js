@@ -16,9 +16,10 @@ class Positions extends Component {
     this.setState({ show: !this.state.show });
   };
   render() {
+    
     return (
       <div style={{textAlign:'center'}}>
-        
+        {console.log(this.props)}
         <Button onClick={this.handleCLick} className="Positions">
           <div className="positionsname">{this.state.name}</div>
           <div className="eligibile">

@@ -10,6 +10,7 @@ import OnImagesLoaded from "react-on-images-loaded";
 import resultsImg from "./result.jpeg";
 import Fade from "react-reveal/Fade";
 import { Redirect } from "react-router-dom";
+import ResultsAccordion from "./ResultsAccordion";
 
 class Results extends Component {
   constructor(props) {
@@ -17,15 +18,7 @@ class Results extends Component {
 
     this.props.showLoader();
     this.state = {
-      results: {
-        GenELections: [],
-        TechClubElections: [],
-        CulturalClubElections: [],
-        SportsClubElections: [],
-        MessSecretaryElections: [],
-        HostelSecretaryElections: [],
-        AcademicCRElections: [],
-      },
+      Results: {},
       activeResults: [],
       showModal: false,
       positionName: "General Seceratory Elections",
@@ -46,18 +39,23 @@ class Results extends Component {
       ],
     };
     this.remainingColors = this.state.barColors;
+    // eslint-disable-next-line no-func-assign
+    onClickAccordion = onClickAccordion.bind(this);
   }
 
   componentDidMount() {
     if (this.props.isResultsDay) {
-      fetch("http://localhost:8000/api/results")
+      fetch(
+        "http://localhost:8000/api/admin/results?tokenId=" + this.props.tokenId
+      )
         .then((response) => {
           return response.json();
         })
         .then((users) => {
-          this.setState({ results: users });
+          this.setState({ Results: users });
           this.setState({
-            activeResults: users.GenELections[0].elec_result_cand,
+            activeResults: users[0].elections[0].elec_candidates,
+            positionName: users[0].elections[0].elec_name,
           });
         });
     }
@@ -131,236 +129,18 @@ class Results extends Component {
                   <Modal.Title>Positions</Modal.Title>
                 </Modal.Header>
                 <Modal.Body className="modalbody">
-                  <Accordion defaultActiveKey="0" className="positionslist">
-                    <Accordion.Toggle
-                      as={Button}
-                      variant="link"
-                      eventKey="0"
-                      className="positionlistgroup"
-                    >
-                      General Elections
-                    </Accordion.Toggle>
-                    <Accordion.Collapse eventKey="0">
-                      <div>
-                        {this.state.results.GenELections.length
-                          ? this.state.results.GenELections.map((candi, i) => {
-                              return (
-                                <div
-                                  className="positionsItem"
-                                  onClick={() => {
-                                    this.setState({
-                                      activeResults: candi.elec_result_cand,
-                                      positionName: candi.elec_name,
-                                      showModal: false,
-                                    });
-                                  }}
-                                  key={i}
-                                >
-                                  {candi.elec_name}
-                                </div>
-                              );
-                            })
-                          : ""}
-                      </div>
-                    </Accordion.Collapse>
-                    <Accordion.Toggle
-                      as={Button}
-                      variant="link"
-                      eventKey="1"
-                      className="positionlistgroup"
-                    >
-                      Techinical Club Elections
-                    </Accordion.Toggle>
-                    <Accordion.Collapse eventKey="1">
-                      <div>
-                        {this.state.results.TechClubElections.length
-                          ? this.state.results.TechClubElections.map(
-                              (candi, i) => {
-                                return (
-                                  <div
-                                    className="positionsItem"
-                                    onClick={() => {
-                                      this.setState({
-                                        activeResults: candi.elec_result_cand,
-                                        positionName: candi.elec_name,
-                                        showModal: false,
-                                      });
-                                    }}
-                                    key={i}
-                                  >
-                                    {candi.elec_name}
-                                  </div>
-                                );
-                              }
-                            )
-                          : ""}
-                      </div>
-                    </Accordion.Collapse>
-                    <Accordion.Toggle
-                      as={Button}
-                      variant="link"
-                      eventKey="2"
-                      className="positionlistgroup"
-                    >
-                      Cultural Club Elections
-                    </Accordion.Toggle>
-                    <Accordion.Collapse eventKey="2">
-                      <div>
-                        {this.state.results.CulturalClubElections.length
-                          ? this.state.results.CulturalClubElections.map(
-                              (candi, i) => {
-                                return (
-                                  <div
-                                    className="positionsItem"
-                                    onClick={() => {
-                                      this.setState({
-                                        activeResults: candi.elec_result_cand,
-                                        positionName: candi.elec_name,
-                                        showModal: false,
-                                      });
-                                    }}
-                                    key={i}
-                                  >
-                                    {candi.elec_name}
-                                  </div>
-                                );
-                              }
-                            )
-                          : ""}
-                      </div>
-                    </Accordion.Collapse>
-                    <Accordion.Toggle
-                      as={Button}
-                      variant="link"
-                      eventKey="3"
-                      className="positionlistgroup"
-                    >
-                      Sports Club Elections
-                    </Accordion.Toggle>
-                    <Accordion.Collapse eventKey="3">
-                      <div>
-                        {this.state.results.SportsClubElections.length
-                          ? this.state.results.SportsClubElections.map(
-                              (candi, i) => {
-                                return (
-                                  <div
-                                    className="positionsItem"
-                                    onClick={() => {
-                                      this.setState({
-                                        activeResults: candi.elec_result_cand,
-                                        positionName: candi.elec_name,
-                                        showModal: false,
-                                      });
-                                    }}
-                                    key={i}
-                                  >
-                                    {candi.elec_name}
-                                  </div>
-                                );
-                              }
-                            )
-                          : ""}
-                      </div>
-                    </Accordion.Collapse>
-                    <Accordion.Toggle
-                      as={Button}
-                      variant="link"
-                      eventKey="4"
-                      className="positionlistgroup"
-                    >
-                      Mess Secretary Elections
-                    </Accordion.Toggle>
-                    <Accordion.Collapse eventKey="4">
-                      <div>
-                        {this.state.results.MessSecretaryElections.length
-                          ? this.state.results.MessSecretaryElections.map(
-                              (candi, i) => {
-                                return (
-                                  <div
-                                    className="positionsItem"
-                                    onClick={() => {
-                                      this.setState({
-                                        activeResults: candi.elec_result_cand,
-                                        positionName: candi.elec_name,
-                                        showModal: false,
-                                      });
-                                    }}
-                                    key={i}
-                                  >
-                                    {candi.elec_name}
-                                  </div>
-                                );
-                              }
-                            )
-                          : ""}
-                      </div>
-                    </Accordion.Collapse>
-                    <Accordion.Toggle
-                      as={Button}
-                      variant="link"
-                      eventKey="5"
-                      className="positionlistgroup"
-                    >
-                      Hostel Secretary Elections
-                    </Accordion.Toggle>
-                    <Accordion.Collapse eventKey="5">
-                      <div>
-                        {this.state.results.HostelSecretaryElections.length
-                          ? this.state.results.HostelSecretaryElections.map(
-                              (candi, i) => {
-                                return (
-                                  <div
-                                    className="positionsItem"
-                                    onClick={() => {
-                                      this.setState({
-                                        activeResults: candi.elec_result_cand,
-                                        positionName: candi.elec_name,
-                                        showModal: false,
-                                      });
-                                    }}
-                                    key={i}
-                                  >
-                                    {candi.elec_name}
-                                  </div>
-                                );
-                              }
-                            )
-                          : ""}
-                      </div>
-                    </Accordion.Collapse>
-                    <Accordion.Toggle
-                      as={Button}
-                      variant="link"
-                      eventKey="6"
-                      className="positionlistgroup"
-                    >
-                      Academic CR Elections
-                    </Accordion.Toggle>
-                    <Accordion.Collapse eventKey="6">
-                      <div>
-                        {this.state.results.AcademicCRElections.length
-                          ? this.state.results.AcademicCRElections.map(
-                              (candi, i) => {
-                                return (
-                                  <div
-                                    className="positionsItem"
-                                    onClick={() => {
-                                      this.setState({
-                                        activeResults: candi.elec_result_cand,
-                                        positionName: candi.elec_name,
-                                        showModal: false,
-                                      });
-                                    }}
-                                    key={i}
-                                  >
-                                    {candi.elec_name}
-                                  </div>
-                                );
-                              }
-                            )
-                          : ""}
-                      </div>
-                    </Accordion.Collapse>
+                  <Accordion defaultActiveKey="1" className="positionslist">
+                    {this.state.Results.length
+                      ? this.state.Results.map((item, key) => {
+                          return (
+                            <ResultsAccordion
+                              key={key}
+                              eventKey={key + 1}
+                              item={item}
+                            />
+                          );
+                        })
+                      : ""}
                   </Accordion>
                 </Modal.Body>
               </Modal>
@@ -384,238 +164,18 @@ class Results extends Component {
                 <Container fluid>
                   <Row>
                     <Col className="positionslistcol">
-                      <Accordion defaultActiveKey="0" className="positionslist">
-                        <Accordion.Toggle
-                          as={Button}
-                          variant="link"
-                          eventKey="0"
-                          className="positionlistgroup"
-                        >
-                          General Elections
-                        </Accordion.Toggle>
-                        <Accordion.Collapse eventKey="0">
-                          <div>
-                            {this.state.results.GenELections.length
-                              ? this.state.results.GenELections.map(
-                                  (candi, i) => {
-                                    return (
-                                      <div
-                                        className="positionsItem"
-                                        onClick={() => {
-                                          this.setState({
-                                            activeResults:
-                                              candi.elec_result_cand,
-                                            positionName: candi.elec_name,
-                                          });
-                                        }}
-                                        key={i}
-                                      >
-                                        {candi.elec_name}
-                                      </div>
-                                    );
-                                  }
-                                )
-                              : ""}
-                          </div>
-                        </Accordion.Collapse>
-                        <Accordion.Toggle
-                          as={Button}
-                          variant="link"
-                          eventKey="1"
-                          className="positionlistgroup"
-                        >
-                          Techinical Club Elections
-                        </Accordion.Toggle>
-                        <Accordion.Collapse eventKey="1">
-                          <div>
-                            {this.state.results.TechClubElections.length
-                              ? this.state.results.TechClubElections.map(
-                                  (candi, i) => {
-                                    return (
-                                      <div
-                                        className="positionsItem"
-                                        onClick={() => {
-                                          this.setState({
-                                            activeResults:
-                                              candi.elec_result_cand,
-                                            positionName: candi.elec_name,
-                                          });
-                                        }}
-                                        key={i}
-                                      >
-                                        {candi.elec_name}
-                                      </div>
-                                    );
-                                  }
-                                )
-                              : ""}
-                          </div>
-                        </Accordion.Collapse>
-                        <Accordion.Toggle
-                          as={Button}
-                          variant="link"
-                          eventKey="2"
-                          className="positionlistgroup"
-                        >
-                          Cultural Club Elections
-                        </Accordion.Toggle>
-                        <Accordion.Collapse eventKey="2">
-                          <div>
-                            {this.state.results.CulturalClubElections.length
-                              ? this.state.results.CulturalClubElections.map(
-                                  (candi, i) => {
-                                    return (
-                                      <div
-                                        className="positionsItem"
-                                        onClick={() => {
-                                          this.setState({
-                                            activeResults:
-                                              candi.elec_result_cand,
-                                            positionName: candi.elec_name,
-                                          });
-                                        }}
-                                        key={i}
-                                      >
-                                        {candi.elec_name}
-                                      </div>
-                                    );
-                                  }
-                                )
-                              : ""}
-                          </div>
-                        </Accordion.Collapse>
-                        <Accordion.Toggle
-                          as={Button}
-                          variant="link"
-                          eventKey="3"
-                          className="positionlistgroup"
-                        >
-                          Sports Club Elections
-                        </Accordion.Toggle>
-                        <Accordion.Collapse eventKey="3">
-                          <div>
-                            {this.state.results.SportsClubElections.length
-                              ? this.state.results.SportsClubElections.map(
-                                  (candi, i) => {
-                                    return (
-                                      <div
-                                        className="positionsItem"
-                                        onClick={() => {
-                                          this.setState({
-                                            activeResults:
-                                              candi.elec_result_cand,
-                                            positionName: candi.elec_name,
-                                          });
-                                        }}
-                                        key={i}
-                                      >
-                                        {candi.elec_name}
-                                      </div>
-                                    );
-                                  }
-                                )
-                              : ""}
-                          </div>
-                        </Accordion.Collapse>
-                        <Accordion.Toggle
-                          as={Button}
-                          variant="link"
-                          eventKey="4"
-                          className="positionlistgroup"
-                        >
-                          Mess Secretary Elections
-                        </Accordion.Toggle>
-                        <Accordion.Collapse eventKey="4">
-                          <div>
-                            {this.state.results.MessSecretaryElections.length
-                              ? this.state.results.MessSecretaryElections.map(
-                                  (candi, i) => {
-                                    return (
-                                      <div
-                                        className="positionsItem"
-                                        onClick={() => {
-                                          this.setState({
-                                            activeResults:
-                                              candi.elec_result_cand,
-                                            positionName: candi.elec_name,
-                                          });
-                                        }}
-                                        key={i}
-                                      >
-                                        {candi.elec_name}
-                                      </div>
-                                    );
-                                  }
-                                )
-                              : ""}
-                          </div>
-                        </Accordion.Collapse>
-                        <Accordion.Toggle
-                          as={Button}
-                          variant="link"
-                          eventKey="5"
-                          className="positionlistgroup"
-                        >
-                          Hostel Secretary Elections
-                        </Accordion.Toggle>
-                        <Accordion.Collapse eventKey="5">
-                          <div>
-                            {this.state.results.HostelSecretaryElections.length
-                              ? this.state.results.HostelSecretaryElections.map(
-                                  (candi, i) => {
-                                    return (
-                                      <div
-                                        className="positionsItem"
-                                        onClick={() => {
-                                          this.setState({
-                                            activeResults:
-                                              candi.elec_result_cand,
-                                            positionName: candi.elec_name,
-                                          });
-                                        }}
-                                        key={i}
-                                      >
-                                        {candi.elec_name}
-                                      </div>
-                                    );
-                                  }
-                                )
-                              : ""}
-                          </div>
-                        </Accordion.Collapse>
-                        <Accordion.Toggle
-                          as={Button}
-                          variant="link"
-                          eventKey="6"
-                          className="positionlistgroup"
-                        >
-                          Academic CR Elections
-                        </Accordion.Toggle>
-                        <Accordion.Collapse eventKey="6">
-                          <div>
-                            {this.state.results.AcademicCRElections.length
-                              ? this.state.results.AcademicCRElections.map(
-                                  (candi, i) => {
-                                    return (
-                                      <div
-                                        className="positionsItem"
-                                        onClick={() => {
-                                          this.setState({
-                                            activeResults:
-                                              candi.elec_result_cand,
-                                            positionName: candi.elec_name,
-                                          });
-                                        }}
-                                        key={i}
-                                      >
-                                        {candi.elec_name}
-                                      </div>
-                                    );
-                                  }
-                                )
-                              : ""}
-                          </div>
-                        </Accordion.Collapse>
+                      <Accordion defaultActiveKey="1" className="positionslist">
+                        {this.state.Results.length
+                          ? this.state.Results.map((item, key) => {
+                              return (
+                                <ResultsAccordion
+                                  key={key}
+                                  eventKey={key + 1}
+                                  item={item}
+                                />
+                              );
+                            })
+                          : ""}
                       </Accordion>
                     </Col>
                     <Col>
@@ -666,4 +226,13 @@ class Results extends Component {
     );
   }
 }
-export default Results;
+
+function onClickAccordion(results, positionName) {
+  this.setState({
+    activeResults: results,
+    positionName: positionName,
+    showModal: false,
+  });
+  return true;
+}
+export { Results, onClickAccordion };

@@ -22,7 +22,7 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Important from "./Components/Important Dates/Important";
 import OnImagesLoaded from "react-on-images-loaded";
-import Results from "./Components/Results/Results";
+import { Results } from "./Components/Results/Results";
 import positionImg from "./position.png";
 import { GoogleLogin, GoogleLogout } from "react-google-login";
 import Admin from "./Components/Admin/Admin";
@@ -152,6 +152,7 @@ class NavBar extends Component {
             isSigned: this.state.isSigned,
             tokenId: this.state.tokenId,
           });
+          console.log(this.state);
         });
     }
   }
@@ -374,12 +375,12 @@ class Elections extends Component {
     showModel = showModel.bind(this);
   }
   showPositions = (user, i) => {
-    return this.state.filter.includes(user.elec_cato) ? (
+    return this.state.filter.includes(user.category) ? (
       <Positions
         robots={user.elec_candidates}
         name={user.elec_name}
         criteria={user.elec_vote_criteria}
-        category={user.elec_cato}
+        category={user.category}
         key={i}
       />
     ) : (
@@ -462,7 +463,9 @@ class Elections extends Component {
         return response.json();
       })
       .then((users) => {
+        console.log(users);
         this.setState({ Positions_robots: users });
+        console.log(this.state);
       });
   }
 
@@ -828,17 +831,19 @@ class Account extends Component {
   async getDetails() {
     if (this.props.tokenId.length) {
       await fetch(
-        "http://localhost:8000/api/accountdetails?tokenId=" + this.props.tokenId
+        "http://localhost:8000/api/voter?tokenId=" + this.props.tokenId
       )
         .then((response) => {
           return response.json();
         })
         .then((users) => {
-          this.setState({
-            tokenId: this.props.tokenId,
+          console.log(users);
+         this.setState({
+           tokenId: this.props.tokenId,
             isVoter: this.props.isVoter,
-            details: users[0],
-          });
+           details: users,
+           });
+          
         });
     }
   }
@@ -981,8 +986,8 @@ class App extends Component {
         } else if (timeTillResults > 0 && timeTillElections < 0) {
           setTimeout(this.getDates, Number(timeTillResults));
         }
-      } )
-    };
+      });
+  };
 
   componentDidMount() {
     this.getDates();
@@ -1083,6 +1088,7 @@ class App extends Component {
                   hideLoader={this.props.hideLoader}
                   showLoader={this.props.showLoader}
                   isResultsDay={this.state.isResultsDay}
+                  tokenId={this.state.tokenId}
                 />
               )}
             />

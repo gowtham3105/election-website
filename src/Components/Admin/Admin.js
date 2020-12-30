@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./Admin.css";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
-import AdminVotes from "./Admin_Votes";
+import { AdminResults } from "./AdminResults";
 import AdminImportantDates from "./Admin_Important_Dates";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
@@ -42,7 +42,9 @@ class Admin extends Component {
       showLoaderOnConfirm: true,
       preConfirm: (login) => {
         return fetch(
-          "http://localhost:8000/api/accountdetails?tokenId=hello&rollno=" +
+          "http://localhost:8000/api/admin/voter?tokenId=" +
+            this.props.tokenId +
+            "&voterid=" +
             login
         )
           .then((response) => {
@@ -58,7 +60,7 @@ class Admin extends Component {
       allowOutsideClick: () => !Swal.isLoading(),
     }).then((result) => {
       if (result.isConfirmed) {
-        var data = result.value[0];
+        var data = result.value;
         Swal.fire({
           title: `<strong>User ${data.voter_id} Details</strong>`,
           icon: "info",
@@ -107,7 +109,7 @@ class Admin extends Component {
               <Row>
                 <Tab.Content style={{ width: "100%" }}>
                   <Tab.Pane eventKey="admin_votes">
-                    <AdminVotes
+                    <AdminResults
                       isSigned={this.props.isSigned}
                       isAdmin={this.props.isAdmin}
                       tokenId={this.props.tokenId}
