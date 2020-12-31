@@ -19,7 +19,7 @@ class Positions extends Component {
     
     return (
       <div style={{textAlign:'center'}}>
-        {console.log(this.props)}
+       
         <Button onClick={this.handleCLick} className="Positions">
           <div className="positionsname">{this.state.name}</div>
           <div className="eligibile">

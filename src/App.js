@@ -16,7 +16,6 @@ import {
 } from "react-router-dom";
 import Homedetails from "./Components/Homedetails/Homedetails";
 import Footer from "./Components/Footer/Footer";
-import TimeLine1 from "./Components/TimeLine-Past Positions/TimeLine";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
@@ -152,7 +151,7 @@ class NavBar extends Component {
             isSigned: this.state.isSigned,
             tokenId: this.state.tokenId,
           });
-          console.log(this.state);
+          
         });
     }
   }
@@ -239,17 +238,6 @@ class NavBar extends Component {
                 ""
               )}
 
-              {
-                // <NavLink
-                // to="/timeline"
-                //  className="NavLink nav-link"
-                //</Nav> style={styles}
-                //  activeClassName="selected"
-                //  onClick={() => this.setState({ expanded: false })}
-                // >
-                //  TimeLine
-                // </NavLink>
-              }
               <NavLink
                 to="/important dates"
                 className="NavLink nav-link"
@@ -333,21 +321,6 @@ class NavBar extends Component {
   }
 }
 
-class TimeLine extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  render() {
-    return (
-      <div>
-        <TimeLine1 />
-      </div>
-    );
-  }
-}
-
 class Elections extends Component {
   constructor(props) {
     super(props);
@@ -358,35 +331,50 @@ class Elections extends Component {
       loadContent: false,
       videourl: "https://www.youtube.com/watch?v=qmN1Gf8rRc8",
       robots: [],
-      Positions_robots: [],
-      filter: [
-        "Academic Elections",
-        "Techinical Club Elections",
-        "Cultural Club Elections",
-        "Sports Club Elections",
-        "General Elections",
-        "Mess Elections",
-        "Hostel Elections",
-      ],
-      filterbtnState: [true, true, true, true, true, true, true],
+      Positions_robots: this.props.Positions_robots,
+      filter: [],
+      filterbtnState: [],
       showMobFilter: false,
+      interval: "",
     };
     // eslint-disable-next-line no-func-assign
     showModel = showModel.bind(this);
   }
   showPositions = (user, i) => {
-    return this.state.filter.includes(user.category) ? (
+    
+
+    return this.state.filter.includes(user.elec_category) &&
+      this.state.filterbtnState[
+        this.state.filter.indexOf(user.elec_category)
+      ] ? (
       <Positions
         robots={user.elec_candidates}
         name={user.elec_name}
         criteria={user.elec_vote_criteria}
-        category={user.category}
+        category={user.elec_category}
         key={i}
       />
     ) : (
       ""
     );
   };
+
+  showFilterBtns = (category, i) => {
+    return (
+      <Button
+        className={
+          this.state.filterbtnState[i] ? "activefilterbtn" : "inactivefilterbtn"
+        }
+        onClick={() => {
+          this.toogleFilterState(i);
+        }}
+        key={i}
+      >
+        {category}
+      </Button>
+    );
+  };
+
   removeFilterArrElement = (filterarr, val) => {
     return filterarr.filter(function (ele) {
       return ele !== val;
@@ -397,76 +385,43 @@ class Elections extends Component {
     var r = this.state.filterbtnState;
     r[val] = !r[val];
     this.setState({ filterbtnState: r });
-    var filterarr = this.state.filter;
-    if (val === 0) {
-      if (filterarr.includes("General Elections")) {
-        filterarr = this.removeFilterArrElement(filterarr, "General Elections");
-      } else {
-        filterarr.push("General Elections");
-      }
-    } else if (val === 1) {
-      if (filterarr.includes("Techinical Club Elections")) {
-        filterarr = this.removeFilterArrElement(
-          filterarr,
-          "Techinical Club Elections"
-        );
-      } else {
-        filterarr.push("Techinical Club Elections");
-      }
-    } else if (val === 2) {
-      if (filterarr.includes("Cultural Club Elections")) {
-        filterarr = this.removeFilterArrElement(
-          filterarr,
-          "Cultural Club Elections"
-        );
-      } else {
-        filterarr.push("Cultural Club Elections");
-      }
-    } else if (val === 3) {
-      if (filterarr.includes("Sports Club Elections")) {
-        filterarr = this.removeFilterArrElement(
-          filterarr,
-          "Sports Club Elections"
-        );
-      } else {
-        filterarr.push("Sports Club Elections");
-      }
-    } else if (val === 4) {
-      if (filterarr.includes("Mess Elections")) {
-        filterarr = this.removeFilterArrElement(filterarr, "Mess Elections");
-      } else {
-        filterarr.push("Mess Elections");
-      }
-    } else if (val === 5) {
-      if (filterarr.includes("Hostel Elections")) {
-        filterarr = this.removeFilterArrElement(filterarr, "Hostel Elections");
-      } else {
-        filterarr.push("Hostel Elections");
-      }
-    } else if (val === 6) {
-      if (filterarr.includes("Academic Elections")) {
-        filterarr = this.removeFilterArrElement(
-          filterarr,
-          "Academic Elections"
-        );
-      } else {
-        filterarr.push("Academic Elections");
+  };
+
+  fillFilter = () => {
+    var i = 0;
+    for (i = 0; i < this.props.Positions_robots.length; i++) {
+      if (
+        !this.state.filter.includes(
+          this.props.Positions_robots[i].elec_category
+        )
+      ) {
+        var fil = this.state.filter;
+        fil.push(this.props.Positions_robots[i].elec_category);
+        this.setState({ filter: fil });
       }
     }
-    this.setState({ filter: filterarr });
+    var lenFilter = this.state.filter.length;
+    var filterbtnState = [];
+    while (lenFilter--) filterbtnState.push(true);
+    this.setState({ filterbtnState: filterbtnState });
+    this.setState({ loadContent: true });
+    if (this.state.showImages === true) this.props.hideLoader();
   };
+
+  refresh = () => {
+    if (this.props.Positions_robots.length) {
+      this.fillFilter();
+    } else {
+      setTimeout(this.refresh, 2000);
+    }
+  };
+
   componentDidMount() {
-    fetch("http://localhost:8000/api/positions")
-      .then((response) => {
-        this.setState({ loadContent: true });
-        if (this.state.showImages === true) this.props.hideLoader();
-        return response.json();
-      })
-      .then((users) => {
-        console.log(users);
-        this.setState({ Positions_robots: users });
-        console.log(this.state);
-      });
+    if (this.props.Positions_robots.length) {
+      this.fillFilter();
+    } else {
+      setTimeout(this.refresh, 2000);
+    }
   }
 
   render() {
@@ -547,90 +502,9 @@ class Elections extends Component {
               </Modal.Header>
               <Modal.Body>
                 <div className="mobfilterbtngrp-body">
-                  <Button
-                    className={
-                      this.state.filterbtnState[0]
-                        ? "activefilterbtn"
-                        : "inactivefilterbtn"
-                    }
-                    onClick={() => {
-                      this.toogleFilterState(0);
-                    }}
-                  >
-                    General Elections
-                  </Button>
-                  <Button
-                    className={
-                      this.state.filterbtnState[1]
-                        ? "activefilterbtn"
-                        : "inactivefilterbtn"
-                    }
-                    onClick={() => {
-                      this.toogleFilterState(1);
-                    }}
-                  >
-                    Techinical Club Elections
-                  </Button>
-                  <Button
-                    className={
-                      this.state.filterbtnState[2]
-                        ? "activefilterbtn"
-                        : "inactivefilterbtn"
-                    }
-                    onClick={() => {
-                      this.toogleFilterState(2);
-                    }}
-                  >
-                    Cultural Club Elections
-                  </Button>
-                  <Button
-                    className={
-                      this.state.filterbtnState[3]
-                        ? "activefilterbtn"
-                        : "inactivefilterbtn"
-                    }
-                    onClick={() => {
-                      this.toogleFilterState(3);
-                    }}
-                  >
-                    Sports Club Elections
-                  </Button>
-                  <Button
-                    className={
-                      this.state.filterbtnState[4]
-                        ? "activefilterbtn"
-                        : "inactivefilterbtn"
-                    }
-                    onClick={() => {
-                      this.toogleFilterState(4);
-                    }}
-                  >
-                    Mess Elections
-                  </Button>
-                  <Button
-                    className={
-                      this.state.filterbtnState[5]
-                        ? "activefilterbtn"
-                        : "inactivefilterbtn"
-                    }
-                    onClick={() => {
-                      this.toogleFilterState(5);
-                    }}
-                  >
-                    Hostel Elections
-                  </Button>
-                  <Button
-                    className={
-                      this.state.filterbtnState[6]
-                        ? "activefilterbtn"
-                        : "inactivefilterbtn"
-                    }
-                    onClick={() => {
-                      this.toogleFilterState(6);
-                    }}
-                  >
-                    Academic Elections
-                  </Button>
+                  {this.state.filter.length
+                    ? this.state.filter.map(this.showFilterBtns)
+                    : ""}
                 </div>
               </Modal.Body>
 
@@ -647,93 +521,12 @@ class Elections extends Component {
           <div className="deskfilterbtngrp">
             <div className="positions-Filter-head">Filter</div>
 
-            <Button
-              className={
-                this.state.filterbtnState[0]
-                  ? "activefilterbtn"
-                  : "inactivefilterbtn"
-              }
-              onClick={() => {
-                this.toogleFilterState(0);
-              }}
-            >
-              General Elections
-            </Button>
-            <Button
-              className={
-                this.state.filterbtnState[1]
-                  ? "activefilterbtn"
-                  : "inactivefilterbtn"
-              }
-              onClick={() => {
-                this.toogleFilterState(1);
-              }}
-            >
-              Techinical Club Elections
-            </Button>
-            <Button
-              className={
-                this.state.filterbtnState[2]
-                  ? "activefilterbtn"
-                  : "inactivefilterbtn"
-              }
-              onClick={() => {
-                this.toogleFilterState(2);
-              }}
-            >
-              Cultural Club Elections
-            </Button>
-            <Button
-              className={
-                this.state.filterbtnState[3]
-                  ? "activefilterbtn"
-                  : "inactivefilterbtn"
-              }
-              onClick={() => {
-                this.toogleFilterState(3);
-              }}
-            >
-              Sports Club Elections
-            </Button>
-            <Button
-              className={
-                this.state.filterbtnState[4]
-                  ? "activefilterbtn"
-                  : "inactivefilterbtn"
-              }
-              onClick={() => {
-                this.toogleFilterState(4);
-              }}
-            >
-              Mess Elections
-            </Button>
-            <Button
-              className={
-                this.state.filterbtnState[5]
-                  ? "activefilterbtn"
-                  : "inactivefilterbtn"
-              }
-              onClick={() => {
-                this.toogleFilterState(5);
-              }}
-            >
-              Hostel Elections
-            </Button>
-            <Button
-              className={
-                this.state.filterbtnState[6]
-                  ? "activefilterbtn"
-                  : "inactivefilterbtn"
-              }
-              onClick={() => {
-                this.toogleFilterState(6);
-              }}
-            >
-              Academic Elections
-            </Button>
+            {this.state.filter.length
+              ? this.state.filter.map(this.showFilterBtns)
+              : ""}
           </div>
           <hr />
-          {this.state.Positions_robots.map(this.showPositions)}
+          {this.props.Positions_robots.map(this.showPositions)}
         </div>
       </OnImagesLoaded>
     );
@@ -837,13 +630,12 @@ class Account extends Component {
           return response.json();
         })
         .then((users) => {
-          console.log(users);
-         this.setState({
-           tokenId: this.props.tokenId,
-            isVoter: this.props.isVoter,
-           details: users,
-           });
           
+          this.setState({
+            tokenId: this.props.tokenId,
+            isVoter: this.props.isVoter,
+            details: users,
+          });
         });
     }
   }
@@ -933,6 +725,7 @@ class App extends Component {
       tokenId: "",
       isElectionsDay: false,
       isResultsDay: false,
+      Positions_robots: [],
     };
     // eslint-disable-next-line no-func-assign
     setInfo = setInfo.bind(this);
@@ -972,10 +765,7 @@ class App extends Component {
             this.setState({ isElectionsDay: true, isResultsDay: true });
           }
         }
-        console.log(this.state);
-        console.log(data);
-        console.log(timeTillResults);
-        console.log(timeTillElections);
+        
 
         if (timeTillResults > 0 && timeTillElections > 0) {
           if (timeTillElections < timeTillResults) {
@@ -991,6 +781,13 @@ class App extends Component {
 
   componentDidMount() {
     this.getDates();
+    fetch("http://localhost:8000/api/positions")
+      .then((response) => {
+        return response.json();
+      })
+      .then((positions) => {
+        this.setState({ Positions_robots: positions });
+      });
   }
   render() {
     return (
@@ -1043,6 +840,7 @@ class App extends Component {
                   {...props}
                   hideLoader={this.props.hideLoader}
                   showLoader={this.props.showLoader}
+                  Positions_robots={this.state.Positions_robots}
                 />
               )}
             />

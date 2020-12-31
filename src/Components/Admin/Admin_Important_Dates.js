@@ -19,7 +19,6 @@ class AdminImportantDates extends Component {
       changeBtn: "Change Dates",
       changeBtnStatus: true,
     };
-    console.log(this.state);
   }
   removeMessage = () => {
     this.setState({ responseMessage: "" });
@@ -31,7 +30,6 @@ class AdminImportantDates extends Component {
         mode: "cors",
         headers: {
           "Content-Type": "application/json",
-      
         },
         body: JSON.stringify({
           tokenId: this.props.tokenId.toString(),
@@ -55,7 +53,7 @@ class AdminImportantDates extends Component {
   componentDidMount() {
     fetch(
       "http://localhost:8000/api/getImportantDates?tokenId=" +
-        this.props.tokenId   
+        this.props.tokenId
     )
       .then((response) => {
         return response.json();
@@ -66,7 +64,6 @@ class AdminImportantDates extends Component {
           electionsDate: new Date(data.electionsDate),
           show: true,
         });
-        console.log(this.state);
       });
   }
   render() {
@@ -88,7 +85,6 @@ class AdminImportantDates extends Component {
                     <DateTimePicker
                       onChange={(val) => {
                         this.setState({ electionsDate: val });
-                         console.log(this.state);
                       }}
                       value={this.state.electionsDate}
                       className="admin-datetimepicker"

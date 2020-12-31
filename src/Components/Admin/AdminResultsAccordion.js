@@ -7,7 +7,6 @@ import { onClickAccordion } from "./AdminResults"
 class AdminResultsAccordion extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
     this.state = {};
   }
 
