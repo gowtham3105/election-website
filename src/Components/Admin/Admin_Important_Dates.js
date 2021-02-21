@@ -6,6 +6,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import { Redirect } from "react-router-dom";
+import {api_endpoint, csrftoken } from "./../../Global";
 
 class AdminImportantDates extends Component {
   constructor(props) {
@@ -25,11 +26,12 @@ class AdminImportantDates extends Component {
   };
   sendDates = () => {
     if (this.state.electionsDate && this.state.resultsDate) {
-      fetch("http://localhost:8000/api/changeImportantDates/", {
+      fetch(api_endpoint + "/api/changeImportantDates/", {
         method: "POST",
         mode: "cors",
         headers: {
           "Content-Type": "application/json",
+          "X-CSRFToken": csrftoken,
         },
         body: JSON.stringify({
           tokenId: this.props.tokenId.toString(),
@@ -47,14 +49,11 @@ class AdminImportantDates extends Component {
     } else {
       this.setState({ errormsg: "Fill all the fields" });
     }
-    //http://localhost:8000/api/changeImpDates
+    //api/changeImpDates
   };
 
   componentDidMount() {
-    fetch(
-      "http://localhost:8000/api/getImportantDates?tokenId=" +
-        this.props.tokenId
-    )
+    fetch(api_endpoint + "/api/getImportantDates?tokenId=" + this.props.tokenId)
       .then((response) => {
         return response.json();
       })
@@ -90,7 +89,6 @@ class AdminImportantDates extends Component {
                       className="admin-datetimepicker"
                       format="dd-MM-y h:mm a"
                       clearIcon={null}
-                      minDate={new Date()}
                     />
                   </Col>
                 </Row>
@@ -107,7 +105,6 @@ class AdminImportantDates extends Component {
                       className="admin-datetimepicker"
                       format="dd-MM-y h:mm a"
                       clearIcon={null}
-                      minDate={new Date()}
                     />
                   </Col>
                 </Row>

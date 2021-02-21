@@ -13,7 +13,7 @@
 
   .tick-flip,
   .tick-text-inline {
-    font-size: 2.5em;
+    font-size: 11vw;
   }
 
   .tick-label {
@@ -57,7 +57,7 @@
   }
 
   .tick-flip {
-    font-family: !important;
+    font-family: "Roboto Condensed", sans-serif !important;
   }
 
   .tick-flip-panel-text-wrapper {
@@ -81,7 +81,7 @@
     margin-right: auto;
     margin-left: auto;
     text-align: center;
-    font-size: 3.5rem;
+    font-size: 16vw;
     font-family: arial, sans-serif;
     color: crimson;
     /*display:grid;
@@ -105,7 +105,7 @@ align-items: center;
     align-items: center;
   }
   .tex {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-family: "Roboto Condensed", sans-serif;
   }
   .dateval {
@@ -191,7 +191,7 @@ align-items: center;
   }
 
   .tick-flip {
-    font-family: !important;
+    font-family: "Roboto Condensed", sans-serif !important;
   }
 
   .tick-flip-panel-text-wrapper {
@@ -238,6 +238,6 @@ align-items: center;
   }
 
   .colon {
-    font-size: 4rem;
+    font-size: 4vw;
   }
 }

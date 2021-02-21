@@ -10,6 +10,7 @@ import Modal from "react-bootstrap/Modal";
 import Fade from "react-reveal/Fade";
 
 import AdminResultsAccordion from "./AdminResultsAccordion";
+import { api_endpoint } from "../../Global";
 
 class AdminResults extends Component {
   constructor(props) {
@@ -17,9 +18,10 @@ class AdminResults extends Component {
 
     this.state = {
       Results: {},
+      elecTurnout: 0.0,
       activeResults: [],
       showModal: false,
-      positionName: "General Seceratory Elections",
+      positionName: "General Secretary Academic Affairs",
       showImages: false,
       barColors: [
         "#6f2891",
@@ -37,14 +39,10 @@ class AdminResults extends Component {
       ],
     };
     this.remainingColors = this.state.barColors;
-    // eslint-disable-next-line no-func-assign
-    onClickAccordion = onClickAccordion.bind(this);
   }
 
   componentDidMount() {
-    fetch(
-      "http://localhost:8000/api/admin/results?tokenId=" + this.props.tokenId
-    )
+    fetch(api_endpoint + "/api/admin/results?tokenId=" + this.props.tokenId)
       .then((response) => {
         return response.json();
       })
@@ -53,10 +51,39 @@ class AdminResults extends Component {
         this.setState({
           activeResults: users[0].elections[0].elec_candidates,
           positionName: users[0].elections[0].elec_name,
+          elecTurnout: users[0].elections[0].elec_turnout,
         });
       });
   }
+  sortfun1 = (a, b) => {
+    if (a["cand_id"] !== 0 && b["cand_id"] !== 0) {
+      if (Number(a["cand_vote_num"]) > Number(b["cand_vote_num"])) return -1;
+      else if (Number(a["cand_vote_num"]) === Number(b["cand_vote_num"])) {
+        if(a['cand_name'] > b['cand_name']) return 1
+        else return -1
+      }
+      else return 1;
+    } else if (a["cand_id"] === 0) {
+      return 1;
+    } else {
+      return -1;
+    }
+  };
 
+  sendCands = () => {
+    var arr = this.state.activeResults.sort(this.sortfun1);
+    return arr;
+  };
+
+  onClickAccordion = (results, positionName, elecTurn) => {
+    this.setState({
+      activeResults: results,
+      positionName: positionName,
+      showModal: false,
+      elecTurnout: elecTurn,
+    });
+    return true;
+  };
   render() {
     return (
       <div>
@@ -85,6 +112,7 @@ class AdminResults extends Component {
                         key={key}
                         eventKey={key + 1}
                         item={item}
+                        onClickAccordion={this.onClickAccordion}
                       />
                     );
                   })
@@ -104,7 +132,11 @@ class AdminResults extends Component {
           </Button>
         </div>
         <div className="positionname">
-          <Fade spy={this.state.positionName}>{this.state.positionName}</Fade>
+          <Fade spy={this.state.positionName}>
+            <div>
+              {this.state.positionName} - Turnout: {this.state.elecTurnout} %
+            </div>
+          </Fade>
         </div>
         <div className="resultsinfo">
           <Container fluid>
@@ -118,6 +150,7 @@ class AdminResults extends Component {
                             key={key}
                             eventKey={key + 1}
                             item={item}
+                            onClickAccordion={this.onClickAccordion}
                           />
                         );
                       })
@@ -126,7 +159,7 @@ class AdminResults extends Component {
               </Col>
               <Col>
                 <div className="resultshead">
-                  {this.state.activeResults.map((user, i) => {
+                  {this.sendCands().map((user, i) => {
                     var cand_frontcolor = this.state.barColors[
                       Math.floor(Math.random() * this.state.barColors.length)
                     ];
@@ -142,13 +175,14 @@ class AdminResults extends Component {
                           {user.cand_branch}
                         </span>
                         <span className="candidate__percent">
-                          {user.cand_vote_percent} ({user.cand_vote_num})
+                          {Math.trunc(user.cand_vote_percent)} % (
+                          {user.cand_vote_num})
                         </span>
                         <div
                           className="candidate__bar"
                           style={{
                             background: cand_frontcolor,
-                            width: user.cand_result_width,
+                            width: user.cand_result_width + "%",
                           }}
                         ></div>
                       </div>
@@ -164,13 +198,4 @@ class AdminResults extends Component {
   }
 }
 
-function onClickAccordion(results, positionName) {
-  this.setState({
-    activeResults: results,
-    positionName: positionName,
-    showModal: false,
-  });
-  return true;
-}
-
-export { AdminResults, onClickAccordion };
+export { AdminResults };

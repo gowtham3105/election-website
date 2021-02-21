@@ -10,6 +10,7 @@ import OnImagesLoaded from "react-on-images-loaded";
 import resultsImg from "./result.jpeg";
 import Fade from "react-reveal/Fade";
 import { Redirect } from "react-router-dom";
+import { api_endpoint } from "../../Global";
 
 class Results extends Component {
   constructor(props) {
@@ -50,7 +51,7 @@ class Results extends Component {
 
   componentDidMount() {
     if (this.props.isResultsDay) {
-      fetch("http://localhost:8000/api/results")
+      fetch(api_endpoint + "/api/results")
         .then((response) => {
           return response.json();
         })
@@ -144,22 +145,22 @@ class Results extends Component {
                       <div>
                         {this.state.results.GenELections.length
                           ? this.state.results.GenELections.map((candi, i) => {
-                              return (
-                                <div
-                                  className="positionsItem"
-                                  onClick={() => {
-                                    this.setState({
-                                      activeResults: candi.elec_result_cand,
-                                      positionName: candi.elec_name,
-                                      showModal: false,
-                                    });
-                                  }}
-                                  key={i}
-                                >
-                                  {candi.elec_name}
-                                </div>
-                              );
-                            })
+                            return (
+                              <div
+                                className="positionsItem"
+                                onClick={() => {
+                                  this.setState({
+                                    activeResults: candi.elec_result_cand,
+                                    positionName: candi.elec_name,
+                                    showModal: false,
+                                  });
+                                }}
+                                key={i}
+                              >
+                                {candi.elec_name}
+                              </div>
+                            );
+                          })
                           : ""}
                       </div>
                     </Accordion.Collapse>
@@ -175,24 +176,24 @@ class Results extends Component {
                       <div>
                         {this.state.results.TechClubElections.length
                           ? this.state.results.TechClubElections.map(
-                              (candi, i) => {
-                                return (
-                                  <div
-                                    className="positionsItem"
-                                    onClick={() => {
-                                      this.setState({
-                                        activeResults: candi.elec_result_cand,
-                                        positionName: candi.elec_name,
-                                        showModal: false,
-                                      });
-                                    }}
-                                    key={i}
-                                  >
-                                    {candi.elec_name}
-                                  </div>
-                                );
-                              }
-                            )
+                            (candi, i) => {
+                              return (
+                                <div
+                                  className="positionsItem"
+                                  onClick={() => {
+                                    this.setState({
+                                      activeResults: candi.elec_result_cand,
+                                      positionName: candi.elec_name,
+                                      showModal: false,
+                                    });
+                                  }}
+                                  key={i}
+                                >
+                                  {candi.elec_name}
+                                </div>
+                              );
+                            }
+                          )
                           : ""}
                       </div>
                     </Accordion.Collapse>
@@ -208,24 +209,24 @@ class Results extends Component {
                       <div>
                         {this.state.results.CulturalClubElections.length
                           ? this.state.results.CulturalClubElections.map(
-                              (candi, i) => {
-                                return (
-                                  <div
-                                    className="positionsItem"
-                                    onClick={() => {
-                                      this.setState({
-                                        activeResults: candi.elec_result_cand,
-                                        positionName: candi.elec_name,
-                                        showModal: false,
-                                      });
-                                    }}
-                                    key={i}
-                                  >
-                                    {candi.elec_name}
-                                  </div>
-                                );
-                              }
-                            )
+                            (candi, i) => {
+                              return (
+                                <div
+                                  className="positionsItem"
+                                  onClick={() => {
+                                    this.setState({
+                                      activeResults: candi.elec_result_cand,
+                                      positionName: candi.elec_name,
+                                      showModal: false,
+                                    });
+                                  }}
+                                  key={i}
+                                >
+                                  {candi.elec_name}
+                                </div>
+                              );
+                            }
+                          )
                           : ""}
                       </div>
                     </Accordion.Collapse>
@@ -241,24 +242,24 @@ class Results extends Component {
                       <div>
                         {this.state.results.SportsClubElections.length
                           ? this.state.results.SportsClubElections.map(
-                              (candi, i) => {
-                                return (
-                                  <div
-                                    className="positionsItem"
-                                    onClick={() => {
-                                      this.setState({
-                                        activeResults: candi.elec_result_cand,
-                                        positionName: candi.elec_name,
-                                        showModal: false,
-                                      });
-                                    }}
-                                    key={i}
-                                  >
-                                    {candi.elec_name}
-                                  </div>
-                                );
-                              }
-                            )
+                            (candi, i) => {
+                              return (
+                                <div
+                                  className="positionsItem"
+                                  onClick={() => {
+                                    this.setState({
+                                      activeResults: candi.elec_result_cand,
+                                      positionName: candi.elec_name,
+                                      showModal: false,
+                                    });
+                                  }}
+                                  key={i}
+                                >
+                                  {candi.elec_name}
+                                </div>
+                              );
+                            }
+                          )
                           : ""}
                       </div>
                     </Accordion.Collapse>
@@ -274,24 +275,24 @@ class Results extends Component {
                       <div>
                         {this.state.results.MessSecretaryElections.length
                           ? this.state.results.MessSecretaryElections.map(
-                              (candi, i) => {
-                                return (
-                                  <div
-                                    className="positionsItem"
-                                    onClick={() => {
-                                      this.setState({
-                                        activeResults: candi.elec_result_cand,
-                                        positionName: candi.elec_name,
-                                        showModal: false,
-                                      });
-                                    }}
-                                    key={i}
-                                  >
-                                    {candi.elec_name}
-                                  </div>
-                                );
-                              }
-                            )
+                            (candi, i) => {
+                              return (
+                                <div
+                                  className="positionsItem"
+                                  onClick={() => {
+                                    this.setState({
+                                      activeResults: candi.elec_result_cand,
+                                      positionName: candi.elec_name,
+                                      showModal: false,
+                                    });
+                                  }}
+                                  key={i}
+                                >
+                                  {candi.elec_name}
+                                </div>
+                              );
+                            }
+                          )
                           : ""}
                       </div>
                     </Accordion.Collapse>
@@ -307,24 +308,24 @@ class Results extends Component {
                       <div>
                         {this.state.results.HostelSecretaryElections.length
                           ? this.state.results.HostelSecretaryElections.map(
-                              (candi, i) => {
-                                return (
-                                  <div
-                                    className="positionsItem"
-                                    onClick={() => {
-                                      this.setState({
-                                        activeResults: candi.elec_result_cand,
-                                        positionName: candi.elec_name,
-                                        showModal: false,
-                                      });
-                                    }}
-                                    key={i}
-                                  >
-                                    {candi.elec_name}
-                                  </div>
-                                );
-                              }
-                            )
+                            (candi, i) => {
+                              return (
+                                <div
+                                  className="positionsItem"
+                                  onClick={() => {
+                                    this.setState({
+                                      activeResults: candi.elec_result_cand,
+                                      positionName: candi.elec_name,
+                                      showModal: false,
+                                    });
+                                  }}
+                                  key={i}
+                                >
+                                  {candi.elec_name}
+                                </div>
+                              );
+                            }
+                          )
                           : ""}
                       </div>
                     </Accordion.Collapse>
@@ -340,24 +341,24 @@ class Results extends Component {
                       <div>
                         {this.state.results.AcademicCRElections.length
                           ? this.state.results.AcademicCRElections.map(
-                              (candi, i) => {
-                                return (
-                                  <div
-                                    className="positionsItem"
-                                    onClick={() => {
-                                      this.setState({
-                                        activeResults: candi.elec_result_cand,
-                                        positionName: candi.elec_name,
-                                        showModal: false,
-                                      });
-                                    }}
-                                    key={i}
-                                  >
-                                    {candi.elec_name}
-                                  </div>
-                                );
-                              }
-                            )
+                            (candi, i) => {
+                              return (
+                                <div
+                                  className="positionsItem"
+                                  onClick={() => {
+                                    this.setState({
+                                      activeResults: candi.elec_result_cand,
+                                      positionName: candi.elec_name,
+                                      showModal: false,
+                                    });
+                                  }}
+                                  key={i}
+                                >
+                                  {candi.elec_name}
+                                </div>
+                              );
+                            }
+                          )
                           : ""}
                       </div>
                     </Accordion.Collapse>
@@ -397,24 +398,24 @@ class Results extends Component {
                           <div>
                             {this.state.results.GenELections.length
                               ? this.state.results.GenELections.map(
-                                  (candi, i) => {
-                                    return (
-                                      <div
-                                        className="positionsItem"
-                                        onClick={() => {
-                                          this.setState({
-                                            activeResults:
-                                              candi.elec_result_cand,
-                                            positionName: candi.elec_name,
-                                          });
-                                        }}
-                                        key={i}
-                                      >
-                                        {candi.elec_name}
-                                      </div>
-                                    );
-                                  }
-                                )
+                                (candi, i) => {
+                                  return (
+                                    <div
+                                      className="positionsItem"
+                                      onClick={() => {
+                                        this.setState({
+                                          activeResults:
+                                            candi.elec_result_cand,
+                                          positionName: candi.elec_name,
+                                        });
+                                      }}
+                                      key={i}
+                                    >
+                                      {candi.elec_name}
+                                    </div>
+                                  );
+                                }
+                              )
                               : ""}
                           </div>
                         </Accordion.Collapse>
@@ -430,24 +431,24 @@ class Results extends Component {
                           <div>
                             {this.state.results.TechClubElections.length
                               ? this.state.results.TechClubElections.map(
-                                  (candi, i) => {
-                                    return (
-                                      <div
-                                        className="positionsItem"
-                                        onClick={() => {
-                                          this.setState({
-                                            activeResults:
-                                              candi.elec_result_cand,
-                                            positionName: candi.elec_name,
-                                          });
-                                        }}
-                                        key={i}
-                                      >
-                                        {candi.elec_name}
-                                      </div>
-                                    );
-                                  }
-                                )
+                                (candi, i) => {
+                                  return (
+                                    <div
+                                      className="positionsItem"
+                                      onClick={() => {
+                                        this.setState({
+                                          activeResults:
+                                            candi.elec_result_cand,
+                                          positionName: candi.elec_name,
+                                        });
+                                      }}
+                                      key={i}
+                                    >
+                                      {candi.elec_name}
+                                    </div>
+                                  );
+                                }
+                              )
                               : ""}
                           </div>
                         </Accordion.Collapse>
@@ -463,24 +464,24 @@ class Results extends Component {
                           <div>
                             {this.state.results.CulturalClubElections.length
                               ? this.state.results.CulturalClubElections.map(
-                                  (candi, i) => {
-                                    return (
-                                      <div
-                                        className="positionsItem"
-                                        onClick={() => {
-                                          this.setState({
-                                            activeResults:
-                                              candi.elec_result_cand,
-                                            positionName: candi.elec_name,
-                                          });
-                                        }}
-                                        key={i}
-                                      >
-                                        {candi.elec_name}
-                                      </div>
-                                    );
-                                  }
-                                )
+                                (candi, i) => {
+                                  return (
+                                    <div
+                                      className="positionsItem"
+                                      onClick={() => {
+                                        this.setState({
+                                          activeResults:
+                                            candi.elec_result_cand,
+                                          positionName: candi.elec_name,
+                                        });
+                                      }}
+                                      key={i}
+                                    >
+                                      {candi.elec_name}
+                                    </div>
+                                  );
+                                }
+                              )
                               : ""}
                           </div>
                         </Accordion.Collapse>
@@ -496,24 +497,24 @@ class Results extends Component {
                           <div>
                             {this.state.results.SportsClubElections.length
                               ? this.state.results.SportsClubElections.map(
-                                  (candi, i) => {
-                                    return (
-                                      <div
-                                        className="positionsItem"
-                                        onClick={() => {
-                                          this.setState({
-                                            activeResults:
-                                              candi.elec_result_cand,
-                                            positionName: candi.elec_name,
-                                          });
-                                        }}
-                                        key={i}
-                                      >
-                                        {candi.elec_name}
-                                      </div>
-                                    );
-                                  }
-                                )
+                                (candi, i) => {
+                                  return (
+                                    <div
+                                      className="positionsItem"
+                                      onClick={() => {
+                                        this.setState({
+                                          activeResults:
+                                            candi.elec_result_cand,
+                                          positionName: candi.elec_name,
+                                        });
+                                      }}
+                                      key={i}
+                                    >
+                                      {candi.elec_name}
+                                    </div>
+                                  );
+                                }
+                              )
                               : ""}
                           </div>
                         </Accordion.Collapse>
@@ -529,24 +530,24 @@ class Results extends Component {
                           <div>
                             {this.state.results.MessSecretaryElections.length
                               ? this.state.results.MessSecretaryElections.map(
-                                  (candi, i) => {
-                                    return (
-                                      <div
-                                        className="positionsItem"
-                                        onClick={() => {
-                                          this.setState({
-                                            activeResults:
-                                              candi.elec_result_cand,
-                                            positionName: candi.elec_name,
-                                          });
-                                        }}
-                                        key={i}
-                                      >
-                                        {candi.elec_name}
-                                      </div>
-                                    );
-                                  }
-                                )
+                                (candi, i) => {
+                                  return (
+                                    <div
+                                      className="positionsItem"
+                                      onClick={() => {
+                                        this.setState({
+                                          activeResults:
+                                            candi.elec_result_cand,
+                                          positionName: candi.elec_name,
+                                        });
+                                      }}
+                                      key={i}
+                                    >
+                                      {candi.elec_name}
+                                    </div>
+                                  );
+                                }
+                              )
                               : ""}
                           </div>
                         </Accordion.Collapse>
@@ -562,24 +563,24 @@ class Results extends Component {
                           <div>
                             {this.state.results.HostelSecretaryElections.length
                               ? this.state.results.HostelSecretaryElections.map(
-                                  (candi, i) => {
-                                    return (
-                                      <div
-                                        className="positionsItem"
-                                        onClick={() => {
-                                          this.setState({
-                                            activeResults:
-                                              candi.elec_result_cand,
-                                            positionName: candi.elec_name,
-                                          });
-                                        }}
-                                        key={i}
-                                      >
-                                        {candi.elec_name}
-                                      </div>
-                                    );
-                                  }
-                                )
+                                (candi, i) => {
+                                  return (
+                                    <div
+                                      className="positionsItem"
+                                      onClick={() => {
+                                        this.setState({
+                                          activeResults:
+                                            candi.elec_result_cand,
+                                          positionName: candi.elec_name,
+                                        });
+                                      }}
+                                      key={i}
+                                    >
+                                      {candi.elec_name}
+                                    </div>
+                                  );
+                                }
+                              )
                               : ""}
                           </div>
                         </Accordion.Collapse>
@@ -595,24 +596,24 @@ class Results extends Component {
                           <div>
                             {this.state.results.AcademicCRElections.length
                               ? this.state.results.AcademicCRElections.map(
-                                  (candi, i) => {
-                                    return (
-                                      <div
-                                        className="positionsItem"
-                                        onClick={() => {
-                                          this.setState({
-                                            activeResults:
-                                              candi.elec_result_cand,
-                                            positionName: candi.elec_name,
-                                          });
-                                        }}
-                                        key={i}
-                                      >
-                                        {candi.elec_name}
-                                      </div>
-                                    );
-                                  }
-                                )
+                                (candi, i) => {
+                                  return (
+                                    <div
+                                      className="positionsItem"
+                                      onClick={() => {
+                                        this.setState({
+                                          activeResults:
+                                            candi.elec_result_cand,
+                                          positionName: candi.elec_name,
+                                        });
+                                      }}
+                                      key={i}
+                                    >
+                                      {candi.elec_name}
+                                    </div>
+                                  );
+                                }
+                              )
                               : ""}
                           </div>
                         </Accordion.Collapse>
@@ -660,8 +661,8 @@ class Results extends Component {
             </div>
           </OnImagesLoaded>
         ) : (
-          <Redirect to="/" />
-        )}
+            <Redirect to="/" />
+          )}
       </div>
     );
   }

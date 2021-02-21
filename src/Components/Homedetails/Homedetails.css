@@ -10,15 +10,24 @@
   .hide-mobile {
     display: none;
   }
+  .markcal {
+    margin: 30px 10px 10px 10px;
+    padding: 10px;
+
+    color: crimson;
+    font-family: "Quicksand", sans-serif;
+    font-size: 1.5rem !important;
+    text-align: center;
+  }
   .imgshow {
     display: grid;
     grid-template-rows: 2fr 0.5fr auto;
-    height: 185vh;
+    height: 190vh;
     margin-top:-100vh;
     padding-top:100vh;
     grid-gap: 10px;
-    background-color: #e9d8ff;
     width: 100vw;
+    background-color: #e9d8ff;
     border-bottom-left-radius: 10vh;
     border-bottom-right-radius: 10vh;
     overflow: hidden;
@@ -32,14 +41,13 @@
   .infotxt {
     align-self: start !important;
     font-family: "Quicksand", sans-serif;
-    font-size: 2vw;
+    font-size: 2.3rem;
     margin: auto;
     text-align: center;
     color: #752a87;
+    line-height: 1.1;
   }
-  .infotxt a {
-    font-size: 3.5vw;
-  }
+  
   .bottomimg {
     max-width: 100%;
   }
@@ -50,6 +58,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 15px;
+    margin-bottom: 10vh;
     grid-template-columns: 1fr;
     grid-template-rows: 2fr 2fr 2fr 2fr;
     justify-items: center;
@@ -92,8 +101,6 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
     height: 110vh;
-    grid-gap: -20px;
-    background-color: #e9d8ff;
     width: 100%;
 
     overflow: visible;
@@ -130,8 +137,8 @@
     line-height: 1.2;
     color: #752a87;
   }
-  .infotxt a {
-    font-size: 4.5rem;
+  .infotxt #til {
+    font-size: 4vw;
     white-space: nowrap;
   }
   .bottomimg {
@@ -204,7 +211,6 @@
   }
   .markcal {
     margin: 30px auto 30px auto;
-    font-size: 4rem;
     color: crimson;
     font-family: "Quicksand", sans-serif;
     text-align: center;

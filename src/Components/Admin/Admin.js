@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./Admin.css";
-import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
 import { AdminResults } from "./AdminResults";
 import AdminImportantDates from "./Admin_Important_Dates";
@@ -9,6 +8,7 @@ import Row from "react-bootstrap/Row";
 import Nav from "react-bootstrap/Nav";
 import Swal from "sweetalert2";
 import { Redirect } from "react-router-dom";
+import { api_endpoint } from "../../Global";
 
 class Admin extends Component {
   constructor(props) {
@@ -42,10 +42,7 @@ class Admin extends Component {
       showLoaderOnConfirm: true,
       preConfirm: (login) => {
         return fetch(
-          "http://localhost:8000/api/admin/voter?tokenId=" +
-            this.props.tokenId +
-            "&voterid=" +
-            login
+          api_endpoint + "/api/admin/voter?tokenId=" + this.props.tokenId + "&voterid=" + login
         )
           .then((response) => {
             if (!response.ok) {
@@ -85,7 +82,7 @@ class Admin extends Component {
     return (
       <div>
         {this.props.isSigned && this.props.isAdmin ? (
-          <div className="admin-parent">
+          <div className="admin-parent" style={{ overflowX: "hidden" }}>
             <br />
             <Tab.Container defaultActiveKey="admin_votes">
               <Row>

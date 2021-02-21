@@ -24,7 +24,16 @@
 	max-width:100%;
 	height:auto;
 }
+.bottombanner{
+  width: 100%;
+    background:url(./fullartcrop.png);
+    height:50vh;
+    margin-top: 5vh;
+    background-repeat: no-repeat;
+    background-position: left bottom; 
+    background-size:contain;
 
+}
 .titlebanteam{
 	width:100%;
 	height:auto;
@@ -48,7 +57,7 @@
   .conti {
   width: 80%;
   margin: 0px auto 0 auto;
-  color: #fff;
+  color: #ff3419;
   min-width: 320px;
 }
 
@@ -67,6 +76,13 @@
   grid-gap: 30px;
   justify-items: center;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+
+}
+.fortheme{
+  width: 100%;
+  background:url(./themebg.png);
+  background-repeat: no-repeat;
+background-position: left bottom; 
 
 }
 }
@@ -122,13 +138,15 @@
   .conti {
   width: 80%;
   margin: 0px auto 0 auto;
-  color: #fff;
+  color: #ff3419;
+  font-weight: 500;
   min-width: 320px;
 }
 .bottombanner{
   width: 100%;
     background:url(./fullartcrop.png);
-    height:600px;
+    height:70vh;
+    margin-top: 5vh;
     background-repeat: no-repeat;
     background-position: left bottom; 
     background-size:contain;

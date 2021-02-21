@@ -1,8 +1,11 @@
-import React from 'react';
-import './Card.css'
-import Reveal from 'react-reveal/Reveal';
-import Fade from 'react-reveal/Fade';
-import {showModel} from './../../App.js'
+import React from "react";
+import "./Card.css";
+import Reveal from "react-reveal/Reveal";
+import Fade from "react-reveal/Fade";
+import LazyLoad from "react-lazyload";
+import RenderSmoothImage from "render-smooth-image-react";
+import "./stylex.css";
+//import { showModel } from './../../App.js'
 const Card = ({
   cand_imgsrc,
   cand_name,
@@ -10,16 +13,24 @@ const Card = ({
   cand_branch,
   cand_intro,
   cand_manifesto,
+  updateLoadx,
+  increaseHeight,
   id,
 }) => {
   return (
-    <div className="card">
+    <div
+      className={increaseHeight ? "card cardHeightSet" : "card"}
+    >
       <Reveal effect="animtop">
         <div className="ds-top" />
       </Reveal>
       <Reveal effect="animprof">
         <div className="avatar-holder">
-          <img src={cand_imgsrc} className="cardimg" alt="Albert Einstein" />
+          <LazyLoad height={200} offset={300} once={true}>
+            <div className="cardimg">
+              <RenderSmoothImage src={cand_imgsrc} alt="Profile pic" />
+            </div>
+          </LazyLoad>
         </div>
       </Reveal>
 
@@ -28,36 +39,47 @@ const Card = ({
           <div id="namex" href="#">
             {cand_name}
           </div>
-          
-          <div id="dept" href=''>
+
+          <div id="dept" href="">
             {cand_branch}
           </div>
-          
+
           <div id="email" href="#">
             {cand_id}
           </div>
-          
         </div>
       </Fade>
-      <div className="buttonhold">
-        <button
-          className="Button_Secondary"
-          onClick={() => {
-            window.open(cand_manifesto);
-          }}
-        >
-          <i className="fa fa-file" aria-hidden="true"></i> Manifesto
-        </button>
-        <button
+      {cand_manifesto !== "" ? (
+        <div className="buttonhold">
+          <button
+            className="Button_Secondary"
+            onClick={() => {
+              window.open(cand_manifesto);
+            }}
+          >
+            <i className="fa fa-file" aria-hidden="true"></i> Manifesto
+          </button>
+
+          {/* <button
           className="Button_Secondary"
           onClick={() => {
             showModel(true, cand_intro);
           }}
         >
           <i className="fa fa-youtube-play" aria-hidden="true"></i> Intro
-        </button>
-      </div>
-      
+        </button> */}
+        </div>
+      ) : (
+        <div className="buttonhold">
+          <button
+            className="Button_Secondary"
+            style={{ opacity: 0.5, cursor: "default", pointerEvents: "none" }}
+            disabled={true}
+          >
+            <i className="fa fa-file" aria-hidden="true"></i> Manifesto
+          </button>
+        </div>
+      )}
     </div>
   );
 };

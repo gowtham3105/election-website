@@ -8,15 +8,14 @@
     display: none;
   }
 .bigcont *{
-	font-size:1rem;
+	font-size:0.9rem;
 	}
 
 	.bigcont {
-		background-color:#12114a;
+		background-color:#c285ff;
 		width: 100%;
-		color:#fff;
+		color:#752a87;
 		height:auto;
-		margin-top:100px;
 	}
 
 .footer-container{
@@ -33,9 +32,7 @@
 	grid-template-rows:1fr;
 
 }
-.footer-logo-name{
-	
-}
+
 .footer-logo1{
 	height: 100%; 
 	width: 100%; 
@@ -50,14 +47,14 @@
 
 }
 .footer-contact-heading{
-	font-size:1.4rem !important;
+	font-size: 1.1rem !important;
 }
 
 .footer-main-content{
 	padding: 5px 5px;
 }
 .listtoreach{
-padding:10px 5px 20px 5px;
+padding: 10px 5px 20px 5px;
 display: grid;
 grid-template-rows:auto auto auto auto;
 
@@ -75,12 +72,13 @@ grid-template-rows:auto auto auto auto;
 }
 .footer-credits{
 	background-color: #230e48;
-width:100%;
-padding:10px;
-font-size:1rem;
-font-weight:700 !important;
+width: 100%;
+padding: 10px;
+font-size: 0.9rem;
+font-weight: 700 !important;
 text-align: center;	
 	margin:auto;
+color: #fff;
 }
 
 }
@@ -95,14 +93,15 @@ text-align: center;
     display: block;
   }
 .bigcont *{
-	font-size:1.2rem;
+	font-size:1.4rem;
 	}
 
 	.bigcont {
-		background-color:#12114a;
+		background-color:#cfa7fe;
 		width: 100%;
-		color:#fff;
+		color:#752a87;
 		height:auto;
+		line-height: 1.6;
 /*		margin-top:100px;
 */	}
 
@@ -120,9 +119,7 @@ text-align: center;
 	grid-template-rows:1fr;
 
 }
-.footer-logo-name{
-	
-}
+
 .footer-logo1{
 	height: 100%; 
 	width: 100%; 
@@ -136,15 +133,21 @@ text-align: center;
 	height: 80%; 
 	width: 80%; 
 	object-fit: contain;
-
+	min-height: 220px;
+	min-width: 220px;
 }
 .footer-contact-heading{
-	font-size:1.8rem !important;
+	font-size:2.3rem !important;
 }
 
 .footer-main-content{
-	padding: 20px 5px;
+	padding: 20px 15px;
+	display: grid;
+	align-items: center;
 }
+.footinf{
+	white-space: nowrap; 
+	  }
 .listtoreach{
 padding:20px 5px;
 display: grid;
@@ -168,7 +171,8 @@ width:100%;
 padding:10px;
 font-size:1rem;
 font-weight:700 !important;
-text-align: center;	
+text-align: center;
+color: #fff;
 	margin:auto;
 }
 

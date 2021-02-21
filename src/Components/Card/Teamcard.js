@@ -1,12 +1,12 @@
 import React from "react";
 import "./Teamcard.css";
-import Reveal from "react-reveal/Reveal";
-import Fade from "react-reveal/Fade";
+import LazyLoad from 'react-lazyload';
+import RenderSmoothImage from 'render-smooth-image-react';
+import './stylex.css';
 const Teamcard = ({
   name1,
   name2,
   imgsrc,
-  position,
   gitbool,
   linkedbool,
   instabool,
@@ -19,7 +19,7 @@ const Teamcard = ({
   const getgit = () => {
     if (gitbool)
       return (
-        <a href={gitlink}>
+        <a href={gitlink} target="_blank" rel="noopener noreferrer">
           <i className="fa fa-github-square" aria-hidden="true"></i>
         </a>
       );
@@ -28,7 +28,7 @@ const Teamcard = ({
   const getlinked = () => {
     if (linkedbool)
       return (
-        <a href={linkedlink}>
+        <a href={linkedlink} target="_blank" rel="noopener noreferrer">
           <i className="fa fa-linkedin-square" aria-hidden="true"></i>
         </a>
       );
@@ -37,7 +37,7 @@ const Teamcard = ({
   const getinsta = () => {
     if (instabool)
       return (
-        <a href={instalink}>
+        <a href={instalink} target="_blank" rel="noopener noreferrer">
           <i className="fa fa-instagram" aria-hidden="true"></i>
         </a>
       );
@@ -46,7 +46,7 @@ const Teamcard = ({
   const getfb = () => {
     if (fbbool)
       return (
-        <a href={fblink}>
+        <a href={fblink} target="_blank" rel="noopener noreferrer">
           <i className="fa fa-facebook-square" aria-hidden="true"></i>
         </a>
       );
@@ -55,13 +55,13 @@ const Teamcard = ({
 
   return (
     <div className="containercard">
-      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1820405/profile/profile-512.jpg?1533058950" />
-
+      <LazyLoad height={280} offset={400} once={true}>
+        <RenderSmoothImage src={imgsrc} alt="Profile pic" />
+      </LazyLoad>
       <div className="contentcard">
-        <h2>
+        <div className="mname">
           {name1} <br /> {name2}
-        </h2>
-        <p>{position}</p>
+        </div>
 
         <div className="icons">
           {getgit()}

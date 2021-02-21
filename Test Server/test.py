@@ -51,7 +51,7 @@ def getimportantDates():
     datetime_IN = datetime.now(tz_IN)
     
     return jsonify(resultsDate="Mon Nov 24 2020 17:28:11 GMT+0530 (India Standard Time)",
-     electionsDate="Mon Nov 23 2020 10:30:00 GMT+0530 (India Standard Time)",
+     electionDate="Mon Nov 23 2020 10:30:00 GMT+0530 (India Standard Time)",
       now=str(datetime_IN))
 
 app.run(debug='true', host='0.0.0.0')

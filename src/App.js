@@ -4,7 +4,7 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Navbar from "react-bootstrap/Navbar";
 import Teampage from "./Components/Teampage/Teampage";
-import Electioncard from "./Components/Electioncard/Electioncard";
+import { Electioncard } from "./Components/Electioncard/Electioncard";
 import Nav from "react-bootstrap/Nav";
 import "./App.css";
 import Positions from "./Components/Positions/Positions";
@@ -14,8 +14,9 @@ import {
   Switch,
   NavLink,
 } from "react-router-dom";
+import disableScroll from 'disable-scroll';
 import Homedetails from "./Components/Homedetails/Homedetails";
-import Footer from "./Components/Footer/Footer";
+import { Footer } from "./Components/Footer/Footer";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
@@ -25,6 +26,8 @@ import { Results } from "./Components/Results/Results";
 import positionImg from "./position.png";
 import { GoogleLogin, GoogleLogout } from "react-google-login";
 import Admin from "./Components/Admin/Admin";
+import Swal from "sweetalert2";
+import { api_endpoint } from "./Global";
 
 class Video extends Component {
   constructor(props) {
@@ -72,9 +75,14 @@ class NavBar extends Component {
       tokenId: "",
       authRes: "",
       expanded: false,
+      opac: 0,
     };
     // eslint-disable-next-line no-func-assign
+    setopacity = setopacity.bind(this);
+    // eslint-disable-next-line no-func-assign
+    getopacity = getopacity.bind(this);
   }
+
   refreshToken = (oldres) => {
     oldres.reloadAuthResponse().then((res) => {
       this.setState({ tokenId: res.id_token });
@@ -82,10 +90,17 @@ class NavBar extends Component {
   };
 
   signInOnSuccess = (res) => {
+    this.props.changeLoadContent(false);
     this.setState({
       isSigned: true,
       tokenId: res.tokenId,
       authRes: res,
+    });
+    setInfo({
+      isAdmin: this.state.isAdmin,
+      isVoter: this.state.isVoter,
+      isSigned: this.state.isSigned,
+      tokenId: this.state.tokenId,
     });
 
     var refresh = setInterval(
@@ -99,12 +114,20 @@ class NavBar extends Component {
   };
   signInOnError = (err) => {
     console.log(err);
-    setError("Unable to Sign In Please Try Again", true);
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Unable to Sign In Please Try Again",
+    });
   };
 
   signOutOnError = (err) => {
     console.log(err);
-    setError("Unable to Sign Out Please Try Again", true);
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Unable to Sign Out, Please Try Again",
+    });
   };
 
   signOutOnSuccess = () => {
@@ -127,9 +150,13 @@ class NavBar extends Component {
 
   async isAdmin() {
     if (this.state.tokenId.length) {
-      await fetch(
-        "http://localhost:8000/api/userType?tokenId=" + this.state.tokenId
-      )
+      setInfo({
+        isAdmin: this.state.isAdmin,
+        isVoter: this.state.isVoter,
+        isSigned: this.state.isSigned,
+        tokenId: this.state.tokenId,
+      });
+      await fetch(api_endpoint + "/api/userType?tokenId=" + this.state.tokenId)
         .then((response) => {
           return response.json();
         })
@@ -151,8 +178,15 @@ class NavBar extends Component {
             isSigned: this.state.isSigned,
             tokenId: this.state.tokenId,
           });
-          
+          this.props.changeLoadContent(true);
         });
+    } else {
+      setInfo({
+        isAdmin: this.state.isAdmin,
+        isVoter: this.state.isVoter,
+        isSigned: this.state.isSigned,
+        tokenId: this.state.tokenId,
+      });
     }
   }
 
@@ -161,7 +195,7 @@ class NavBar extends Component {
       zIndex: 10,
     };
     return (
-      <div>
+      <div style={{ opacity: this.state.opac }}>
         <Navbar
           expanded={this.state.expanded}
           collapseOnSelect
@@ -198,10 +232,10 @@ class NavBar extends Component {
                   <div className="secondary_Text">Admin</div>
                 </NavLink>
               ) : (
-                ""
-              )}
+                  ""
+                )}
 
-              {this.state.isSigned ? (
+              {this.state.isSigned && this.state.isVoter ? (
                 <>
                   <Nav.Link
                     onClick={() => {
@@ -213,8 +247,8 @@ class NavBar extends Component {
                   </Nav.Link>
                 </>
               ) : (
-                ""
-              )}
+                  ""
+                )}
               <NavLink
                 to="/positions"
                 className="NavLink nav-link"
@@ -224,28 +258,24 @@ class NavBar extends Component {
               >
                 <div className="secondary_Text">Positions</div>
               </NavLink>
-              {this.props.isElectionsDay ? (
-                <NavLink
-                  to="/voting"
-                  className="NavLink nav-link"
-                  style={styles}
-                  activeClassName="selected"
-                  onClick={() => this.setState({ expanded: false })}
-                >
-                  <div className="secondary_Text">Voting</div>
-                </NavLink>
-              ) : (
-                ""
-              )}
-
               <NavLink
-                to="/important dates"
+                to="/voting"
                 className="NavLink nav-link"
                 style={styles}
                 activeClassName="selected"
                 onClick={() => this.setState({ expanded: false })}
               >
-                <div className="secondary_Text">Important Dates</div>
+                <div className="secondary_Text">Voting</div>
+              </NavLink>
+
+              <NavLink
+                to="/schedule"
+                className="NavLink nav-link"
+                style={styles}
+                activeClassName="selected"
+                onClick={() => this.setState({ expanded: false })}
+              >
+                <div className="secondary_Text">Schedule</div>
               </NavLink>
               {this.props.isResultsDay ? (
                 <NavLink
@@ -258,8 +288,8 @@ class NavBar extends Component {
                   <div className="secondary_Text">Result</div>
                 </NavLink>
               ) : (
-                ""
-              )}
+                  ""
+                )}
 
               <NavLink
                 to="/team"
@@ -276,7 +306,7 @@ class NavBar extends Component {
               <Nav.Link>
                 {!this.state.isSigned ? (
                   <GoogleLogin
-                    clientId="352037303035-ld3gu55gulckmeo1m573kt8qocth524o.apps.googleusercontent.com"
+                    clientId="448752692165-il4tvq7c4j3lb4p58hlo78del1355cli.apps.googleusercontent.com"
                     render={(renderProps) => (
                       <Button
                         className="Button"
@@ -292,26 +322,35 @@ class NavBar extends Component {
                     cookiePolicy={"single_host_origin"}
                     hostedDomain="iitdh.ac.in"
                     isSignedIn={true}
+                    onAutoLoadFinished={(gg) => {
+                      //    console.log("auto load finished sign in");
+                      //    console.log(gg);
+                      if (!gg) this.props.changeLoadContent(true);
+                    }}
                   />
                 ) : (
-                  <GoogleLogout
-                    clientId="352037303035-ld3gu55gulckmeo1m573kt8qocth524o.apps.googleusercontent.com"
-                    render={(renderProps) => (
-                      <Button
-                        className="Button"
-                        onClick={renderProps.onClick}
-                        disabled={renderProps.disabled}
-                      >
-                        <div className="secondary_Text">SIGN OUT</div>
-                      </Button>
-                    )}
-                    buttonText={this.state.value}
-                    onLogoutSuccess={this.signOutOnSuccess}
-                    onFailure={this.signOutOnError}
-                    hostedDomain="iitdh.ac.in"
-                    isSignedIn={true}
-                  />
-                )}
+                    <GoogleLogout
+                      clientId="448752692165-il4tvq7c4j3lb4p58hlo78del1355cli.apps.googleusercontent.com"
+                      render={(renderProps) => (
+                        <Button
+                          className="Button"
+                          onClick={renderProps.onClick}
+                          disabled={renderProps.disabled}
+                        >
+                          <div className="secondary_Text">SIGN OUT</div>
+                        </Button>
+                      )}
+                      buttonText={this.state.value}
+                      onLogoutSuccess={this.signOutOnSuccess}
+                      onFailure={this.signOutOnError}
+                      hostedDomain="iitdh.ac.in"
+                      isSignedIn={true}
+                      onAutoLoadFinished={() => {
+                        //  console.log("auto load finished sign in");
+                        this.props.changeLoadContent(true);
+                      }}
+                    />
+                  )}
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
@@ -324,7 +363,10 @@ class NavBar extends Component {
 class Elections extends Component {
   constructor(props) {
     super(props);
+    setopacity(0);
     this.props.showLoader();
+    disableScroll.on();
+    window.scrollTo(0, 0);
     this.state = {
       showVideo: false,
       showImages: false,
@@ -336,27 +378,34 @@ class Elections extends Component {
       filterbtnState: [],
       showMobFilter: false,
       interval: "",
+      totload: 0,
+      tothave: 1000,
+      closeLoadx: 0,
     };
     // eslint-disable-next-line no-func-assign
     showModel = showModel.bind(this);
+    // updateLoadx = this.updateLoadx.bind(this);
+    // closeLoadx = this.closeLoadx.bind(this);
   }
+  updateLoadx = () => {
+    this.setState({ totload: this.state.totload + 1 });
+  };
   showPositions = (user, i) => {
-    
-
     return this.state.filter.includes(user.elec_category) &&
       this.state.filterbtnState[
-        this.state.filter.indexOf(user.elec_category)
+      this.state.filter.indexOf(user.elec_category)
       ] ? (
-      <Positions
-        robots={user.elec_candidates}
-        name={user.elec_name}
-        criteria={user.elec_vote_criteria}
-        category={user.elec_category}
-        key={i}
-      />
-    ) : (
-      ""
-    );
+        <Positions
+          robots={user.elec_candidates}
+          name={user.elec_name}
+          criteria={user.elec_vote_criteria}
+          category={user.elec_category}
+          key={i}
+          updateLoadx={this.updateLoadx}
+        />
+      ) : (
+        ""
+      );
   };
 
   showFilterBtns = (category, i) => {
@@ -405,7 +454,6 @@ class Elections extends Component {
     while (lenFilter--) filterbtnState.push(true);
     this.setState({ filterbtnState: filterbtnState });
     this.setState({ loadContent: true });
-    if (this.state.showImages === true) this.props.hideLoader();
   };
 
   refresh = () => {
@@ -416,7 +464,30 @@ class Elections extends Component {
     }
   };
 
+  componentDidUpdate() {
+    if (
+      this.state.showImages &&
+      this.state.loadContent &&
+      this.props.loadContent
+    ) {
+      this.props.hideLoader();
+      if (this.state.closeLoadx !== 1) {
+        this.setState({ closeLoadx: 1 });
+        disableScroll.off();
+      }
+      setopacity(1);
+      return true;
+    } else {
+      this.props.showLoader();
+      if (this.state.closeLoadx !== 0) {
+        this.setState({ closeLoadx: 0 });
+      }
+      return false;
+    }
+  }
+
   componentDidMount() {
+
     if (this.props.Positions_robots.length) {
       this.fillFilter();
     } else {
@@ -429,18 +500,16 @@ class Elections extends Component {
       <OnImagesLoaded
         onLoaded={() => {
           this.setState({ showImages: true });
-          if (this.state.loadContent === true) this.props.hideLoader();
         }}
         onTimeout={() => {
           this.setState({ showImages: true });
-          if (this.state.loadContent === true) this.props.hideLoader();
         }}
         timeout={7000}
       >
         <div
           className="forpos"
           style={{
-            opacity: this.state.showImages && this.state.loadContent ? 1 : 0,
+            opacity: this.state.closeLoadx ? 1 : 0,
           }}
         >
           <div className="teamdesk">
@@ -448,7 +517,7 @@ class Elections extends Component {
               <div className="titlebanteam">
                 {" "}
                 Positions
-                <p>IIT Dharwad Elections 2020-21</p>
+                <p>IIT Dharwad Elections 2021-22 Phase - II</p>
               </div>
               <img
                 src={positionImg}
@@ -466,17 +535,18 @@ class Elections extends Component {
               />
 
               <div className="titlebanteam">
-                {" "}
                 Positions
-                <p>IIT Dharwad Elections 2020-21</p>
+                <p>
+                  IIT Dharwad Elections 2021-22 Phase - II
+                </p>
               </div>
             </div>
           </div>
           {this.state.showVideo ? (
             <Video videourl={this.state.videourl} />
           ) : (
-            " "
-          )}
+              " "
+            )}
           <hr />
           <div className="mobfilterbtngrp">
             <Button
@@ -526,65 +596,14 @@ class Elections extends Component {
               : ""}
           </div>
           <hr />
-          {this.props.Positions_robots.map(this.showPositions)}
+          <div className="forthemex">
+            {" "}
+            {this.props.Positions_robots.map(this.showPositions)}
+            <div className="bottombannerx"></div>
+          </div>
         </div>
       </OnImagesLoaded>
     );
-  }
-}
-
-class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  render() {
-    return (
-      <div>
-        <Homedetails
-          hideLoader={this.props.hideLoader}
-          showLoader={this.props.showLoader}
-        />
-      </div>
-    );
-  }
-}
-
-class Error extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-  Error = () => {
-    const handleClose = () => setError("", false);
-
-    return (
-      <>
-        <Modal show={this.props.showError} onHide={handleClose}>
-          <Modal.Header className="errorheader">
-            <i className="material-icons erroricon">error_outline</i>
-          </Modal.Header>
-
-          <Modal.Body>
-            <div className="ooops">Ooops!</div>
-            <h6 className="error">{this.props.msg}</h6>
-          </Modal.Body>
-
-          <Button
-            variant="secondary"
-            className="errorclose"
-            onClick={handleClose}
-          >
-            Close
-          </Button>
-          <br />
-        </Modal>
-      </>
-    );
-  };
-  render() {
-    return <div>{this.Error()}</div>;
   }
 }
 
@@ -596,6 +615,7 @@ class Account extends Component {
       tokenId: this.props.tokenId,
       isVoter: this.props.isVoter,
       show: this.props.show,
+      loadcon: false,
       details: {
         voter_rights: [],
       },
@@ -604,13 +624,20 @@ class Account extends Component {
     fetchDetails = fetchDetails.bind(this);
   }
   showpos = () => {
-    return (
-      <ul>
-        {this.state.details.voter_rights.map((pos, i) => (
-          <li key={i}>{pos.elec_name}</li>
-        ))}
-      </ul>
-    );
+    if (this.state.details.voter_rights.length)
+      return (
+        <ul>
+          {this.state.details.voter_rights.sort(function (a, b) {
+            if (Number(a['elec_id']) > Number(b['elec_id'])) return 1;
+            else return -1;
+          }).map((pos, i) => (
+            <li key={i}>{pos.elec_name}</li>
+          ))}
+        </ul>
+      );
+    else {
+      return <div></div>;
+    }
   };
 
   componentDidUpdate() {
@@ -622,91 +649,99 @@ class Account extends Component {
     }
   }
   async getDetails() {
-    if (this.props.tokenId.length) {
-      await fetch(
-        "http://localhost:8000/api/voter?tokenId=" + this.props.tokenId
-      )
+    if (this.props.tokenId.length && this.props.isVoter) {
+      await fetch(api_endpoint + "/api/voter?tokenId=" + this.props.tokenId)
         .then((response) => {
+          if (response.status === 401) {
+            throw new Error("You have voted to this positon already.");
+          }
           return response.json();
         })
         .then((users) => {
-          
           this.setState({
             tokenId: this.props.tokenId,
             isVoter: this.props.isVoter,
             details: users,
+            loadcon: true,
           });
+        })
+        .catch(() => {
+          console.log("err 401");
         });
     }
   }
 
   render() {
-    return (
-      <div>
-        <Modal
-          show={this.props.show}
-          onHide={() => {
-            setShowAccount(false);
-          }}
-          animation={true}
-          size="lg"
-          centered
-        >
-          <Modal.Header className="profileheadparent">
-            <div className="profilehead">Profile</div>
-          </Modal.Header>
-          <Modal.Body>
-            <Container>
-              <Row xs={1} md={2} lg={2}>
-                <Col>
-                  <div className="accountbasics">
-                    <div className="accountheading">
-                      Name
+    if (this.state.loadcon && this.props.isVoter)
+      return (
+        <div>
+          <Modal
+            show={this.props.show}
+            onHide={() => {
+              setShowAccount(false);
+            }}
+            animation={true}
+            size="lg"
+            centered
+          >
+            <Modal.Header className="profileheadparent">
+              <div className="profilehead">Profile</div>
+            </Modal.Header>
+            <Modal.Body>
+              <Container>
+                <Row xs={1} md={2} lg={2}>
+                  <Col>
+                    <div className="accountbasics">
+                      <div className="accountheading">
+                        Name
+                        <br />
+                      </div>
+                      {this.state.details.voter_name}
+                      <br />
+                      <div className="accountheading">
+                        Branch
+                        <br />
+                      </div>
+                      {this.state.details.voter_branch}
+                      <br />
+                      <div className="accountheading">
+                        Roll No
+                        <br />
+                      </div>
+                      {this.state.details.voter_id}
                       <br />
                     </div>
-                    {this.state.details.voter_name}
                     <br />
-                    <div className="accountheading">
-                      Branch
-                      <br />
+                  </Col>
+                  <Col>
+                    <div className="accountposElement">
+                      <div className="accountheading">
+                        Eligible Voting Positions
+                        <br />
+                      </div>
+                      {this.showpos()}
                     </div>
-                    {this.state.details.voter_branch}
-                    <br />
-                    <div className="accountheading">
-                      Roll No
-                      <br />
-                    </div>
-                    {this.state.details.voter_id}
-                    <br />
-                  </div>
-                  <br />
-                </Col>
-                <Col>
-                  <div className="accountposElement">
-                    <div className="accountheading">
-                      Eligible Voting Positions
-                      <br />
-                    </div>
-                    {this.showpos()}
-                  </div>
-                </Col>
-              </Row>
-            </Container>
-          </Modal.Body>
-          <div className="profileclosebtnparent">
-            <Button
-              variant="secondary"
-              className="profileclosebtn"
-              onClick={() => {
-                setShowAccount(false);
-              }}
-            >
-              Close
-            </Button>
-          </div>
-        </Modal>
-      </div>
-    );
+                  </Col>
+                </Row>
+              </Container>
+            </Modal.Body>
+            <div className="profileclosebtnparent">
+              <Button
+                variant="secondary"
+                className="profileclosebtn"
+                onClick={() => {
+                  setShowAccount(false);
+                }}
+              >
+                Close
+              </Button>
+            </div>
+          </Modal>
+        </div>
+      );
+    else {
+      return <div></div>;
+    }
   }
 }
 
@@ -714,10 +749,9 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      error: "",
-      showError: false,
       showAccount: false,
       showImages: false,
+      loadContent: [false, false, false],
       currenttab: "/",
       isSigned: false,
       isAdmin: false,
@@ -725,17 +759,26 @@ class App extends Component {
       tokenId: "",
       isElectionsDay: false,
       isResultsDay: false,
-      Positions_robots: [],
+      posapi: [],
+      totcand: 1000,
+      dateNow: "",
     };
     // eslint-disable-next-line no-func-assign
     setInfo = setInfo.bind(this);
-    // eslint-disable-next-line no-func-assign
-    setError = setError.bind(this);
+
     // eslint-disable-next-line no-func-assign
     setShowAccount = setShowAccount.bind(this);
   }
+  reloadPage = () => {
+    window.location.reload();
+  };
+  changeLoadContent = (stat) => {
+    var load = this.state.loadContent;
+    load[2] = stat;
+    this.setState({ loadContent: load });
+  };
   getDates = () => {
-    fetch("http://localhost:8000/api/getImportantDates")
+    fetch(api_endpoint + "/api/getImportantDates")
       .then((response) => {
         return response.json();
       })
@@ -743,181 +786,240 @@ class App extends Component {
         var timeTillResults = new Date(data.resultsDate) - new Date(data.Now);
         var timeTillElections =
           new Date(data.electionsDate) - new Date(data.Now);
-        if (timeTillResults >= 0 && timeTillElections >= 0) {
-          if (
-            this.state.isElectionsDay !== false ||
-            this.state.isResultsDay !== false
-          ) {
-            this.setState({ isElectionsDay: false, isResultsDay: false });
-          }
-        } else if (timeTillResults >= 0 && timeTillElections < 0) {
-          if (
-            this.state.isElectionsDay !== true ||
-            this.state.isResultsDay !== false
-          ) {
-            this.setState({ isElectionsDay: true, isResultsDay: false });
-          }
-        } else if (timeTillResults < 0 && timeTillElections < 0) {
-          if (
-            this.state.isElectionsDay !== true ||
-            this.state.isResultsDay !== true
-          ) {
-            this.setState({ isElectionsDay: true, isResultsDay: true });
-          }
+        //   console.log(timeTillResults);
+
+        //  console.log(timeTillElections);
+        //  console.log(timeTillElections + 57600000);
+        this.setState({
+          voteStartTime: timeTillElections,
+          voteEndTime: timeTillElections + 57600000,
+          resultTime: timeTillResults,
+          dateNow: data.electionsDate,
+        });
+        if (timeTillResults >= 0) {
+          this.setState({ isResultsDay: false });
+        } else {
+          this.setState({ isResultsDay: true });
         }
-        
+
+        if (timeTillElections > 0) {
+          this.setState({ isElectionsDay: false });
+        } else if (
+          timeTillElections <= 0 &&
+          timeTillElections + 57600000 >= 0
+        ) {
+          this.setState({ isElectionsDay: true });
+        } else {
+          this.setState({ isElectionsDay: false });
+        }
 
         if (timeTillResults > 0 && timeTillElections > 0) {
           if (timeTillElections < timeTillResults) {
-            setTimeout(this.getDates, Number(timeTillElections));
+            setTimeout(this.reloadPage, Number(timeTillElections));
           } else {
-            setTimeout(this.getDates, Number(timeTillResults));
+            setTimeout(this.reloadPage, Number(timeTillResults));
           }
         } else if (timeTillResults > 0 && timeTillElections < 0) {
-          setTimeout(this.getDates, Number(timeTillResults));
+          setTimeout(this.reloadPage, Number(timeTillResults));
         }
+        var load = this.state.loadContent;
+        load[0] = true;
+        this.setState({ loadContent: load });
       });
   };
+  checker = (arr) => arr.every((v) => v === true);
+  checkShow = () => {
+    if (this.checker(this.state.loadContent)) {
+      return 1;
+    } else {
+      return 0;
+    }
+  };
+  sortfun = (a, b) => {
+    if (a['elec_id'] >= b['elec_id']) return 1;
+    else return -1;
 
+  }
   componentDidMount() {
     this.getDates();
-    fetch("http://localhost:8000/api/positions")
+    fetch(api_endpoint + "/api/positions")
       .then((response) => {
         return response.json();
       })
       .then((positions) => {
-        this.setState({ Positions_robots: positions });
+        var load = this.state.loadContent;
+        load[1] = true;
+        var total = 0;
+        //  console.log(this.props.Positions_robots);
+        positions.forEach((element) => {
+          total += element.elec_candidates.length;
+        });
+
+        //  console.log(total);
+        this.setState({ posapi: positions.sort(this.sortfun), loadContent: load, totcand: total }); // NOTA subtract
       });
   }
   render() {
     return (
-      <OnImagesLoaded
-        onLoaded={() => {
-          this.setState({ showImages: true });
-          this.props.hideLoader();
-        }}
-        onTimeout={() => {
-          this.setState({ showImages: true });
-          this.props.hideLoader();
-        }}
-        timeout={7000}
-      >
-        <Router>
-          <NavBar
-            isSigned={this.state.isSigned}
-            isElectionsDay={this.state.isElectionsDay}
-            isResultsDay={this.state.isResultsDay}
-          />
-          <Switch>
-            <Route
-              path="/"
-              exact
-              render={(props) => (
-                <Home
-                  {...props}
-                  hideLoader={this.props.hideLoader}
-                  showLoader={this.props.showLoader}
+      <div>
+        {this.checkShow() ? this.props.hideLoader() : this.props.showLoader()}
+        <div style={{ opacity: this.checkShow() }}>
+          <OnImagesLoaded
+            onLoaded={() => {
+              this.setState({ showImages: true });
+            }}
+            onTimeout={() => {
+              this.setState({ showImages: true });
+            }}
+            timeout={60000}
+          >
+            <Router>
+              <NavBar
+                isSigned={this.state.isSigned}
+                isElectionsDay={this.state.isElectionsDay}
+                isResultsDay={this.state.isResultsDay}
+                changeLoadContent={this.changeLoadContent}
+              />
+              <Switch>
+                <Route
+                  path="/"
+                  exact
+                  render={(props) => (
+                    <Homedetails
+                      hideLoader={this.props.hideLoader}
+                      showLoader={this.props.showLoader}
+                      voteStartTime={this.state.voteStartTime}
+                      voteEndTime={this.state.voteEndTime}
+                      resultTime={this.state.resultTime}
+                      loadContent={this.checker(this.state.loadContent)}
+                      getDates={this.getDates}
+                      dateNow={this.state.dateNow}
+                    />
+                  )}
                 />
-              )}
-            />
-            <Route
-              path="/admin"
-              render={(props) => (
-                <Admin
-                  {...props}
-                  hideLoader={this.props.hideLoader}
-                  showLoader={this.props.showLoader}
-                  isSigned={this.state.isSigned}
-                  isAdmin={this.state.isAdmin}
-                  tokenId={this.state.tokenId}
+                <Route
+                  path="/admin"
+                  exact
+                  render={(props) => (
+                    <Admin
+                      {...props}
+                      hideLoader={this.props.hideLoader}
+                      showLoader={this.props.showLoader}
+                      isSigned={this.state.isSigned}
+                      isAdmin={this.state.isAdmin}
+                      tokenId={this.state.tokenId}
+                    />
+                  )}
                 />
-              )}
-            />
-            <Route
-              path="/positions"
-              render={(props) => (
-                <Elections
-                  {...props}
-                  hideLoader={this.props.hideLoader}
-                  showLoader={this.props.showLoader}
-                  Positions_robots={this.state.Positions_robots}
+
+                <Route
+                  path="/positions"
+                  exact
+                  render={(props) => (
+                    <Elections
+                      {...props}
+                      hideLoader={this.props.hideLoader}
+                      showLoader={this.props.showLoader}
+                      Positions_robots={this.state.posapi}
+                      loadContent={this.checker(this.state.loadContent)}
+                      totcand={this.state.totcand}
+                    />
+                  )}
                 />
-              )}
-            />
-            <Route
-              path="/voting"
-              exact
-              render={(props) => (
-                <Electioncard
-                  {...props}
-                  hideLoader={this.props.hideLoader}
-                  showLoader={this.props.showLoader}
+                <Route
+                  path="/voting"
+                  exact
+                  render={(props) => (
+                    <Electioncard
+                      {...props}
+                      hideLoader={this.props.hideLoader}
+                      showLoader={this.props.showLoader}
+                      allpos={this.state.posapi}
+                      token={this.state.tokenId}
+                      isSigned={this.state.isSigned}
+                      isVoter={this.state.isVoter}
+                      isElectionsDay={this.state.isElectionsDay}
+                      loadContent={this.checker(this.state.loadContent)}
+                    />
+                  )}
                 />
-              )}
-            />
-            {/*
-              <Route
-                path="/timeline"
-                render={(props) => (
-                  <TimeLine
-                    {...props}
-                    hideLoader={this.props.hideLoader}
-                    showLoader={this.props.showLoader}
-                  />
-                )}
-            />
-            */}
-            <Route
-              path="/important dates"
-              exact
-              render={(props) => (
-                <Important
-                  {...props}
-                  hideLoader={this.props.hideLoader}
-                  showLoader={this.props.showLoader}
+
+                <Route
+                  path="/schedule"
+                  exact
+                  render={(props) => (
+                    <Important
+                      {...props}
+                      hideLoader={this.props.hideLoader}
+                      showLoader={this.props.showLoader}
+                      loadContent={this.checker(this.state.loadContent)}
+                    />
+                  )}
                 />
-              )}
-            />
-            <Route
-              path="/result"
-              render={(props) => (
-                <Results
-                  {...props}
-                  hideLoader={this.props.hideLoader}
-                  showLoader={this.props.showLoader}
-                  isResultsDay={this.state.isResultsDay}
-                  tokenId={this.state.tokenId}
+
+                <Route
+                  path="/result"
+                  exact
+                  render={(props) => (
+                    <Results
+                      {...props}
+                      hideLoader={this.props.hideLoader}
+                      showLoader={this.props.showLoader}
+                      isResultsDay={this.state.isResultsDay}
+                      tokenId={this.state.tokenId}
+                      loadContent={this.checker(this.state.loadContent)}
+                    />
+                  )}
                 />
-              )}
-            />
-            <Route
-              path="/team"
-              render={(props) => (
-                <Teampage
-                  {...props}
-                  hideLoader={this.props.hideLoader}
-                  showLoader={this.props.showLoader}
+
+                <Route
+                  path="/team"
+                  exact
+                  render={(props) => (
+                    <Teampage
+                      {...props}
+                      hideLoader={this.props.hideLoader}
+                      showLoader={this.props.showLoader}
+                      loadContent={this.checker(this.state.loadContent)}
+                    />
+                  )}
                 />
-              )}
-            />
-          </Switch>
-          <Error msg={this.state.error} showError={this.state.showError} />
-          <Account
-            show={this.state.showAccount}
-            tokenId={this.state.tokenId}
-            isVoter={this.state.isVoter}
-          />
-          <Footer style={{ opacity: this.state.showImages ? 1 : 0 }} />
-        </Router>
-      </OnImagesLoaded>
+                <Route
+                  path="*"
+                  exact
+                  render={(props) => (
+                    <Homedetails
+                      hideLoader={this.props.hideLoader}
+                      showLoader={this.props.showLoader}
+                      voteStartTime={this.state.voteStartTime}
+                      voteEndTime={this.state.voteEndTime}
+                      resultTime={this.state.resultTime}
+                      loadContent={this.checker(this.state.loadContent)}
+                      getDates={this.getDates}
+                      dateNow={this.state.dateNow}
+                    />
+                  )}
+                />
+              </Switch>
+              <Account
+                show={this.state.showAccount}
+                tokenId={this.state.tokenId}
+                isVoter={this.state.isVoter}
+              />
+              <Footer
+                style={{
+                  opacity:
+                    this.state.showImages && this.state.loadContent ? 1 : 0,
+                }}
+              />
+            </Router>
+          </OnImagesLoaded>
+        </div>
+      </div>
     );
   }
 }
 
-function setError(val, state) {
-  this.setState({ showError: state });
-  this.setState({ error: val });
-}
 function showModel(val, url) {
   if (this.state.showVideo !== val) {
     this.setState({ showVideo: val, videourl: url });
@@ -939,10 +1041,19 @@ function fetchDetails(refresh) {
     if (refresh === 1) {
       this.getDetails();
     }
-    return this.state.details;
+    return { data: this.state.details, message: "OK" };
   } else {
-    return false;
+    return { message: "NO" };
   }
 }
 
-export { App, showModel, fetchDetails };
+function setopacity(val) {
+  this.setState({
+    opac: val,
+  });
+}
+function getopacity() {
+  return this.state.opac;
+}
+
+export { App, showModel, fetchDetails, setopacity };

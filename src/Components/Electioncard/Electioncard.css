@@ -1,3 +1,13 @@
+.empdiv{
+  min-height: 110vh;
+}
+.elecbar-disabled{
+  opacity:0.5;
+}
+.elecbar:focus{
+  outline:none!important;
+}
+
 @media only screen and (max-device-width: 480px) {
     .elecmobile {
       display: block;
@@ -24,7 +34,7 @@
       height: auto;
       align-self: end !important;
       justify-self: start;
-      font-family: "Roboto", sans-serif;
+      font-family: "Quicksand", sans-serif;
       font-size: 2rem;
       margin: auto;
       text-align: start;
@@ -33,10 +43,10 @@
       font-weight: 600;
     }
     .titleban p {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
     }
     .cont {
-      width: 90%;
+      width: 95%;
       margin: 0px auto 0 auto;
       color: #fff;
       min-width: 320px;
@@ -44,6 +54,9 @@
   
     .panel-accordion {
       padding: 0px 0px !important;
+      border-radius:20px;
+      background-color: transparent!important;
+
     }
   
     .eleccard {
@@ -54,7 +67,6 @@
       grid-template-columns: 1fr;
   
       /* padding:10px 10px !important;*/
-      border-radius: 10px;
       /* box-shadow: 0 10px 25px 5px rgba(0, 0, 0, 0.2);*/
       background: #e7dfdd;
       overflow: hidden;
@@ -74,9 +86,11 @@
       box-shadow: 0 10px 25px 5px rgba(0, 0, 0, 0.2);
       overflow: hidden;
       margin: 5px 0px !important;
+      margin-top: 25px!important;
+      
     }
     .elecname {
-      font-size: 4vh;
+      font-size: 1.5rem;
     }
   
     .candidate > * {
@@ -87,8 +101,9 @@
       margin: 0.5vh auto;
       display: grid;
       padding: 2vw;
-      grid-template-columns: auto 6fr 1fr 1fr;
+      grid-template-columns: auto 7fr auto auto;
       grid-template-rows: auto;
+      max-width: 95%;
       width: 95%;
       justify-content: start;
       align-items: center;
@@ -100,7 +115,7 @@
     }
   
     .candidate .candimg {
-      justify-content: start !important;
+      justify-content: center !important;
       align-content: center !important;
       width: 8vh !important;
       height: 8vh !important;
@@ -114,14 +129,26 @@
   */
     }
     .candidate .candimg img {
-      max-width: 100% !important;
+      width: 100% !important;
       height: 100% !important;
       object-fit: cover !important;
     }
-  
+    .candidate-disable{
+      opacity: 0.2;
+    }
     .candname {
-      font-size: 3vw;
+      font-size: 1.3rem;
       color: crimson;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .candname-lock {
+      font-size: 1.3rem;
+      color: #5fadbf;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
     .cdinf{
       font-size: 3vw;
@@ -175,6 +202,14 @@
       left: 10%;
       transform: rotate(-45deg);
     }
+    .forthemeelec {
+      padding-top: 3vh;
+      width: 100%;
+     background:  linear-gradient(to bottom, rgb(255, 255, 255), rgba(255, 255, 255, 0.5)),  url(../Teampage/themebg.png);
+    
+      background-repeat: no-repeat;
+      background-position: left bottom;
+    }
     .unlocked,
     .unlocked:before {
       border-color: #ff5153;
@@ -195,6 +230,7 @@
   
     .topbanner {
       max-width: 100%;
+      margin-bottom: -50vh;
       height: auto !important;
       display: grid;
       grid-template-columns: 2fr 3fr;
@@ -231,8 +267,11 @@
   
     .panel-accordion {
       padding: 0px 0px !important;
+      border-radius:20px;
+      background-color: transparent!important;
     }
     .forthemeelec {
+      padding-top: 60vh;
       width: 100%;
       background: url(../Teampage/themebg.png);
       background-repeat: no-repeat;
@@ -246,7 +285,6 @@
       grid-template-columns: 1fr 1fr;
   
       /* padding:10px 10px !important;*/
-      border-radius: 10px;
       /* box-shadow: 0 10px 25px 5px rgba(0, 0, 0, 0.2);*/
       background: #e7dfdd;
       overflow: hidden;
@@ -257,7 +295,7 @@
       justify-content: start;
       align-content: center;
       height: auto;
-      padding: 9px !important;
+      padding-left: 30px !important;
       background: linear-gradient(
         90deg,
         rgba(94, 0, 130, 1) 0%,
@@ -266,9 +304,10 @@
       box-shadow: 0 10px 25px 5px rgba(0, 0, 0, 0.2);
       overflow: hidden;
       margin: 5px 0px !important;
+      margin-top: 25px!important;
     }
     .elecname {
-      font-size: 4vh;
+      font-size: 3rem;
     }
   
 /*    .candidate > * {
@@ -291,7 +330,7 @@
     }
   
     .candidate .candimg {
-      justify-content: start !important;
+      justify-content: center !important;
       align-content: center !important;
       width: 8vh !important;
       height: 8vh !important;
@@ -305,9 +344,12 @@
   */
     }
     .candidate .candimg img {
-      max-width: 100% !important;
+      width: 100% !important;
       height: 100% !important;
       object-fit: cover !important;
+    }
+    .candidate-disable{
+      opacity: 0.2;
     }
 
       .cdinf i{
@@ -317,9 +359,20 @@
       
     }
     .candname {
-      font-size: 1.5vw;
+      font-size: 2rem;
       color: crimson;
-      cursor: default;
+      cursor: pointer;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .candname-lock {
+      font-size: 2rem;
+      color:  #5fadbf;
+      cursor: pointer;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
   
     .lock {
@@ -365,7 +418,11 @@
       transition: all 0.1s ease-in-out;
     }
     /* Locked Hover */
-
+    .errmsg{
+      font-size: 3rem;
+      color: #752a87;
+      
+    }
     .unlocked:before {
       bottom: 130%;
       left: 10%;

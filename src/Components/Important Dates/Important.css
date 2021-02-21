@@ -253,6 +253,9 @@ header p {
   background-position: right bottom;
 }
 
+.desc-time{
+  font-size: 15px;
+}
 @media (min-width: 768px) {
   .timeline {
     width: 660px;
