@@ -517,7 +517,7 @@ class Elections extends Component {
               <div className="titlebanteam">
                 {" "}
                 Positions
-                <p>IIT Dharwad Elections 2021-22 Phase - II</p>
+                <p>IIT Dharwad Elections 2023-24</p>
               </div>
               <img
                 src={positionImg}
@@ -537,7 +537,7 @@ class Elections extends Component {
               <div className="titlebanteam">
                 Positions
                 <p>
-                  IIT Dharwad Elections 2021-22 Phase - II
+                  IIT Dharwad Elections 2023-24
                 </p>
               </div>
             </div>

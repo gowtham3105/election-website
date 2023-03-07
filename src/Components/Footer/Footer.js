@@ -37,7 +37,7 @@ class Footer extends Component {
 
                 <div className="footer-main-content">
                   <div className="footinf">
-                    Phase-II IIT Dharwad Student Body Elections 2021-22
+                    IIT Dharwad Student Body Elections 2023-24
                   </div>
                 </div>
                 <div className="listtoreach">
@@ -59,7 +59,7 @@ class Footer extends Component {
                 </div>
               </div>
               <div className="footer-credits">
-                Copyright © 2020 - OSS, Indian Institute of Technology, Dharwad.
+                Copyright © 2023.
                 All Rights Reserved.
               </div>
             </div>
@@ -79,7 +79,7 @@ class Footer extends Component {
 
                 <div className="footer-main-content">
                   <div className="footinf">
-                    Phase-II IIT Dharwad Student Body Elections 2021-22
+                    IIT Dharwad Student Body Elections 2023-24
                   </div>
                 </div>
                 <div className="listtoreach">
@@ -102,7 +102,7 @@ class Footer extends Component {
                 </div>
               </div>
               <div className="footer-credits">
-                Copyright © 2020 - OSS, Indian Institute of Technology, Dharwad.
+                Copyright © 2023.
                 All Rights Reserved.
               </div>
             </div>

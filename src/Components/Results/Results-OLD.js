@@ -85,7 +85,7 @@ class Results extends Component {
                   <div className="titlebanteam">
                     {" "}
                     Results
-                    <p>IIT Dharwad Elections 2020-21</p>
+                    <p>IIT Dharwad Elections 2023-24</p>
                   </div>
                   <img
                     src={resultsImg}
@@ -108,7 +108,7 @@ class Results extends Component {
                     Results
                     <p>
                       IIT Dharwad Elections
-                      <br /> 2020-21
+                      <br /> 2023-24
                     </p>
                   </div>
                 </div>

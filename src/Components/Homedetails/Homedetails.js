@@ -82,7 +82,7 @@ class Homedetails extends React.Component {
               fontSize: "4.5vh",
             }}
           >
-            Phase-II Elections are over, <br /> check Schedule tab for further
+            Elections are over, <br /> check Schedule tab for further
             updates!
           </div>
         </div>
@@ -96,7 +96,7 @@ class Homedetails extends React.Component {
               fontSize: "4.5vh",
             }}
           >
-            Phase-II Election results have been declared,
+            Election results have been declared,
             <br /> check the Results tab for further details.{" "}
           </div>
         </div>
@@ -168,7 +168,7 @@ class Homedetails extends React.Component {
                 fontSize: "4.5vh",
               }}
             >
-              Phase-II Elections are over, <br /> check Schedule tab for further
+              Elections are over, <br /> check Schedule tab for further
               updates!
             </div>
           </div>
@@ -184,7 +184,7 @@ class Homedetails extends React.Component {
                 fontSize: "4.5vh",
               }}
             >
-              Phase-II Election results have been declared,
+              Election results have been declared,
               <br /> check the Results tab for further details.{" "}
             </div>
           </div>
@@ -239,7 +239,7 @@ class Homedetails extends React.Component {
                   <Fade>
                     <div className="info">
                       <div className="tallinfo">
-                        <Ticker className="count" end={38} duration={3} />{" "}
+                        <Ticker className="count" end={65} duration={3} />{" "}
                         <i className="fa fa-flag" aria-hidden="true"></i>
                       </div>
                     </div>
@@ -247,7 +247,7 @@ class Homedetails extends React.Component {
                   <Fade>
                     <div className="info">
                       <div className="tallinfo">
-                        <Ticker className="count" end={64} duration={3} />{" "}
+                        <Ticker className="count" end={70} duration={3} />{" "}
                         <i className="fa fa-user" aria-hidden="true"></i>
                       </div>
                     </div>
@@ -263,10 +263,10 @@ class Homedetails extends React.Component {
                   <Fade>
                     <div className="info">
                       <div className="tallinfo">
-                        <Ticker className="count" end={13} duration={3} />
+                        <Ticker className="count" end={18} duration={3} />
                         /
-                        <Ticker className="count" end={2} duration={3} />
-                        /2021{" "}
+                        <Ticker className="count" end={3} duration={3} />
+                        /2023{" "}
                         <i
                           className="fa fa-calendar-check-o"
                           aria-hidden="true"
@@ -294,13 +294,13 @@ class Homedetails extends React.Component {
                   ></div>
                   <div className="infotxt">
                     <div id="til">Student Elections</div> <br />
-                    Phase-II IIT Dharwad Student Body Elections 2021-22
+                   IIT Dharwad Student Body Elections 2023-24
                   </div>
                 </div>
                 <div className="homeinfo">
                   <div className="info">
                     <div className="tallinfo">
-                      <Ticker className="count" end={38} duration={3} />{" "}
+                      <Ticker className="count" end={65} duration={3} />{" "}
                       <i className="fa fa-flag" aria-hidden="true"></i>
                     </div>
                     <br />
@@ -308,7 +308,7 @@ class Homedetails extends React.Component {
 
                   <div className="info">
                     <div className="tallinfo">
-                      <Ticker className="count" end={64} duration={3} />{" "}
+                      <Ticker className="count" end={70} duration={3} />{" "}
                       <i className="fa fa-user" aria-hidden="true"></i>
                     </div>
                     <br />
@@ -324,10 +324,10 @@ class Homedetails extends React.Component {
 
                   <div className="info">
                     <div className="tallinfo">
-                      <Ticker className="count" end={13} duration={3} />
+                      <Ticker className="count" end={18} duration={3} />
                       /
-                      <Ticker className="count" end={2} duration={3} />
-                      /2021{" "}
+                      <Ticker className="count" end={3} duration={3} />
+                      /2023{" "}
                       <i
                         className="fa fa-calendar-check-o"
                         aria-hidden="true"
