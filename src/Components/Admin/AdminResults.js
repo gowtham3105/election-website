@@ -108,12 +108,13 @@ class AdminResults extends Component {
               {this.state.Results.length
                 ? this.state.Results.map((item, key) => {
                     return (
-                      <AdminResultsAccordion
-                        key={key}
-                        eventKey={key + 1}
-                        item={item}
-                        onClickAccordion={this.onClickAccordion}
-                      />
+                      'd'
+                      // <AdminResultsAccordion
+                      //   key={key}
+                      //   eventKey={key + 1}
+                      //   item={item}
+                      //   onClickAccordion={this.onClickAccordion}
+                      // />
                     );
                   })
                 : ""}
@@ -145,6 +146,7 @@ class AdminResults extends Component {
                 <Accordion defaultActiveKey="1" className="positionslist">
                   {this.state.Results.length
                     ? this.state.Results.map((item, key) => {
+                      console.log(item, key)
                         return (
                           <AdminResultsAccordion
                             key={key}

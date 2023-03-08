@@ -1,0 +1,16 @@
+.show {
+    opacity: 1
+}
+
+.no-show {
+    opacity: 0
+}
+.login-code-heading{
+    text-align: center;
+
+
+}
+.otp-input-parent{
+    text-align: center;
+    margin: 20px 0px;
+}

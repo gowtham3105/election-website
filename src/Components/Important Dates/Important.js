@@ -125,14 +125,14 @@ class Important extends Component {
 								<div className='direction-r'>
 									<div className='flag-wrapper'>
 										<span className='hexa'></span>
-										<Fade left>
+										<Fade right>
 											<span className='flag'>Nominations Window Opens</span>
 											<span className='time-wrapper'>
 												<span className='time'>Mar 7</span>
 											</span>
 										</Fade>
 									</div>
-									<Fade left>
+									<Fade right>
 										<div className='desc'>
 											Candidates to fill the{' '}
 											<a href='https://docs.google.com/forms/d/e/1FAIpQLSckioyWPW4jKCOeqBE0GFpCq95yxPdvcDwGEp-nKKYkauIj0Q/viewform'>
@@ -151,14 +151,14 @@ class Important extends Component {
 								<div className='direction-l'>
 									<div className='flag-wrapper'>
 										<span className='hexa'></span>
-										<Fade right>
+										<Fade left>
 											<span className='flag'>Nominations Window Closes</span>
 											<span className='time-wrapper'>
 												<span className='time'>Mar 9</span>
 											</span>
 										</Fade>
 									</div>
-									<Fade right>
+									<Fade left>
 										<div className='desc'>
 											Nomination Portal Closes
 											<br />
@@ -243,14 +243,14 @@ class Important extends Component {
 								<div className='direction-r'>
 									<div className='flag-wrapper'>
 										<span className='hexa'></span>
-										<Fade left>
+										<Fade right>
 											<span className='flag'>Campaigning Starts</span>
 											<span className='time-wrapper'>
 												<span className='time'>Mar 11</span>
 											</span>
 										</Fade>
 									</div>
-									<Fade left>
+									<Fade right>
 										<div className='desc'>
 											Candidates can start campaigning
 											<br />
