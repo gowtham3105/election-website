@@ -73,6 +73,7 @@ class NavBar extends Component {
 			isSigned: false,
 			isAdmin: false,
 			isVoter: false,
+			isModerator: false,
 			tokenId: '',
 			authRes: '',
 			expanded: false,
@@ -100,6 +101,7 @@ class NavBar extends Component {
 		setInfo({
 			isAdmin: this.state.isAdmin,
 			isVoter: this.state.isVoter,
+			isModerator: this.state.isModerator,
 			isSigned: this.state.isSigned,
 			tokenId: this.state.tokenId,
 		});
@@ -138,12 +140,14 @@ class NavBar extends Component {
 			authRes: '',
 			isAdmin: false,
 			isVoter: false,
+			isModerator: false,
 		});
 		clearInterval(this.state.refresh);
 
 		setInfo({
 			isAdmin: this.state.isAdmin,
 			isVoter: this.state.isVoter,
+			isModerator: this.state.isModerator,
 			isSigned: this.state.isSigned,
 			tokenId: this.state.tokenId,
 		});
@@ -162,6 +166,7 @@ class NavBar extends Component {
 		setInfo({
 			isAdmin: this.state.isAdmin,
 			isVoter: this.state.isVoter,
+			isModerator: this.state.isModerator,
 			isSigned: this.state.isSigned,
 			tokenId: this.state.tokenId,
 		});
@@ -178,6 +183,7 @@ class NavBar extends Component {
 			setInfo({
 				isAdmin: this.state.isAdmin,
 				isVoter: this.state.isVoter,
+				isModerator: this.state.isModerator,
 				isSigned: this.state.isSigned,
 				tokenId: this.state.tokenId,
 			});
@@ -187,21 +193,39 @@ class NavBar extends Component {
 				})
 				.then((user) => {
 					if (user.type === 'adminANDvoter') {
-						this.setState({ isAdmin: true, isVoter: true });
+						this.setState({ isAdmin: true, isVoter: true, isModerator: true });
 						Swal.fire({
 							icon: 'success',
 							title: 'Logged In Successfully',
 							text: 'You are Logged in as Admin and Voter',
 						});
+					} else if (user.type === 'moderatorANDvoter') {
+						this.setState({ isAdmin: false, isVoter: true, isModerator: true });
+						Swal.fire({
+							icon: 'success',
+							title: 'Logged In Successfully',
+							text: 'You are Logged in as Moderator and Voter',
+						});
+					} else if (user.type === 'moderator') {
+						this.setState({
+							isAdmin: false,
+							isVoter: false,
+							isModerator: true,
+						});
+						Swal.fire({
+							icon: 'success',
+							title: 'Logged In Successfully',
+							text: 'You are Logged in as Moderator',
+						});
 					} else if (user.type === 'admin') {
-						this.setState({ isAdmin: true, isVoter: false });
+						this.setState({ isAdmin: true, isVoter: false, isModerator: true });
 						Swal.fire({
 							icon: 'success',
 							title: 'Logged In Successfully',
 							text: 'You are Logged in as Admin',
 						});
 					} else if (user.type === 'voter') {
-						this.setState({ isAdmin: false, isVoter: true });
+						this.setState({ isAdmin: false, isVoter: true , isModerator: false});
 						Swal.fire({
 							icon: 'success',
 							title: 'Logged In Successfully',
@@ -211,6 +235,7 @@ class NavBar extends Component {
 						this.setState({
 							isAdmin: false,
 							isVoter: false,
+              isModerator: false,
 							isSigned: false,
 							tokenId: '',
 						});
@@ -225,6 +250,7 @@ class NavBar extends Component {
 					setInfo({
 						isAdmin: this.state.isAdmin,
 						isVoter: this.state.isVoter,
+            isModerator: this.state.isModerator,
 						isSigned: this.state.isSigned,
 						tokenId: this.state.tokenId,
 					});
@@ -234,6 +260,7 @@ class NavBar extends Component {
 			setInfo({
 				isAdmin: this.state.isAdmin,
 				isVoter: this.state.isVoter,
+        isModerator: this.state.isModerator,
 				isSigned: this.state.isSigned,
 				tokenId: this.state.tokenId,
 			});
@@ -271,7 +298,7 @@ class NavBar extends Component {
 						className='NavBar navbar-toggle'
 					>
 						<Nav className='navbar-collapse justify-content-end'>
-							{this.state.isAdmin && this.state.isSigned ? (
+							{(this.state.isAdmin || this.state.isModerator) && this.state.isSigned ? (
 								<NavLink
 									to='/admin'
 									className='NavLink nav-link'
@@ -818,6 +845,7 @@ class App extends Component {
 			isSigned: false,
 			isAdmin: false,
 			isVoter: false,
+			isModerator: false,
 			tokenId: '',
 			isElectionsDay: false,
 			isResultsDay: false,
@@ -972,6 +1000,7 @@ class App extends Component {
 											showLoader={this.props.showLoader}
 											isSigned={this.state.isSigned}
 											isAdmin={this.state.isAdmin}
+											isModerator={this.state.isModerator}
 											tokenId={this.state.tokenId}
 										/>
 									)}
@@ -1098,6 +1127,7 @@ function setInfo(val) {
 		tokenId: val.tokenId,
 		isAdmin: val.isAdmin,
 		isVoter: val.isVoter,
+    isModerator: val.isModerator,
 		isSigned: val.isSigned,
 	});
 }
