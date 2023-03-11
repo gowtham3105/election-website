@@ -89,8 +89,10 @@ export const AdminGenerateLoginCode = ({
 					`<b>Voter branch: </b>${data.batch}, ${data.branch}<br> ` +
 					`<b>Voter rights: </b><br> ` +
 					`${showpos(data)}` +
-					'</div>',
-				input: 'radio',
+					'</div>'+
+                    '<h3>Choose Voting System </h3>'
+                    ,
+				input: 'select',
 				inputOptions: data.available_systems,
 				inputValidator: (value) => {
 					if (!value) {
