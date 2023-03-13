@@ -101,77 +101,48 @@ class Teampage extends React.Component {
 								// THANK YOU FOR YOUR ATTENTION TO THIS MATTER.
 							}
 
-							{/* <div className='headersect'>
+							<div className='headersect'>
 								Student Election Commission (SEC)
 							</div>
 							<div className='members'>
 								<Fade bottom>
 									<Teamcard
 										name1=''
-										name2='Mehul Bose'
-										gitbool='true'
-										imgsrc='https://drive.google.com/uc?id=1NXJYQA2nUo5lS41MavQ_n6SR9CByZwAg'
-										gitlink='https://github.com/Kimi07Fan'
+										name2='Sattwik Mishra'
+										imgsrc='https://drive.google.com/open?id=1IUesJH5IfNiHu7xa7uOIwDtw5qMY_gfK'
 										linkedbool='true'
-										linkedlink='https://www.linkedin.com/in/mehul-bose-456596192/'
+										linkedlink='https://www.linkedin.com/in/sattwik-mishra-2640a5238'
+									/>
+									<Teamcard
+										name1=''
+										name2='Karu Jagadeesh '
+										imgsrc='https://drive.google.com/open?id=1AYSwR28N8-OXD0zlOnkuusEFAGVfstXU'
+									/>
+									<Teamcard
+										name1=''
+										name2='Rakshith S'
+										imgsrc='https://drive.google.com/open?id=1Tl0X7zquxd99GSDpwxp28eGmM1yUeFuz'
+									/>
+									<Teamcard
+										name1=''
+										name2='Rajeshwari D'
+										linkedbool='true'
+										linkedlink='https://www.linkedin.com/in/rajeshwari-devaramani-b887891b6'
 										instabool='true'
-										instalink='https://www.instagram.com/mehul_bose/'
+										instalink='https://instagram.com/rajeshwari_d179?igshid=YmMyMTA2M2Y='
 									/>
 									<Teamcard
 										name1=''
-										name2='S U Swakath'
-										imgsrc='https://drive.google.com/uc?id=1IGds7zqgMHhOeRrCqIPxLPPX2aRCvpO4'
+										name2='Yusuf '
+										imgsrc='https://drive.google.com/open?id=19IW08uyrEnHZFaPNOTRxwWBMSpz203qd'
 										linkedbool='true'
-										linkedlink='https://www.linkedin.com/in/swakath-umamakeshwaran-57b2a717b'
-									/>
-									<Teamcard
-										name1=''
-										name2='Soma Siddhartha'
-										gitbool='true'
-										imgsrc='https://drive.google.com/uc?id=1HzYjKcLIcMuhXYjM8vllsyBJC66sviuk'
-										gitlink='https://github.com/Sedherthe'
-										linkedbool='true'
-										linkedlink='https://www.linkedin.com/in/soma-siddhartha-a1a540170/'
-									/>
-									<Teamcard
-										name1=''
-										name2='Sonu Sourav'
-										gitbool='true'
-										imgsrc='https://parsec.iitdh.ac.in/images/team/sonu.jpg'
-										gitlink='https://github.com/sonusourav'
-										linkedbool='true'
-										linkedlink='https://www.linkedin.com/in/sonusourav/'
+										linkedlink='https://www.linkedin.com/in/yusuf-turabi'
 									/>
 
-									<Teamcard
-										name1='Sameer'
-										name2='Mohammad'
-										instabool='true'
-										imgsrc='https://drive.google.com/uc?id=1UzfYTZcHU3yNZ6SLiXZcgOdp7RJQqzwt'
-										instalink='https://www.instagram.com/_sameer_.sam/'
-									/>
 
-									<Teamcard
-										name1='Saurabh'
-										name2='Ratnaparkhi'
-										instabool='true'
-										gitbool='true'
-										gitlink='https://github.com/saurabh021120'
-										imgsrc='https://drive.google.com/uc?id=1HIjOOEY_Z2E068ZxWzTYG967O_lHWUxl'
-										linkedbool='true'
-										linkedlink='https://www.linkedin.com/in/saurabh-ratnaparkhi-9150731a0/'
-										instalink='https://www.instagram.com/saurabh_ratnaparkhi_/?hl=en'
-									/>
-									<Teamcard
-										name1='Mayank Mittal'
-										gitbool='true'
-										gitlink='https://github.com/Mittal9269'
-										linkedbool='true'
-										linkedlink='https://www.linkedin.com/in/mayank-mittal-866a1b1a6/'
-										imgsrc='https://drive.google.com/uc?id=1PJ_m9YPionqDFGT-37lpHW-BEGVJZldf'
-									/>
+									
 								</Fade>
-							</div> */}
+							</div>
 							<div className='headersect'>Development Team</div>
 							<div className='members'>
 								<Fade bottom>
@@ -233,6 +204,17 @@ class Teampage extends React.Component {
 										instabool='true'
 										instalink='https://www.instagram.com/gowtham31m/'
 									/>
+									<Teamcard
+										name1=''
+										name2='M V Karthik'
+										gitlink='https://github.com/karthikmurakonda'
+										gitbool='true'
+										linkedbool='true'
+										linkedlink='https://www.linkedin.com/in/karthik-murakonda-59756b200/'
+										instabool='true'
+										instalink='https://www.instagram.com/me_m.v.karthik/'
+									/>
+
 								</Fade>
 							</div>
 						</div>
