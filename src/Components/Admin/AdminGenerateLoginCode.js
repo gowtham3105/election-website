@@ -109,7 +109,7 @@ export const AdminGenerateLoginCode = ({
 					body: JSON.stringify({
 						voterid: data.id,
 						tokenId: tokenId,
-						systemid: data.available_systems[userResponse.value],
+						systemname: data.available_systems[userResponse.value],
 					}),
 				});
 				if (response.status === 200) {
