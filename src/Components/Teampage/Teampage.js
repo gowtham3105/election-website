@@ -207,6 +207,7 @@ class Teampage extends React.Component {
 									<Teamcard
 										name1=''
 										name2='M V Karthik'
+										imgsrc='https://drive.google.com/file/d/11LN8CkCL_ubjIwhEnvZqzjYyueBcuys7'
 										gitlink='https://github.com/karthikmurakonda'
 										gitbool='true'
 										linkedbool='true'
