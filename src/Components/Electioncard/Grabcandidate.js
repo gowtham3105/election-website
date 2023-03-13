@@ -33,11 +33,12 @@ const Grabcandidate = ({
     //then
 
     // console.log(rollno, cand_name, elec);
+    const systemID = localStorage.getItem('election.system-id')?localStorage.getItem('election.system-id'):'';
 
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json", "X-CSRFToken": csrftoken },
-      body: JSON.stringify({ tokenId: token, candid: rollno, elecid: elec }),
+      body: JSON.stringify({ tokenId: token, candid: rollno, elecid: elec, "systemid": systemID}),
     };
 
     Swal.fire({
@@ -47,7 +48,7 @@ const Grabcandidate = ({
       showCancelButton: true,
       confirmButtonText: "Confirm",
       showLoaderOnConfirm: true,
-      preConfirm: () => {
+      preConfirm:() => {
         return fetch(`${api_endpoint}/api/isvote/`, requestOptions)
           .then((response) => {
             if (!(response.status === 202)) {
@@ -55,6 +56,8 @@ const Grabcandidate = ({
                 throw new Error("You have voted to this positon already.");
               } else if (response.status === 500) {
                 throw new Error("Not eligible to vote for this position");
+              }else if(response.status === 401){
+                throw new Error("You are not authorised to vote on this computer");
               } else throw new Error(response.statusText);
             }
             return response.json();
