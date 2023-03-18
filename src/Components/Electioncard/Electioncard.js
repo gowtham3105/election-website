@@ -100,7 +100,11 @@ class Electioncard extends React.Component {
           return response.json();
         })
         .then((users) => {
-          if (users.voting_system !== "online" && localStorage.getItem("election.cname") !== users.voting_system) {
+          console.log(users);
+          console.log(users.voting_system);
+          console.log(users.voting_system !== "online" &&  localStorage.getItem("election.cname") !== users.voting_system);
+          console.log(users.voting_system === null)
+          if ((users.voting_system === null) || (users.voting_system !== "online" &&  localStorage.getItem("election.cname") !== users.voting_system)) {
             this.setState({redirect:true})
           }
           originalObj = users;
@@ -153,7 +157,7 @@ class Electioncard extends React.Component {
             return response.json();
           })
           .then((users) => {
-            if (users.voting_system !== "online" && localStorage.getItem("election.cname") !== users.voting_system) {
+            if ((users.voting_system === null) || (users.voting_system !== "online" &&  localStorage.getItem("election.cname") !== users.voting_system)) {
               this.setState({redirect:true})
             }
             originalObj = users;

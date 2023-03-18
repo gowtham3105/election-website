@@ -1,5 +1,5 @@
-//const api_endpoint = "https://election.iitdh.ac.in";
-const api_endpoint = "http://localhost:8000";
+const api_endpoint = "https://election.iitdh.ac.in";
+// const api_endpoint = "http://localhost:8000";
 function getCookie(name) {
     let cookieValue = null;
     if (document.cookie && document.cookie !== '') {
