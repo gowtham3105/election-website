@@ -108,13 +108,12 @@ class AdminResults extends Component {
               {this.state.Results.length
                 ? this.state.Results.map((item, key) => {
                     return (
-                      'd'
-                      // <AdminResultsAccordion
-                      //   key={key}
-                      //   eventKey={key + 1}
-                      //   item={item}
-                      //   onClickAccordion={this.onClickAccordion}
-                      // />
+                      <AdminResultsAccordion
+                        key={key}
+                        eventKey={key + 1}
+                        item={item}
+                        onClickAccordion={this.onClickAccordion}
+                      />
                     );
                   })
                 : ""}
