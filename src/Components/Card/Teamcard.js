@@ -56,7 +56,7 @@ const Teamcard = ({
   return (
     <div className="containercard">
       <LazyLoad height={280} offset={400} once={true}>
-        <RenderSmoothImage src={imgsrc} alt="Profile pic" />
+        <RenderSmoothImage src={imgsrc?imgsrc:'https://icon-library.com/images/default-user-icon/default-user-icon-4.jpg'} alt="Profile pic" />
       </LazyLoad>
       <div className="contentcard">
         <div className="mname">

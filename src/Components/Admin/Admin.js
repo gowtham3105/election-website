@@ -170,7 +170,6 @@ class Admin extends Component {
 												isAdmin={this.props.isAdmin}
 												tokenId={this.props.tokenId}
 											/>
-											sds
 										</Tab.Pane>
 									) : (
 										''

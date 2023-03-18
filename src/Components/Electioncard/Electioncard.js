@@ -30,6 +30,7 @@ class Electioncard extends React.Component {
       render: false,
       loadC: this.props.loadContent,
       closeL: 0,
+      redirect: false,
     };
   }
   closeLoad = () => {
@@ -95,10 +96,13 @@ class Electioncard extends React.Component {
         .then((response) => {
           if (response.status === 401) {
             throw new Error("You have voted to this positon already.");
-          }
+          }          
           return response.json();
         })
         .then((users) => {
+          if (users.voting_system !== "online" && localStorage.getItem("election.cname") !== users.voting_system) {
+            this.setState({redirect:true})
+          }
           originalObj = users;
           var reqObj = originalObj.voter_rights;
 
@@ -149,6 +153,9 @@ class Electioncard extends React.Component {
             return response.json();
           })
           .then((users) => {
+            if (users.voting_system !== "online" && localStorage.getItem("election.cname") !== users.voting_system) {
+              this.setState({redirect:true})
+            }
             originalObj = users;
             var reqObj = originalObj.voter_rights;
             if (reqObj.length) {
@@ -215,14 +222,16 @@ class Electioncard extends React.Component {
         return <Redirect to="/" />;
         // show error sign in
       }
-      // else if (true)//not in voting time
-      // {
-      //   Swal.fire({
-      //     icon: 'error',
-      //     title: 'Oops...',
-      //     text: '',
-      //   })
-      // }
+      else if (this.state.redirect)
+      {
+        Swal.fire({
+          title: "Error!",
+          text: "You are not allowed to vote in this computer.",
+          icon: "error",
+          confirmButtonText: "OK",
+        });
+        return <Redirect to="/"/>;
+      }
       else {
         if (this.state.render) {
           //    console.log(this.state.voterinfo);

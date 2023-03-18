@@ -60,6 +60,21 @@ html {
   color: red;
   height: 40px;
 }
+.generateCodeButton{
+  border: solid #6f2891!important;
+  color: #6f2891!important;
+  font-size: 18px!important;
+  font-weight: 600!important;
+  margin: 10px 30px;
+}
+.generateCodeButton:hover{
+  background-color: #6f2891!important;
+  color: white!important;
+}
+.generate-code-or-text{
+  font-size: 18px!important;
+  font-weight: 600!important;
+}
 
 @media only screen and (max-width: 481px) {
   .admin-tab-bar {
