@@ -117,9 +117,9 @@ export const LoginModal = ({
 			>
 				<Modal.Body>
 					<Container>
-						<Row xs={1} md={2} lg={2}>
+						<Row xs={1} md={1} lg={2} className="align-items-center">
 							<Col>
-								<div className='accountbasics' style={{ margin: '20px 0px' }}>
+								<div className='accountbasics' style={{ margin: '20px auto', textAlign:'center'}}>
 									<GoogleLoginButton
 										isSigned={isSigned}
 										onLoginSuccess={onLoginSuccess}
@@ -130,6 +130,7 @@ export const LoginModal = ({
 									/>
 								</div>
 							</Col>
+							{/* <div class="vr"></div> */}
 							<Col>
 								<div className='accountposElement'>
 									<div className='accountheading login-code-heading'>
@@ -192,6 +193,7 @@ export const Login = ({
 					onAutoLoadFinished={onAutoLoadFinished}
 					onLogoutSuccess={handleLogout}
 					onLogoutFailure={onLogoutFailure}
+
 				/>
 			) : (
 				<div className='1231'>

@@ -9,11 +9,13 @@ import Nav from 'react-bootstrap/Nav';
 import './App.css';
 import Positions from './Components/Positions/Positions';
 import { Login, LoginModal } from './Components/LoginModal/LoginModal';
+import { withRouter } from 'react-router-dom';
 import {
 	BrowserRouter as Router,
 	Route,
 	Switch,
 	NavLink,
+	useHistory
 } from 'react-router-dom';
 import disableScroll from 'disable-scroll';
 import Homedetails from './Components/Homedetails/Homedetails';
@@ -150,6 +152,13 @@ class NavBar extends Component {
 			isModerator: this.state.isModerator,
 			isSigned: this.state.isSigned,
 			tokenId: this.state.tokenId,
+		});
+		Swal.fire({
+			icon: 'success',
+			title: 'Signed Out Successfully',
+			onClose: () => {
+				this.props.history.push('/');
+			}
 		});
 	};
 

@@ -109,24 +109,25 @@ class Teampage extends React.Component {
 									<Teamcard
 										name1=''
 										name2='Sattwik Mishra'
-										imgsrc='https://drive.google.com/open?id=1IUesJH5IfNiHu7xa7uOIwDtw5qMY_gfK'
+										imgsrc='https://drive.google.com/uc?id=1IUesJH5IfNiHu7xa7uOIwDtw5qMY_gfK'
 										linkedbool='true'
 										linkedlink='https://www.linkedin.com/in/sattwik-mishra-2640a5238'
 									/>
 									<Teamcard
 										name1=''
 										name2='Karu Jagadeesh '
-										imgsrc='https://drive.google.com/open?id=1AYSwR28N8-OXD0zlOnkuusEFAGVfstXU'
+										imgsrc='https://drive.google.com/uc?id=1AYSwR28N8-OXD0zlOnkuusEFAGVfstXU'
 									/>
 									<Teamcard
 										name1=''
 										name2='Rakshith S'
-										imgsrc='https://drive.google.com/open?id=1Tl0X7zquxd99GSDpwxp28eGmM1yUeFuz'
+										imgsrc='https://drive.google.com/uc?id=1Tl0X7zquxd99GSDpwxp28eGmM1yUeFuz'
 									/>
 									<Teamcard
 										name1=''
 										name2='Rajeshwari D'
 										linkedbool='true'
+										imgsrc='https://election.iitdh.ac.in/static/190030034.jpg'
 										linkedlink='https://www.linkedin.com/in/rajeshwari-devaramani-b887891b6'
 										instabool='true'
 										instalink='https://instagram.com/rajeshwari_d179?igshid=YmMyMTA2M2Y='
@@ -134,7 +135,7 @@ class Teampage extends React.Component {
 									<Teamcard
 										name1=''
 										name2='Yusuf '
-										imgsrc='https://drive.google.com/open?id=19IW08uyrEnHZFaPNOTRxwWBMSpz203qd'
+										imgsrc='https://drive.google.com/uc?id=19IW08uyrEnHZFaPNOTRxwWBMSpz203qd'
 										linkedbool='true'
 										linkedlink='https://www.linkedin.com/in/yusuf-turabi'
 									/>
@@ -207,7 +208,7 @@ class Teampage extends React.Component {
 									<Teamcard
 										name1=''
 										name2='M V Karthik'
-										imgsrc='https://drive.google.com/file/d/11LN8CkCL_ubjIwhEnvZqzjYyueBcuys7'
+										imgsrc='https://drive.google.com/uc?id=11LN8CkCL_ubjIwhEnvZqzjYyueBcuys7'
 										gitlink='https://github.com/karthikmurakonda'
 										gitbool='true'
 										linkedbool='true'

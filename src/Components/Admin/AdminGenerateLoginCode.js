@@ -1,6 +1,6 @@
 import React from 'react';
 import { QrReader } from 'react-qr-reader';
-import { api_endpoint } from '../../Global';
+import { api_endpoint, csrftoken } from '../../Global';
 
 import { Container } from 'react-bootstrap';
 import Row from 'react-bootstrap/Row';
@@ -105,6 +105,7 @@ export const AdminGenerateLoginCode = ({
 					method: 'POST',
 					headers: {
 						'Content-Type': 'application/json',
+						"X-CSRFToken": csrftoken,
 					},
 					body: JSON.stringify({
 						voterid: data.id,
