@@ -87,18 +87,12 @@ class NavBar extends Component {
 		getopacity = getopacity.bind(this);
 	}
 
-	refreshToken = (oldres) => {
-		oldres.reloadAuthResponse().then((res) => {
-			this.setState({ tokenId: res.id_token });
-		});
-	};
 
 	signInOnSuccess = (res) => {
 		this.props.changeLoadContent(false);
 		this.setState({
 			isSigned: true,
-			tokenId: res.tokenId,
-			authRes: res,
+			tokenId: res.credential,
 		});
 		setInfo({
 			isAdmin: this.state.isAdmin,
@@ -107,14 +101,6 @@ class NavBar extends Component {
 			isSigned: this.state.isSigned,
 			tokenId: this.state.tokenId,
 		});
-
-		var refresh = setInterval(
-			this.refreshToken(res),
-			Number(this.state.authRes.tokenObj.expires_in) * 60000
-		);
-
-		this.setState({ refresh: refresh });
-
 		this.isAdmin();
 	};
 	signInOnError = (err) => {
@@ -144,13 +130,12 @@ class NavBar extends Component {
 			isVoter: false,
 			isModerator: false,
 		});
-		clearInterval(this.state.refresh);
 
 		setInfo({
 			isAdmin: this.state.isAdmin,
 			isVoter: this.state.isVoter,
 			isModerator: this.state.isModerator,
-			isSigned: this.state.isSigned,
+			isSigned: false,
 			tokenId: this.state.tokenId,
 		});
 		Swal.fire({

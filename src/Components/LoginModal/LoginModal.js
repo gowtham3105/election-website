@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { GoogleLogin, GoogleLogout } from 'react-google-login';
+// import { GoogleLogin, GoogleLogout } from 'react-google-login';
+import { GoogleOAuthProvider, GoogleLogin} from '@react-oauth/google';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Row from 'react-bootstrap/Row';
@@ -7,6 +8,7 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import './LoginModal.css';
 import OtpInput from 'react-otp-input';
+
 
 export const GoogleLoginButton = ({
 	isSigned,
@@ -17,23 +19,7 @@ export const GoogleLoginButton = ({
 	onLogoutFailure,
 }) => {
 	return (
-		<GoogleLogin
-			clientId='448752692165-il4tvq7c4j3lb4p58hlo78del1355cli.apps.googleusercontent.com'
-			render={(renderProps) => (
-				<Button
-					className='Button'
-					onClick={renderProps.onClick}
-					disabled={renderProps.disabled}
-				>
-					<div className='secondary_Text'>SIGN IN WITH GOOGLE</div>
-				</Button>
-			)}
-			onSuccess={onLoginSuccess}
-			onFailure={onLoginFailure}
-			cookiePolicy={'single_host_origin'}
-			hostedDomain='iitdh.ac.in'
-			isSignedIn={true}
-			onAutoLoadFinished={onAutoLoadFinished}
+		<GoogleLogin onSuccess={res => onLoginSuccess(res)} onError={() => onLoginFailure}
 		/>
 	);
 };
@@ -45,23 +31,12 @@ const SignOut = ({
 	onLogoutFailure,
 }) => {
 	return (
-		<GoogleLogout
-			clientId='448752692165-il4tvq7c4j3lb4p58hlo78del1355cli.apps.googleusercontent.com'
-			render={(renderProps) => (
-				<Button
-					className='Button'
-					onClick={renderProps.onClick}
-					disabled={renderProps.disabled}
-				>
-					<div className='secondary_Text'>SIGN OUT</div>
-				</Button>
-			)}
-			onLogoutSuccess={onLogoutSuccess}
-			onFailure={onLogoutFailure}
-			hostedDomain='iitdh.ac.in'
-			isSignedIn={true}
-			onAutoLoadFinished={onAutoLoadFinished}
-		/>
+		<Button
+			className='Button'
+			onClick={onLogoutSuccess}
+		>
+			<div className='secondary_Text'>SIGN OUT</div>
+		</Button>
 	);
 };
 
@@ -120,6 +95,7 @@ export const LoginModal = ({
 						<Row xs={1} md={1} lg={2} className="align-items-center">
 							<Col>
 								<div className='accountbasics' style={{ margin: '20px auto', textAlign:'center'}}>
+								<GoogleOAuthProvider clientId='376785852629-lidkcf4ktku0udbn3mmeme62bt7vu15d.apps.googleusercontent.com'>
 									<GoogleLoginButton
 										isSigned={isSigned}
 										onLoginSuccess={onLoginSuccess}
@@ -128,6 +104,7 @@ export const LoginModal = ({
 										onLogoutSuccess={onLogoutSuccess}
 										onLogoutFailure={onLogoutFailure}
 									/>
+								</GoogleOAuthProvider>
 								</div>
 							</Col>
 							{/* <div class="vr"></div> */}
